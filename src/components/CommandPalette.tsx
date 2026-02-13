@@ -58,13 +58,20 @@ function formatDate(iso: string): string {
   });
 }
 
+/* ── Base path helper ──────────────────────────────── */
+
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+function withBase(path: string): string {
+  return `${BASE}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 /* ── Navigation items with chord shortcuts ──────────── */
 
 const NAV_ITEMS = [
-  { label: "Go to Home", href: "/", icon: HomeIcon, chord: "H" },
-  { label: "Go to Blog", href: "/blog", icon: BlogIcon, chord: "B" },
-  { label: "Go to Tags", href: "/tags", icon: TagIcon, chord: "T" },
-  { label: "Go to RSS Feed", href: "/rss.xml", icon: RssIcon, chord: "R" },
+  { label: "Go to Home", href: withBase("/"), icon: HomeIcon, chord: "H" },
+  { label: "Go to Blog", href: withBase("/blog"), icon: BlogIcon, chord: "B" },
+  { label: "Go to Tags", href: withBase("/tags"), icon: TagIcon, chord: "T" },
+  { label: "Go to RSS Feed", href: withBase("/rss.xml"), icon: RssIcon, chord: "R" },
 ] as const;
 
 /* ── Component ──────────────────────────────────────── */
@@ -285,7 +292,7 @@ export default function CommandPalette({ open: controlledOpen, onOpenChange }: P
                   <Command.Item
                     key={post.id}
                     value={`post-${post.id}`}
-                    onSelect={() => navigate(`/blog/${post.id}`)}
+                    onSelect={() => navigate(withBase(`/blog/${post.id}`))}
                   >
                     <div className="cmdk-post-icon" aria-hidden="true">
                       <ArticleIcon />

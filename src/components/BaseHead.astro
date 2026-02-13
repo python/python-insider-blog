@@ -5,15 +5,16 @@ interface Props {
   image?: string;
 }
 
+import { withBase } from "../lib/utils";
 const { title, description = "The official blog of the Python core development team.", image } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" title="Python Insider" href="/rss.xml" />
+<link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+<link rel="sitemap" href={withBase("/sitemap-index.xml")} />
+<link rel="alternate" type="application/rss+xml" title="Python Insider" href={withBase("/rss.xml")} />
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Fonts: Plus Jakarta Sans (display) + Inter (body) + JetBrains Mono (code) -->

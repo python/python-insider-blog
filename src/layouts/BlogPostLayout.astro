@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { formatDate, slugify } from "../lib/utils";
+import { formatDate, slugify, withBase } from "../lib/utils";
 
 interface Props {
   title: string;
@@ -27,7 +27,7 @@ const { title, publishDate, updatedDate, author, description, tags, slug } = Ast
         </div>
         {isDev && slug && (
           <a
-            href={`/keystatic/collection/posts/item/${slug}`}
+            href={withBase(`/keystatic/collection/posts/item/${slug}`)}
             class="edit-btn-always mt-2 flex-shrink-0 rounded-lg bg-zinc-100 p-2.5 text-zinc-400 hover:bg-amber-100 hover:text-amber-700 dark:bg-zinc-800 dark:text-zinc-600 dark:hover:bg-amber-900/30 dark:hover:text-amber-400"
             title="Edit in Keystatic"
           >
@@ -39,7 +39,7 @@ const { title, publishDate, updatedDate, author, description, tags, slug } = Ast
       </div>
 
       <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-500 dark:text-zinc-400">
-        <a href={`/authors/${slugify(author)}`} class="font-medium text-zinc-800 hover:text-[#306998] dark:text-zinc-200 dark:hover:text-[#ffd43b] transition-colors">{author}</a>
+        <a href={withBase(`/authors/${slugify(author)}`)} class="font-medium text-zinc-800 hover:text-[#306998] dark:text-zinc-200 dark:hover:text-[#ffd43b] transition-colors">{author}</a>
         <span class="text-zinc-300 dark:text-zinc-600">/</span>
         <time datetime={publishDate}>{formatDate(publishDate)}</time>
         {updatedDate && (
@@ -54,7 +54,7 @@ const { title, publishDate, updatedDate, author, description, tags, slug } = Ast
         <div class="mt-5 flex flex-wrap gap-1.5">
           {tags.map((tag) => (
             <a
-              href={`/tags/${tag}`}
+              href={withBase(`/tags/${tag}`)}
               class="tag-pill rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600 dark:bg-zinc-700/60 dark:text-zinc-300"
             >
               {tag}
@@ -73,7 +73,7 @@ const { title, publishDate, updatedDate, author, description, tags, slug } = Ast
     <footer class="not-prose mt-14 border-t border-zinc-200 pt-8 dark:border-zinc-700">
       <div class="flex items-center justify-between">
         <a
-          href="/blog"
+          href={withBase("/blog")}
           class="group inline-flex items-center gap-2 text-sm font-medium text-[#306998] transition-colors hover:text-[#254f73] dark:text-[#ffd43b] dark:hover:text-[#f0c419]"
         >
           <span class="transition-transform group-hover:-translate-x-0.5">&larr;</span>
@@ -81,7 +81,7 @@ const { title, publishDate, updatedDate, author, description, tags, slug } = Ast
         </a>
         {isDev && slug && (
           <a
-            href={`/keystatic/collection/posts/item/${slug}`}
+            href={withBase(`/keystatic/collection/posts/item/${slug}`)}
             class="inline-flex items-center gap-1.5 rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-500 transition-colors hover:bg-amber-100 hover:text-amber-700 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-amber-900/30 dark:hover:text-amber-400"
           >
             <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

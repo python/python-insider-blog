@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
+import { withBase } from "../lib/utils";
 
 export const prerender = true;
 
@@ -19,7 +20,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       pubDate: post.data.publishDate,
       description: post.data.description ?? "",
-      link: `/blog/${post.id}/`,
+      link: withBase(`/blog/${post.id}/`),
       author: post.data.author,
       categories: post.data.tags,
     })),

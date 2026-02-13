@@ -3,7 +3,7 @@ export const prerender = true;
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { slugify } from "../../lib/utils";
+import { slugify, withBase } from "../../lib/utils";
 
 const allPosts = await getCollection("posts");
 const publishedPosts = allPosts.filter((p) => p.data.published);
@@ -46,7 +46,7 @@ const maxCount = authorsWithCounts[0]?.count ?? 1;
       const pct = Math.round((author.count / maxCount) * 100);
       return (
         <a
-          href={`/authors/${author.slug}`}
+          href={withBase(`/authors/${author.slug}`)}
           class="group flex items-center gap-4 rounded-lg px-4 py-3 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
         >
           {author.github ? (

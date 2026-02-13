@@ -2,6 +2,7 @@
 export const prerender = true;
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../lib/utils";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
@@ -35,7 +36,7 @@ const maxCount = sortedTags[0]?.[1] ?? 1;
       const pct = Math.round((count / maxCount) * 100);
       return (
         <a
-          href={`/tags/${tag}`}
+          href={withBase(`/tags/${tag}`)}
           class="group flex items-center gap-4 rounded-lg px-4 py-3 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
         >
           <span

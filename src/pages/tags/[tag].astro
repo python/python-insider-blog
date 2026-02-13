@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostCard from "../../components/BlogPostCard.astro";
+import { withBase } from "../../lib/utils";
 import { getCollection } from "astro:content";
 
 export const prerender = true;
@@ -35,7 +36,7 @@ const { tag, posts } = Astro.props;
 <BaseLayout title={`Posts tagged "${tag}" | Python Insider`}>
   <div class="animate-fade-up">
     <a
-      href="/tags"
+      href={withBase("/tags")}
       class="group inline-flex items-center gap-1.5 text-sm font-medium text-[#306998] transition-colors hover:text-[#254f73] dark:text-[#ffd43b] dark:hover:text-[#f0c419]"
     >
       <span class="transition-transform group-hover:-translate-x-0.5">&larr;</span>

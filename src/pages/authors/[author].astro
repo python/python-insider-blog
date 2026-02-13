@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostCard from "../../components/BlogPostCard.astro";
 import { getCollection } from "astro:content";
-import { slugify } from "../../lib/utils";
+import { slugify, withBase } from "../../lib/utils";
 
 export const prerender = true;
 
@@ -48,7 +48,7 @@ const avatarUrl = author.avatar || (author.github ? `https://github.com/${author
 <BaseLayout title={`${author.name} | Python Insider`}>
   <div class="animate-fade-up">
     <a
-      href="/authors"
+      href={withBase("/authors")}
       class="group inline-flex items-center gap-1.5 text-sm font-medium text-[#306998] transition-colors hover:text-[#254f73] dark:text-[#ffd43b] dark:hover:text-[#f0c419]"
     >
       <span class="transition-transform group-hover:-translate-x-0.5">&larr;</span>
@@ -74,7 +74,7 @@ const avatarUrl = author.avatar || (author.github ? `https://github.com/${author
           </h1>
           {isDev && (
             <a
-              href={`/keystatic/collection/authors/item/${slug}`}
+              href={withBase(`/keystatic/collection/authors/item/${slug}`)}
               class="edit-btn-always mt-1 flex-shrink-0 rounded-lg bg-zinc-100 p-2 text-zinc-400 hover:bg-amber-100 hover:text-amber-700 dark:bg-zinc-800 dark:text-zinc-600 dark:hover:bg-amber-900/30 dark:hover:text-amber-400"
               title="Edit in Keystatic"
             >

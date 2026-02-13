@@ -1,5 +1,5 @@
 ---
-import { formatDate, slugify } from "../lib/utils";
+import { formatDate, slugify, withBase } from "../lib/utils";
 
 interface Props {
   slug: string;
@@ -18,13 +18,13 @@ const { slug, title, publishDate, author, description, tags, showEditLink = true
 <article class="post-card group relative px-5 py-4">
   <div class="flex items-start justify-between gap-4">
     <div class="min-w-0 flex-1">
-      <a href={`/blog/${slug}`} class="block">
+      <a href={withBase(`/blog/${slug}`)} class="block">
         <h3 class="text-base font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-[#306998] dark:text-zinc-100 dark:group-hover:text-[#ffd43b]" style="font-family: var(--font-display);">
           {title}
         </h3>
       </a>
       <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-zinc-500 dark:text-zinc-400">
-        <a href={`/authors/${slugify(author)}`} class="font-medium text-zinc-600 hover:text-[#306998] dark:text-zinc-300 dark:hover:text-[#ffd43b] transition-colors">{author}</a>
+        <a href={withBase(`/authors/${slugify(author)}`)} class="font-medium text-zinc-600 hover:text-[#306998] dark:text-zinc-300 dark:hover:text-[#ffd43b] transition-colors">{author}</a>
         <span class="text-zinc-300 dark:text-zinc-600">&middot;</span>
         <time datetime={publishDate}>{formatDate(publishDate)}</time>
       </div>
@@ -35,7 +35,7 @@ const { slug, title, publishDate, author, description, tags, showEditLink = true
         <div class="mt-2.5 flex flex-wrap gap-1.5">
           {tags.slice(0, 4).map((tag) => (
             <a
-              href={`/tags/${tag}`}
+              href={withBase(`/tags/${tag}`)}
               class="tag-pill rounded-md bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
             >
               {tag}
@@ -47,7 +47,7 @@ const { slug, title, publishDate, author, description, tags, showEditLink = true
 
     {isDev && showEditLink && (
       <a
-        href={`/keystatic/collection/posts/item/${slug}`}
+        href={withBase(`/keystatic/collection/posts/item/${slug}`)}
         class="edit-btn mt-1 flex-shrink-0 rounded-md p-1.5 text-zinc-300 hover:bg-zinc-100 hover:text-zinc-500 dark:text-zinc-600 dark:hover:bg-zinc-800 dark:hover:text-zinc-400"
         title="Edit in Keystatic"
       >

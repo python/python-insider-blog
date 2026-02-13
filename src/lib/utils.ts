@@ -14,6 +14,16 @@ export function formatDateShort(date: string): string {
   });
 }
 
+/**
+ * Prepends the configured Astro base path to an absolute path.
+ * Dev: "/" + "/blog" → "/blog"
+ * Prod: "/python-insider-blog/" + "/blog" → "/python-insider-blog/blog"
+ */
+export function withBase(path: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export function slugify(text: string): string {
   return text
     .normalize("NFD")

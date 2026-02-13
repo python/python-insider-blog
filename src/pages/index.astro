@@ -3,7 +3,7 @@ export const prerender = true;
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PythonLogo from "../components/PythonLogo.astro";
-import { formatDate } from "../lib/utils";
+import { formatDate, withBase } from "../lib/utils";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
@@ -31,7 +31,7 @@ const authors = new Set(posts.map((p) => p.data.author));
         <span class="text-zinc-300 dark:text-zinc-700">/</span>
         <span>since <strong class="font-semibold text-zinc-600 dark:text-zinc-300">2011</strong></span>
         <a
-          href="/rss.xml"
+          href={withBase("/rss.xml")}
           class="ml-1 inline-flex items-center gap-1 rounded-md bg-orange-50 px-2 py-0.5 font-medium text-orange-600 transition-colors hover:bg-orange-100 dark:bg-orange-900/20 dark:text-orange-400 dark:hover:bg-orange-900/30"
         >
           <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 012.18-2.18zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zM4 10.1a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/></svg>
@@ -51,7 +51,7 @@ const authors = new Set(posts.map((p) => p.data.author));
             <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#306998] dark:text-[#ffd43b]">Latest</span>
           </div>
 
-          <a href={`/blog/${featured.id}`} class="group block">
+          <a href={withBase(`/blog/${featured.id}`)} class="group block">
             <h1
               class="max-w-4xl text-3xl font-extrabold leading-[1.15] tracking-tight text-zinc-900 transition-colors group-hover:text-[#306998] dark:text-zinc-100 dark:group-hover:text-[#ffd43b] sm:text-4xl lg:text-5xl"
               style="font-family: var(--font-display); letter-spacing: -0.02em;"
@@ -76,7 +76,7 @@ const authors = new Set(posts.map((p) => p.data.author));
             <div class="mt-4 flex flex-wrap gap-1.5">
               {featured.data.tags.slice(0, 5).map((tag) => (
                 <a
-                  href={`/tags/${tag}`}
+                  href={withBase(`/tags/${tag}`)}
                   class="tag-pill rounded-md bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
                 >
                   {tag}
@@ -108,7 +108,7 @@ const authors = new Set(posts.map((p) => p.data.author));
       <div class="mb-6 flex items-center justify-between">
         <h2 class="text-sm font-bold uppercase tracking-[0.1em] text-zinc-400 dark:text-zinc-500" style="font-family: var(--font-display);">Recent</h2>
         <a
-          href="/blog"
+          href={withBase("/blog")}
           class="group inline-flex items-center gap-1.5 text-sm font-medium text-[#306998] transition-colors hover:text-[#254f73] dark:text-[#ffd43b] dark:hover:text-[#f0c419]"
         >
           All posts
@@ -121,7 +121,7 @@ const authors = new Set(posts.map((p) => p.data.author));
       <div class="grid gap-px overflow-hidden rounded-xl border border-zinc-200 bg-zinc-200 dark:border-zinc-800 dark:bg-zinc-800 sm:grid-cols-2">
         {recent.map((post) => (
           <article class="post-card group relative bg-white p-5 dark:bg-[#0f1117]">
-            <a href={`/blog/${post.id}`} class="block">
+            <a href={withBase(`/blog/${post.id}`)} class="block">
               <h3 class="text-[0.9375rem] font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-[#306998] dark:text-zinc-100 dark:group-hover:text-[#ffd43b]" style="font-family: var(--font-display);">
                 {post.data.title}
               </h3>
@@ -140,7 +140,7 @@ const authors = new Set(posts.map((p) => p.data.author));
 
       <div class="mt-8 text-center">
         <a
-          href="/blog"
+          href={withBase("/blog")}
           class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 px-6 py-2.5 text-sm font-medium text-zinc-700 transition-all hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-800"
         >
           Browse all {totalPosts} posts

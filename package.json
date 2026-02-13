@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "lint": "oxlint src/",
+    "typecheck": "astro check",
     "astro": "astro"
   },
   "dependencies": {

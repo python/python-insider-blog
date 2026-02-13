@@ -11,8 +11,8 @@
  *   - GitHub repos (github.com/OWNER/REPO — exactly 2 path segments)
  *   - GitHub users/orgs (github.com/NAME — exactly 1 segment, not reserved)
  */
-import type { Root, Link, Paragraph, PhrasingContent, Text } from "mdast";
-import { visit, SKIP } from "unist-util-visit";
+import type { Root, Link, Paragraph, PhrasingContent } from "mdast";
+import { visit } from "unist-util-visit";
 import {
   pythonIcon,
   docsIcon,

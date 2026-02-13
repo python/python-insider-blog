@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostCard from "../../components/BlogPostCard.astro";
 import { getCollection } from "astro:content";
@@ -32,6 +33,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     }));
 };
+
+interface Props {
+  slug: string;
+  author: CollectionEntry<"authors">["data"];
+  posts: CollectionEntry<"posts">[];
+}
 
 const isDev = import.meta.env.DEV;
 const { slug, author, posts } = Astro.props;

@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPostCard from "../../components/BlogPostCard.astro";
 import Pagination from "../../components/Pagination.astro";
@@ -49,6 +50,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 };
 
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  currentPage: number;
+  totalPages: number;
+  totalPosts: number;
+  topTags: [string, number][];
+  totalTags: number;
+  years: number[];
+}
 const { posts, currentPage, totalPages, totalPosts, topTags, totalTags, years } = Astro.props;
 ---
 

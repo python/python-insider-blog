@@ -93,7 +93,7 @@ export default config({
       ? { kind: "local" }
       : {
           kind: "github",
-          repo: { owner: "JacobCoffee", name: "python-insder-blog" },
+          repo: { owner: "JacobCoffee", name: "python-insider-blog" },
           branchPrefix: "keystatic/",
         },
   collections: {

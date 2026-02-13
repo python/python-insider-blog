@@ -186,7 +186,7 @@ export default function CommandPalette({ open: controlledOpen, onOpenChange }: P
     fetchedRef.current = true;
     setLoading(true);
 
-    fetch("/search-index.json")
+    fetch(withBase("/search-index.json"))
       .then((res) => res.json())
       .then((data: PostEntry[]) => setPosts(data))
       .catch((err) => console.error("Failed to load search index:", err))

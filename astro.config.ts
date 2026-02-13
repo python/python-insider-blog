@@ -24,6 +24,9 @@ if (isDev) {
   integrations.push(keystatic());
 }
 
+// When moving to blog.python.org, change site and remove base:
+//   site: "https://blog.python.org",
+//   base: "/",
 export default defineConfig({
   site: "https://jacobcoffee.github.io",
   base: isDev ? "/" : "/python-insider-blog",

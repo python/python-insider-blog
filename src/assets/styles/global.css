@@ -1415,3 +1415,21 @@ body {
   background-color: rgba(160, 160, 170, 0.14);
   border-color: rgba(160, 160, 170, 0.32);
 }
+
+/* ── Post footer references panel ── */
+
+.post-refs-header {
+  background: linear-gradient(135deg, rgba(48, 105, 152, 0.04) 0%, rgba(255, 212, 59, 0.04) 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.dark .post-refs-header {
+  background: linear-gradient(135deg, rgba(48, 105, 152, 0.08) 0%, rgba(255, 212, 59, 0.05) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.post-refs-panel {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.dark .post-refs-panel {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}

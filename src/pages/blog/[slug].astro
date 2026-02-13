@@ -16,9 +16,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }));
 };
 
-interface Props { post: CollectionEntry<"posts"> }
-const { post } = Astro.props;
-const { Content } = await render(post);
+const { post } = Astro.props as { post: CollectionEntry<"posts"> };
+const { Content, remarkPluginFrontmatter } = await render(post);
+const references = (remarkPluginFrontmatter?.references ?? []) as Array<{ type: string; label: string; url: string }>;
 ---
 
 <BlogPostLayout
@@ -29,6 +29,8 @@ const { Content } = await render(post);
   description={post.data.description}
   tags={post.data.tags}
   slug={post.id}
+  legacyUrl={post.data.legacyUrl}
+  references={references}
 >
   <Content />
 </BlogPostLayout>

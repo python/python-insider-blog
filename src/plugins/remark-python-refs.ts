@@ -246,7 +246,19 @@ function splitMarkdocTags(value: string): Array<{ type: "text"; value: string } 
 // ── Plugin ──────────────────────────────────────────────
 
 export default function remarkPythonRefs() {
-  return (tree: Root) => {
+  return (tree: Root, file: any) => {
+    // Collect unique references for the post footer
+    const seen = new Set<string>();
+    const refs: Array<{ type: RefType; label: string; url: string }> = [];
+
+    function collectRef(type: RefType, label: string, url: string) {
+      const key = `${type}:${url}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        refs.push({ type, label, url });
+      }
+    }
+
     // Pass 1: Transform matching links → badges
     visit(tree, "link", (node: Link, index, parent) => {
       if (index == null || !parent) return;
@@ -255,6 +267,7 @@ export default function remarkPythonRefs() {
       const info = classify(node.url, label);
       if (!info) return;
 
+      collectRef(info.type, label, node.url);
       const html = buildBadgeHtml({ ...info, label, url: node.url });
 
       // Replace the link node with a raw HTML node
@@ -288,5 +301,10 @@ export default function remarkPythonRefs() {
         node.children = newChildren;
       }
     });
+
+    // Expose collected references via remarkPluginFrontmatter
+    if (!file.data.astro) file.data.astro = {};
+    if (!file.data.astro.frontmatter) file.data.astro.frontmatter = {};
+    file.data.astro.frontmatter.references = refs;
   };
 }

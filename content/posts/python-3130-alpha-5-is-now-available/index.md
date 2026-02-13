@@ -23,14 +23,14 @@ Alpha releases are intended to make it easier to test the current state of new f
 
 During the alpha phase, features may be added up until the start of the beta phase (2024-05-07) and, if necessary, may be modified or deleted up until the release candidate phase (2024-07-30). Please keep in mind that this is a preview release and its use is **not** recommended for production environments.
 
-Many new features for Python 3.13 are still being planned and written. Work continues apace on both the work to [remove the Global Interpeter Lock](https://peps.python.org/pep-0703/) , and to improve Python performance. The most notable changes so far:
+Many new features for Python 3.13 are still being planned and written. Work continues apace on both the work to [remove the Global Interpreter Lock](https://peps.python.org/pep-0703/) , and to improve Python performance. The most notable changes so far:
 
 -   In the interactive interpreter, [exception tracebacks are now colorized by default](https://docs.python.org/dev/whatsnew/3.13.html#improved-error-messages) .
 -   A [preliminary, *experimental* JIT was added](https://docs.python.org/dev/whatsnew/3.13.html#experimental-jit-compiler), providing the ground work for significant performance improvements.  
-    
+
 -   Docstrings now have [their leading indentation stripped](https://docs.python.org/dev/whatsnew/3.13.html#other-language-changes) , reducing memory use and the size of .pyc files. (Most tools handling docstrings already strip leading indentation.)
 -   The [dbm module](https://docs.python.org/dev/library/dbm.html) has a new [dbm.sqlite3 backend](https://docs.python.org/dev/whatsnew/3.13.html#id1) that is used by default when creating new files.  
-    
+
 -   [PEP 594 (Removing dead batteries from the standard library)](https://peps.python.org/pep-0594/) scheduled removals of many deprecated modules: `aifc`, `audioop`, `chunk`, `cgi`, `cgitb`, `crypt`, `imghdr`, `mailcap`, `msilib`, `nis`, `nntplib`, `ossaudiodev`, `pipes`, `sndhdr`, `spwd`, `sunau`, `telnetlib`, `uu`, `xdrlib`, `lib2to3`.
 -   [Many other removals](https://docs.python.org/dev/whatsnew/3.13.html#removed) of deprecated classes, functions and methods in various standard library modules.
 -   [New deprecations](https://docs.python.org/dev/whatsnew/3.13.html#deprecated) , most of which are scheduled for removal from Python 3.15 or 3.16.

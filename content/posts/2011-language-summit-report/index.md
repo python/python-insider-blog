@@ -87,7 +87,7 @@ There didn't appear to be a clear-cut solution right away, but the relevant part
 
 Some thoughts for 3.3 features came up, including two PEPs. [PEP 382](http://www.python.org/dev/peps/pep-0382), covering Namespace Packages, should appear at some point in the cycle. It was also mentioned during the distutils merger topic.
 
-[PEP 393](http://www.python.org/dev/peps/pep-0393), defining a flexible string repesentation, was also up for discussion and also has some interested students as a GSoC project. Along with the implementation, some effort will need to be placed on the performance and memory characteristics of the new internals in order to see if they can be accepted.
+[PEP 393](http://www.python.org/dev/peps/pep-0393), defining a flexible string representation, was also up for discussion and also has some interested students as a GSoC project. Along with the implementation, some effort will need to be placed on the performance and memory characteristics of the new internals in order to see if they can be accepted.
 
 #### Unladen Swallow
 

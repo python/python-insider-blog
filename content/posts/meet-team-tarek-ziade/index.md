@@ -25,7 +25,7 @@ Since December 21 2008
 
 I started as a core developer in order to maintain Distutils and make it evolve.
 
-My first commit as a core developer was a fix for small bug in a distutils feature I proposed before I became a commiter. That feature was added the week before in Python. It's the ability to configure Distutils' register and upload commands to work with several pypi-like servers.
+My first commit as a core developer was a fix for small bug in a distutils feature I proposed before I became a committer. That feature was added the week before in Python. It's the ability to configure Distutils' register and upload commands to work with several pypi-like servers.
 
 I committed with my brand new rights on Wed, 24 Dec 2008, which happens to be my birthday, and also the 17th anniversary of the 0.9.4 release of Python.
 

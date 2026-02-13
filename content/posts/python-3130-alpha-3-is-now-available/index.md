@@ -23,7 +23,7 @@ Alpha releases are intended to make it easier to test the current state of new f
 
 During the alpha phase, features may be added up until the start of the beta phase (2024-05-07) and, if necessary, may be modified or deleted up until the release candidate phase (2024-07-30). Please keep in mind that this is a preview release and its use is **not** recommended for production environments.
 
-Many new features for Python 3.13 are still being planned and written. Work continues apace on both the work to [remove the Global Interpeter Lock](https://peps.python.org/pep-0703/) , and to improve Python performance. The most notable changes so far:
+Many new features for Python 3.13 are still being planned and written. Work continues apace on both the work to [remove the Global Interpreter Lock](https://peps.python.org/pep-0703/) , and to improve Python performance. The most notable changes so far:
 
 -   In the interactive interpreter, [exception tracebacks are now colorized by default](https://docs.python.org/dev/whatsnew/3.13.html#improved-error-messages) .
 -   Docstrings now have [their leading indentation stripped](https://docs.python.org/dev/whatsnew/3.13.html#other-language-changes) , reducing memory use and the size of .pyc files. (Most tools handling docstrings already strip leading indentation.)

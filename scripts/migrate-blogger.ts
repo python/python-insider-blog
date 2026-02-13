@@ -460,9 +460,12 @@ async function migrate() {
       const mdxContent = `${frontmatter}\n\n${markdown}\n`;
       fs.writeFileSync(path.join(postDir, "index.md"), mdxContent, "utf-8");
 
-      // Track redirect: legacy path → new path
+      // Track redirect: legacy .html path → route path (publishDate year/month + slug)
       if (legacyFilename) {
-        redirects[legacyFilename] = `/blog/${slug}`;
+        const pd = new Date(publishDate);
+        const y = pd.getUTCFullYear();
+        const m = String(pd.getUTCMonth() + 1).padStart(2, "0");
+        redirects[legacyFilename] = `/${y}/${m}/${slug}`;
       }
 
       migrated++;

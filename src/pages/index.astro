@@ -3,7 +3,7 @@ export const prerender = true;
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PythonLogo from "../components/PythonLogo.astro";
-import { formatDate, withBase } from "../lib/utils";
+import { formatDate, postUrl, withBase } from "../lib/utils";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
@@ -51,7 +51,7 @@ const authors = new Set(posts.map((p) => p.data.author));
             <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#306998] dark:text-[#ffd43b]">Latest</span>
           </div>
 
-          <a href={withBase(`/blog/${featured.id}`)} class="group block">
+          <a href={withBase(postUrl(featured.id, featured.data.publishDate))} class="group block">
             <h1
               class="max-w-4xl text-3xl font-extrabold leading-[1.15] tracking-tight text-zinc-900 transition-colors group-hover:text-[#306998] dark:text-zinc-100 dark:group-hover:text-[#ffd43b] sm:text-4xl lg:text-5xl"
               style="font-family: var(--font-display); letter-spacing: -0.02em;"
@@ -121,7 +121,7 @@ const authors = new Set(posts.map((p) => p.data.author));
       <div class="grid gap-px overflow-hidden rounded-xl border border-zinc-200 bg-zinc-200 dark:border-zinc-800 dark:bg-zinc-800 sm:grid-cols-2">
         {recent.map((post) => (
           <article class="post-card group relative bg-white p-5 dark:bg-[#0f1117]">
-            <a href={withBase(`/blog/${post.id}`)} class="block">
+            <a href={withBase(postUrl(post.id, post.data.publishDate))} class="block">
               <h3 class="text-[0.9375rem] font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-[#306998] dark:text-zinc-100 dark:group-hover:text-[#ffd43b]" style="font-family: var(--font-display);">
                 {post.data.title}
               </h3>

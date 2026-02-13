@@ -2,6 +2,7 @@ export const prerender = true;
 
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import { postUrl } from "../lib/utils";
 
 export const GET: APIRoute = async () => {
   const posts = await getCollection("posts");
@@ -13,6 +14,7 @@ export const GET: APIRoute = async () => {
     )
     .map((p) => ({
       id: p.id,
+      url: postUrl(p.id, p.data.publishDate),
       title: p.data.title,
       description: p.data.description || "",
       author: p.data.author,

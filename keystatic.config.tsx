@@ -122,7 +122,7 @@ export default config({
       format: { contentField: "content" },
       columns: ["publishDate", "author"],
       entryLayout: "content",
-      previewUrl: "/blog/{slug}",
+      // previewUrl requires computed year/month — not supported by Keystatic template syntax
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
         publishDate: fields.date({ label: "Publish Date", validation: { isRequired: true } }),

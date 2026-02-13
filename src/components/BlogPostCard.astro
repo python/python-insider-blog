@@ -1,5 +1,5 @@
 ---
-import { formatDate, slugify, withBase } from "../lib/utils";
+import { formatDate, postUrl, slugify, withBase } from "../lib/utils";
 
 interface Props {
   slug: string;
@@ -18,7 +18,7 @@ const { slug, title, publishDate, author, description, tags, showEditLink = true
 <article class="post-card group relative px-5 py-4">
   <div class="flex items-start justify-between gap-4">
     <div class="min-w-0 flex-1">
-      <a href={withBase(`/blog/${slug}`)} class="block">
+      <a href={withBase(postUrl(slug, publishDate))} class="block">
         <h3 class="text-base font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-[#306998] dark:text-zinc-100 dark:group-hover:text-[#ffd43b]" style="font-family: var(--font-display);">
           {title}
         </h3>

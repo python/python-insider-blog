@@ -24,6 +24,16 @@ export function withBase(path: string): string {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/**
+ * Returns the URL path for a blog post: /YYYY/MM/slug
+ */
+export function postUrl(slug: string, publishDate: string | Date): string {
+  const d = typeof publishDate === "string" ? new Date(publishDate) : publishDate;
+  const year = d.getUTCFullYear();
+  const month = String(d.getUTCMonth() + 1).padStart(2, "0");
+  return `/${year}/${month}/${slug}`;
+}
+
 export function slugify(text: string): string {
   return text
     .normalize("NFD")

@@ -1,22 +1,29 @@
 ---
-import type { GetStaticPaths } from "astro";
-import type { CollectionEntry } from "astro:content";
-import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import type { InferGetStaticPropsType } from "astro";
+import BlogPostLayout from "../../../layouts/BlogPostLayout.astro";
 import { getCollection, render } from "astro:content";
 
 export const prerender = true;
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function getStaticPaths() {
   const posts = await getCollection("posts");
   return posts
     .filter((p) => p.data.published)
-    .map((post) => ({
-      params: { slug: post.id },
-      props: { post },
-    }));
-};
+    .map((post) => {
+      const d = post.data.publishDate;
+      return {
+        params: {
+          year: String(d.getUTCFullYear()),
+          month: String(d.getUTCMonth() + 1).padStart(2, "0"),
+          slug: post.id,
+        },
+        props: { post },
+      };
+    });
+}
 
-const { post } = Astro.props as { post: CollectionEntry<"posts"> };
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { post } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
 const references = (remarkPluginFrontmatter?.references ?? []) as Array<{ type: string; label: string; url: string }>;
 ---

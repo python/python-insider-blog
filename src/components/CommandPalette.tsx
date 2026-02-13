@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 interface PostEntry {
   id: string;
+  url: string;
   title: string;
   description: string;
   author: string;
@@ -292,7 +293,7 @@ export default function CommandPalette({ open: controlledOpen, onOpenChange }: P
                   <Command.Item
                     key={post.id}
                     value={`post-${post.id}`}
-                    onSelect={() => navigate(withBase(`/blog/${post.id}`))}
+                    onSelect={() => navigate(withBase(post.url))}
                   >
                     <div className="cmdk-post-icon" aria-hidden="true">
                       <ArticleIcon />

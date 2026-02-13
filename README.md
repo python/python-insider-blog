@@ -36,3 +36,16 @@ Authors are configured via `content/authors/`.
 
 There are `Make` targets to get up and going, assuming you have the
 tooling required (Bun, prek, etc.)
+
+### Writing Blog Entries
+
+You can pull the repo, run `make dev`, and edit the page via Keystatic
+with the nice UI or you can write markdown in your editor.
+
+Both should open a pull request to GitHub for review and CI checks.
+
+> [!NOTE]  
+> You have access to a few custom components that can be used like
+> `{% GhUser name="hugovk" /%}`, but PEPs, CPython docs, and GitHub links
+> will automatically be picked up if you use standard markdown via the
+> URL regex.

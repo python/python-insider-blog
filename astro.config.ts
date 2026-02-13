@@ -25,7 +25,8 @@ if (isDev) {
 }
 
 export default defineConfig({
-  site: "https://jacobcoffee.github.io/python-insider-blog",
+  site: "https://jacobcoffee.github.io",
+  base: isDev ? "/" : "/python-insider-blog",
   integrations,
   output: isDev ? "server" : "static",
   ...(isDev && {

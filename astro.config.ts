@@ -23,6 +23,10 @@ try {
   // No redirects file yet (run migration first)
 }
 
+// Blogger feed URLs → new RSS feed
+redirects["/feeds/posts/default"] = `${base}/rss.xml`;
+redirects["/feeds/posts/default/"] = `${base}/rss.xml`;
+
 // Keystatic integration only in dev mode (requires server rendering)
 const integrations = [mdx(), sitemap(), react()];
 if (isDev) {

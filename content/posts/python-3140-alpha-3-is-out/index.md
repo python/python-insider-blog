@@ -49,10 +49,10 @@ According to the Oxford English Dictionary, the earliest mention of Christmas mi
 
 > Ten thousand in London swore to feast their neighbors with nothing but plum-porredge, and mince-pyes all Christmas.
 
-Here’s a meaty recipe from [*Rare and Excellent Receipts, Experienc’d and Taught by Mrs Mary Tillinghast and now Printed for the Use of her Scholars Only*](https://www.google.com/books/edition/Rare_and_Excellent_Receipts/PZfbqUrHykwC?hl=en&gbpv=1&dq=%22mince+pies%22&pg=PA9&printsec=frontcover) (1678):
+Here’s a meaty recipe from [*Rare and Excellent Receipts, Experience’d and Taught by Mrs Mary Tillinghast and now Printed for the Use of her Scholars Only*](https://www.google.com/books/edition/Rare_and_Excellent_Receipts/PZfbqUrHykwC?hl=en&gbpv=1&dq=%22mince+pies%22&pg=PA9&printsec=frontcover) (1678):
 
 > 15.  *How to make Mince-pies.*
-> 
+>
 > To every pound of Meat, take two pound of beef Suet, a pound of Corrants, and a quarter of an Ounce of Cinnamon, one Nutmeg, a little beaten Mace, some beaten Colves, a little Sack & Rose-water, two large Pippins, some Orange and Lemon peel cut very thin, and shred very small, a few beaten Carraway-seeds, if you love them the Juyce of half a Lemon squez’d into this quantity of meat; for Sugar, sweeten it to your relish; then mix all these together and fill your Pie. The best meat for Pies is Neats-Tongues, or a leg of Veal; you may make them of a leg of Mutton if you please; the meat must be parboyl’d if you do not spend it presently; but if it be for present use, you may do it raw, and the Pies will be the better.
 
 # Enjoy the new release

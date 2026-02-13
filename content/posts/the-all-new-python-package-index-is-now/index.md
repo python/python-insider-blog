@@ -3,7 +3,7 @@ title: The all new Python Package Index is now in beta at pypi.org
 publishDate: '2018-03-26'
 updatedDate: '2018-03-26'
 author: Ee Durbin
-description: 'The new Python Package Index at https://pypi.org is now in beta. This means the site is robust, but we anticipate needing more user testing and changes befor...'
+description: 'The new Python Package Index at https://pypi.org is now in beta. This means the site is robust, but we anticipate needing more user testing and changes before...'
 tags: []
 published: true
 legacyUrl: /2018/03/the-all-new-python-package-index-is-now.html

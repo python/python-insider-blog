@@ -3,7 +3,7 @@ title: Python 3.14.0 alpha 1 is now available
 publishDate: '2024-10-15'
 updatedDate: '2024-10-16'
 author: Hugo
-description: 'It''s now time for a new alpha of a new version of Python! https://www.python.org/downloads/release/python-3140a1/ This is an early developer preview of Pytho...'
+description: 'It''s now time for a new alpha of a new version of Python! https://www.python.org/downloads/release/python-3140a1/ This is an early developer preview of Python...'
 tags:
   - releases
 published: true

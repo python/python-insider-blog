@@ -39,11 +39,11 @@ For more details on the changes in Python 3.12, see [What's New In Python 3.12](
 -   Report bugs at [https://github.com/python/cpython/issues](https://github.com/python/cpython/issues).
 -   [Help fund Python and its community](https://www.python.org/psf/donations/).
 
-#   
+#  
 
 # And now for something completely different
 
-> Let me not to the marriage of true minds Admit impediments. Love is not love Which alters when it alteration finds, Or bends with the remover to remove: O, no! it is an ever-fixed mark, That looks on tempests and is never shaken; It is the star to every wandering bark, Whose worth’s unknown, although his height be taken. Love’s not Time’s fool, though rosy lips and cheeks Within his bending sickle’s compass come; Love alters not with his brief hours and weeks, But bears it out even to the edge of doom. If this be error, and upon me prov’d, I never writ, nor no man ever lov’d.
+> Let me not to the marriage of true minds Admit impediments. Love is not love Which alters when it alteration finds, Or bends with the remover to remove: O, no! it is an ever-fixed mark, That looks on tempests and is never shaken; It is the star to every wandering bark, Whose worth’s unknown, although his height be taken. Love’s not Time’s fool, though rosy lips and cheeks Within his bending sickle’s compass come; Love alters not with his brief hours and weeks, But bears it out even to the edge of doom. If this be error, and upon me prov’d, I never writ, nor no man ever love’d.
 
 *Sonnet 116*, by William Shakespeare.
 

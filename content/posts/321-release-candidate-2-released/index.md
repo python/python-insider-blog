@@ -15,7 +15,7 @@ Following up a big month of [releases in June](http://blog.python.org/2011/06/ju
 
 ##### I/O
 
-[#1195](http://bugs.python.org/issue1195) spent a few years witout a fix, but a simple addition to clear errors before calling fgets solves the problem of interrupting sys.stdin.read() with CTRL-D inside of input(). The io system saw a cleanup in [#12175](http://bugs.python.org/issue12175) with the readall method with None being the return value on a read() which returns None, and a ValueError is now raised when a file can't be opened.
+[#1195](http://bugs.python.org/issue1195) spent a few years without a fix, but a simple addition to clear errors before calling fgets solves the problem of interrupting sys.stdin.read() with CTRL-D inside of input(). The io system saw a cleanup in [#12175](http://bugs.python.org/issue12175) with the readall method with None being the return value on a read() which returns None, and a ValueError is now raised when a file can't be opened.
 
 Although this isn't new for RC2, [#11272](http://bugs.python.org/issue11272) is an important 3.2.1 fix to input() on Windows - the fixing of a trailing \\r. The issue has been reported many times over and affects a many people (distutils upload command anyone?), so hopefully 3.2.1 does the trick for you.
 

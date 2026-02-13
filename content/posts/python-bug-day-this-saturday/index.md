@@ -15,7 +15,7 @@ This Saturday, you have the opportunity of participating to the Python Bug Day. 
 -   If you have a problem that isn't in the bug tracker, announce it to the IRC channel, and if it's more than five minutes' work, create a bug report for it. See the [bug reporting instructions](http://docs.python.org/dev/bugs.html) to learn how to write bug reports.
 -   When you choose a bug to work on, announce it to the IRC channel (e.g. "I'm working on #123456.") or on the bug report itself. This avoids accidentally duplicating work.
 -   Consider providing a patch that fixes the problem, or at least a simple test case that demonstrates the bug. Please see the patch submission guidelines in the Developer's Guide before submitting a patch.
--   Does the bug appear to be gone in the Python development version (the Mercurial branch "default", that will become 3.4), but not the 3.2, 3.3 or 2.7 maintenance branchs? Report that, too.
+-   Does the bug appear to be gone in the Python development version (the Mercurial branch "default", that will become 3.4), but not the 3.2, 3.3 or 2.7 maintenance branches? Report that, too.
 -   If someone else has supplied a fix, see if this fix works for² you, and add your results to the bug.
 -   Read the text of proposed patches and assess them for correctness and code quality. This is usually the most time-consuming step in the bug fixing process, so reading patches is very useful.
 -   If there's a working fix, feel free to add a note asking for the fix to get committed. The bug tracker has a lot of items in it, and it's easy for bugs to be overlooked.

@@ -3,14 +3,14 @@ title: Python 3.7.10 and 3.6.13 security updates now available
 publishDate: '2021-02-16'
 updatedDate: '2021-02-16'
 author: Ned Deily
-description: 'Python 3.7.10 and 3.6.13, the lastest security fix rollups for Python 3.7 and Python 3.6, are now available. You can find the release files, links to the cha...'
+description: 'Python 3.7.10 and 3.6.13, the latest security fix rollups for Python 3.7 and Python 3.6, are now available. You can find the release files, links to the cha...'
 tags:
   - releases
 published: true
 legacyUrl: /2021/02/python-3710-and-3613-security-updates.html
 ---
 
-Python [3.7.10](https://www.python.org/downloads/release/python-3710/) and [3.6.13](https://www.python.org/downloads/release/python-3613/), the lastest security fix rollups for **Python 3.7** and **Python 3.6**, are now available. You can find the release files, links to the changelogs, and more information here:
+Python [3.7.10](https://www.python.org/downloads/release/python-3710/) and [3.6.13](https://www.python.org/downloads/release/python-3613/), the latest security fix rollups for **Python 3.7** and **Python 3.6**, are now available. You can find the release files, links to the changelogs, and more information here:
 
 [https://www.python.org/downloads/release/python-3710/](https://www.python.org/downloads/release/python-3710/)  
 [https://www.python.org/downloads/release/python-3613/](https://www.python.org/downloads/release/python-3613/)  

@@ -3,7 +3,7 @@ title: 'Upgrade to pip 20.2, plus, changes coming in 20.3'
 publishDate: '2020-07-30'
 updatedDate: '2020-07-30'
 author: Sumana Harihareswara
-description: 'On behalf of the Python Packaging Authority, I am pleased to announce that we have just released pip 20.2, a new version of pip. You can install it by runnin...'
+description: 'On behalf of the Python Packaging Authority, I am pleased to announce that we have just released pip 20.2, a new version of pip. You can install it by running...'
 tags:
   - pip
   - releases

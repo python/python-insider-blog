@@ -9,7 +9,7 @@ published: true
 legacyUrl: /2011/05/python-33-to-drop-support-for-os2.html
 ---
 
-Every so often there comes a time to prune the list of supported operating systems to match the usage landscape. On top of that, the pool of contributing developers on a platform also holds significance, as there needs to be someone around to complete development tasks in order to have a quality release. Other factors, such as the age of an operating system and its hinderance on future development work, also weigh on the list.
+Every so often there comes a time to prune the list of supported operating systems to match the usage landscape. On top of that, the pool of contributing developers on a platform also holds significance, as there needs to be someone around to complete development tasks in order to have a quality release. Other factors, such as the age of an operating system and its hindrance on future development work, also weigh on the list.
 
 [Victor Stinner](http://www.haypocalc.com/wiki/Victor_Stinner) recently proposed [dropping OS/2 and VMS support](http://mail.python.org/pipermail/python-dev/2011-April/110872.html) for CPython, a year after his [original question](http://mail.python.org/pipermail/python-dev/2010-April/099471.html) on OS/2 support. Victor's original inquiry came around the time of his seemingly non-stop Unicode efforts, specifically for an issue with [os.execvpe()](http://docs.python.org/library/os#os.execvpe) supporting environment variables via the [PEP 383](http://www.python.org/dev/peps/pep-0383/) surrogateescape handler. OS/2 and VMS currently have no representation on the development team and receive no testing during the release process.
 
@@ -35,7 +35,7 @@ If you are a user of OS/2 or VMS, there are a few things you can do to save your
 
 Nothing says support better than an active developer. Andrew MacIntyre has been the OS/2 maintainer for some time now, and he stated during Victor's first OS/2 query that OS/2 is behind on Unicode support, so that's certainly an area that needs focus. VMS appears to have some amount of external support via [http://www.vmspython.org](http://www.vmspython.org), but as discussed in [issue 11918](http://bugs.python.org/issue11918), someone needs to step up to allow the continued VMS support upstream.
 
-If you are interested in taking over for either platform, see the [developer's guide](http://docs.python.org/devguide) for the current development proccesses.
+If you are interested in taking over for either platform, see the [developer's guide](http://docs.python.org/devguide) for the current development processes.
 
 ##### Contribute a build slave
 

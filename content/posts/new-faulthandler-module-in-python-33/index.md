@@ -30,7 +30,7 @@ Timeout (0:01:00)!
 Current thread 0x00007f987d459700:
   File "Lib/test/crashers/infinite\_loop\_re.py", line 20 in <module>
 
-Use the repeat=True option to dump the traceback each timeout seconds, or exit=True to immediatly exit the program in an unsafe fashion, e.g. don't flush files.
+Use the repeat=True option to dump the traceback each timeout seconds, or exit=True to immediately exit the program in an unsafe fashion, e.g. don't flush files.
 
 #### User Signal
 

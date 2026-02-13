@@ -3,7 +3,7 @@ title: 'Python 3.14.1 is now available!'
 publishDate: '2025-12-02'
 updatedDate: '2025-12-02'
 author: Hugo
-description: '!Two snakes enjoying a pie with 3.14 on the top and π crimping This is first maintenance release of Python 3.14 Python 3.14.1 is the first maintenance releas...'
+description: '!Two snakes enjoying a pie with 3.14 on the top and π crimping This is first maintenance release of Python 3.14 Python 3.14.1 is the first maintenance release...'
 tags:
   - releases
 published: true

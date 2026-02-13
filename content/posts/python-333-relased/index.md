@@ -1,5 +1,5 @@
 ---
-title: Python 3.3.3 relased
+title: Python 3.3.3 released
 publishDate: '2013-11-13'
 updatedDate: '2014-02-20'
 author: A.M. Kuchling

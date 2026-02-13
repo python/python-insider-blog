@@ -3,7 +3,7 @@ title: 'Farewell, Python 3.4'
 publishDate: '2019-05-08'
 updatedDate: '2019-05-08'
 author: Larry Hastings
-description: 'It''s with a note of sadness that I announce the final retirement of Python 3.4. The final release was back in March, but I didn''t get around to actually clos...'
+description: 'It''s with a note of sadness that I announce the final retirement of Python 3.4. The final release was back in March, but I didn''t get around to actually close...'
 tags: []
 published: true
 legacyUrl: /2019/05/farewell-python-34.html

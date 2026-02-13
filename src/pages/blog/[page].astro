@@ -1,0 +1,124 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import { getCollection } from "astro:content";
+
+export const prerender = true;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const POSTS_PER_PAGE = 20;
+  const allPosts = await getCollection("posts");
+  const posts = allPosts
+    .filter((p) => p.data.published)
+    .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+
+  // Build tag counts for sidebar
+  const tagCounts = new Map<string, number>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+    }
+  }
+  const topTags = [...tagCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 20);
+  const totalTags = tagCounts.size;
+
+  // Collect years
+  const yearSet = new Set<number>();
+  for (const post of posts) {
+    yearSet.add(post.data.publishDate.getFullYear());
+  }
+  const years = [...yearSet].sort((a, b) => b - a);
+
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+    props: {
+      posts: posts.slice((i + 1) * POSTS_PER_PAGE, (i + 2) * POSTS_PER_PAGE),
+      currentPage: i + 2,
+      totalPages,
+      totalPosts: posts.length,
+      topTags,
+      totalTags,
+      years,
+    },
+  }));
+};
+
+const { posts, currentPage, totalPages, totalPosts, topTags, totalTags, years } = Astro.props;
+---
+
+<BaseLayout title={`Blog - Page ${currentPage} | Python Insider`}>
+  <div class="animate-fade-up">
+    <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100" style="font-family: var(--font-display); letter-spacing: -0.02em;">All Posts</h1>
+    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{totalPosts} posts &middot; Page {currentPage} of {totalPages}</p>
+  </div>
+
+  <div class="mt-8 flex gap-12">
+    <!-- Posts column -->
+    <div class="min-w-0 flex-1 animate-fade-up stagger-2">
+      <div class="divide-y divide-zinc-200 dark:divide-zinc-800">
+        {posts.map((post: any) => (
+          <BlogPostCard
+            slug={post.id}
+            title={post.data.title}
+            publishDate={post.data.publishDate.toISOString()}
+            author={post.data.author}
+            description={post.data.description}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+
+      <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl="/blog" />
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="animate-fade-up stagger-3 hidden w-56 flex-shrink-0 lg:block">
+      <div class="sticky top-24 space-y-8">
+        <!-- Year filter -->
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Years</h3>
+          <div class="flex flex-wrap gap-1.5">
+            {years.map((y: number) => (
+              <a
+                href={`/blog/year/${y}`}
+                class="rounded-md bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-500 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
+              >
+                {y}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Tags</h3>
+          <div class="flex flex-wrap gap-1.5">
+            {topTags.map(([tag, count]: [string, number]) => (
+              <a
+                href={`/tags/${tag}`}
+                class="tag-pill inline-flex items-center gap-1 rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
+              >
+                {tag}
+                <span class="text-[10px] text-zinc-400 dark:text-zinc-600">{count}</span>
+              </a>
+            ))}
+          </div>
+          {totalTags > 20 && (
+            <a
+              href="/tags"
+              class="mt-3 inline-block text-xs font-medium text-[#306998] hover:underline dark:text-[#ffd43b]"
+            >
+              All {totalTags} tags &rarr;
+            </a>
+          )}
+        </div>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

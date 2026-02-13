@@ -1,0 +1,38 @@
+{
+  "name": "blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/node": "^9.5.3",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.48",
+    "astro": "^5.17.1",
+    "cmdk": "^1.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/mdast": "^4.0.4",
+    "@types/turndown": "^5.0.6",
+    "fast-xml-parser": "^5.3.5",
+    "oxlint": "^1.47.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "turndown": "^7.2.2",
+    "turndown-plugin-gfm": "^1.0.2",
+    "typescript": "^5.9.3"
+  }
+}

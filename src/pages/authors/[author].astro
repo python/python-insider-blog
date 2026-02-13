@@ -1,0 +1,141 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+import { getCollection } from "astro:content";
+import { slugify } from "../../lib/utils";
+
+export const prerender = true;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPosts = await getCollection("posts");
+  const publishedPosts = allPosts.filter((p) => p.data.published);
+  const allAuthors = await getCollection("authors");
+
+  const authorMap = new Map<string, typeof publishedPosts>();
+  for (const post of publishedPosts) {
+    const slug = slugify(post.data.author);
+    if (!authorMap.has(slug)) authorMap.set(slug, []);
+    authorMap.get(slug)!.push(post);
+  }
+
+  return allAuthors
+    .filter((a) => authorMap.has(a.id))
+    .map((author) => ({
+      params: { author: author.id },
+      props: {
+        slug: author.id,
+        author: author.data,
+        posts: authorMap.get(author.id)!.sort(
+          (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+        ),
+      },
+    }));
+};
+
+const isDev = import.meta.env.DEV;
+const { slug, author, posts } = Astro.props;
+const avatarUrl = author.avatar || (author.github ? `https://github.com/${author.github}.png` : "");
+---
+
+<BaseLayout title={`${author.name} | Python Insider`}>
+  <div class="animate-fade-up">
+    <a
+      href="/authors"
+      class="group inline-flex items-center gap-1.5 text-sm font-medium text-[#306998] transition-colors hover:text-[#254f73] dark:text-[#ffd43b] dark:hover:text-[#f0c419]"
+    >
+      <span class="transition-transform group-hover:-translate-x-0.5">&larr;</span>
+      All authors
+    </a>
+
+    <div class="mt-6 flex items-start gap-5">
+      {avatarUrl ? (
+        <img
+          src={avatarUrl}
+          alt={author.name}
+          class="h-16 w-16 flex-shrink-0 rounded-full ring-2 ring-zinc-200 dark:ring-zinc-700"
+        />
+      ) : (
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-zinc-200 text-xl font-bold text-zinc-500 ring-2 ring-zinc-200 dark:bg-zinc-700 dark:text-zinc-400 dark:ring-zinc-700">
+          {author.name.charAt(0)}
+        </div>
+      )}
+      <div class="min-w-0 flex-1">
+        <div class="flex items-start justify-between gap-3">
+          <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100" style="font-family: var(--font-display); letter-spacing: -0.02em;">
+            {author.name}
+          </h1>
+          {isDev && (
+            <a
+              href={`/keystatic/collection/authors/item/${slug}`}
+              class="edit-btn-always mt-1 flex-shrink-0 rounded-lg bg-zinc-100 p-2 text-zinc-400 hover:bg-amber-100 hover:text-amber-700 dark:bg-zinc-800 dark:text-zinc-600 dark:hover:bg-amber-900/30 dark:hover:text-amber-400"
+              title="Edit in Keystatic"
+            >
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+            </a>
+          )}
+        </div>
+        {author.bio && (
+          <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{author.bio}</p>
+        )}
+        <div class="mt-2.5 flex flex-wrap items-center gap-3">
+          {author.github && (
+            <a
+              href={`https://github.com/${author.github}`}
+              class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              {author.github}
+            </a>
+          )}
+          {author.twitter && (
+            <a href={author.twitter} class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter
+            </a>
+          )}
+          {author.bluesky && (
+            <a href={author.bluesky} class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.627 3.588 3.476 6.182 3.21-4.024.564-7.545 2.254-2.88 7.543 5.528 5.283 7.435-1.36 8.074-3.953.639 2.593 1.9 9.108 8.073 3.953 4.665-5.289 1.145-6.979-2.88-7.543 2.595.267 5.398-.583 6.183-3.21.245-.83.624-5.789.624-6.479 0-.688-.139-1.86-.902-2.203-.659-.3-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+              Bluesky
+            </a>
+          )}
+          {author.mastodon && (
+            <a href={author.mastodon} class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 00.023-.043v-1.809a.052.052 0 00-.02-.041.053.053 0 00-.046-.01 20.282 20.282 0 01-4.709.547c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 01-.319-1.433.053.053 0 01.066-.054 19.648 19.648 0 004.581.536h.344c1.726 0 3.464-.1 5.154-.406 .042-.008.08-.017.121-.027 2.378-.466 4.636-1.924 4.86-5.13.008-.11.03-.476.03-.476.002-.168.082-3.78-.038-5.416z"/></svg>
+              Mastodon
+            </a>
+          )}
+          {author.website && (
+            <a href={author.website} class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              Website
+            </a>
+          )}
+          <span class="text-xs text-zinc-400 dark:text-zinc-500">
+            {posts.length} {posts.length === 1 ? "post" : "posts"}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 animate-fade-up stagger-2">
+    <div class="divide-y divide-zinc-200 dark:divide-zinc-800">
+      {posts.map((post: any) => (
+        <BlogPostCard
+          slug={post.id}
+          title={post.data.title}
+          publishDate={post.data.publishDate.toISOString()}
+          author={post.data.author}
+          description={post.data.description}
+          tags={post.data.tags}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

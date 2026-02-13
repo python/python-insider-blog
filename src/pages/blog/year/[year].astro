@@ -1,0 +1,119 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BlogPostCard from "../../../components/BlogPostCard.astro";
+import { getCollection } from "astro:content";
+
+export const prerender = true;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPosts = await getCollection("posts");
+  const published = allPosts
+    .filter((p) => p.data.published)
+    .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+  const byYear = new Map<number, typeof published>();
+  for (const post of published) {
+    const y = post.data.publishDate.getFullYear();
+    if (!byYear.has(y)) byYear.set(y, []);
+    byYear.get(y)!.push(post);
+  }
+
+  // Collect all years for the sidebar
+  const allYears = [...byYear.keys()].sort((a, b) => b - a);
+
+  // Tag counts for sidebar
+  const tagCounts = new Map<string, number>();
+  for (const post of published) {
+    for (const tag of post.data.tags) {
+      tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+    }
+  }
+  const topTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 20);
+
+  return [...byYear.entries()].map(([year, posts]) => ({
+    params: { year: String(year) },
+    props: { year, posts, allYears, topTags, totalTags: tagCounts.size },
+  }));
+};
+
+const { year, posts, allYears, topTags, totalTags } = Astro.props;
+---
+
+<BaseLayout title={`${year} Posts | Python Insider`}>
+  <div class="animate-fade-up">
+    <a
+      href="/blog"
+      class="group inline-flex items-center gap-1.5 text-sm font-medium text-[#306998] transition-colors hover:text-[#254f73] dark:text-[#ffd43b] dark:hover:text-[#f0c419]"
+    >
+      <span class="transition-transform group-hover:-translate-x-0.5">&larr;</span>
+      All posts
+    </a>
+    <h1 class="mt-3 text-3xl font-bold text-zinc-900 dark:text-zinc-100" style="font-family: var(--font-display); letter-spacing: -0.02em;">
+      {year}
+    </h1>
+    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{posts.length} {posts.length === 1 ? "post" : "posts"}</p>
+  </div>
+
+  <div class="mt-8 flex gap-12">
+    <div class="min-w-0 flex-1 animate-fade-up stagger-2">
+      <div class="divide-y divide-zinc-200 dark:divide-zinc-800">
+        {posts.map((post: any) => (
+          <BlogPostCard
+            slug={post.id}
+            title={post.data.title}
+            publishDate={post.data.publishDate.toISOString()}
+            author={post.data.author}
+            description={post.data.description}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    </div>
+
+    <aside class="animate-fade-up stagger-3 hidden w-56 flex-shrink-0 lg:block">
+      <div class="sticky top-24 space-y-8">
+        <!-- Year filter -->
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Years</h3>
+          <div class="flex flex-wrap gap-1.5">
+            {allYears.map((y) => (
+              <a
+                href={`/blog/year/${y}`}
+                class:list={[
+                  "rounded-md px-2 py-0.5 text-xs font-medium transition-colors",
+                  y === year
+                    ? "bg-[#306998] text-white dark:bg-[#ffd43b] dark:text-zinc-900"
+                    : "bg-zinc-100 text-zinc-500 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700",
+                ]}
+              >
+                {y}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Tags</h3>
+          <div class="flex flex-wrap gap-1.5">
+            {topTags.map(([tag, count]: [string, number]) => (
+              <a
+                href={`/tags/${tag}`}
+                class="tag-pill inline-flex items-center gap-1 rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400"
+              >
+                {tag}
+                <span class="text-[10px] text-zinc-400 dark:text-zinc-600">{count}</span>
+              </a>
+            ))}
+          </div>
+          {totalTags > 20 && (
+            <a href="/tags" class="mt-3 inline-block text-xs font-medium text-[#306998] hover:underline dark:text-[#ffd43b]">
+              All {totalTags} tags &rarr;
+            </a>
+          )}
+        </div>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

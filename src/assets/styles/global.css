@@ -1,0 +1,1417 @@
+@import "tailwindcss";
+
+/* Use class-based dark mode (.dark on <html>) instead of OS prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-python-blue: #306998;
+  --color-python-blue-dark: #254f73;
+  --color-python-blue-deeper: #1b3a5c;
+  --color-python-yellow: #ffd43b;
+  --color-python-yellow-dark: #f0c419;
+  --color-python-yellow-muted: #ffeaa0;
+  --color-surface-light: #fafaf9;
+  --color-surface-dark: #0f1117;
+  --color-surface-dark-alt: #161822;
+  --color-text-light: #1a1a2e;
+  --color-text-dark: #e4e4e7;
+  --color-border-light: #e4e4e7;
+  --color-border-dark: #27272a;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ── Base ──────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface-light);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.dark body {
+  background-color: var(--color-surface-dark);
+  color: var(--color-text-dark);
+}
+
+::selection {
+  background-color: var(--color-python-yellow);
+  color: var(--color-python-blue-deeper);
+}
+
+.dark ::selection {
+  background-color: var(--color-python-yellow);
+  color: #000;
+}
+
+/* ── Staggered fade-in animation ──────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
+}
+
+.latest-pulse {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+.stagger-9 { animation-delay: 0.45s; }
+.stagger-10 { animation-delay: 0.5s; }
+
+/* ── (hero styles removed — content-forward layout) ── */
+
+/* ── Post card hover ─────────────────────────────── */
+
+.post-card {
+  transition: background-color 0.15s ease;
+}
+
+.post-card:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.dark .post-card:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Edit button ─────────────────────────────────── */
+
+.edit-btn {
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.15s ease;
+  transform: scale(0.9);
+}
+
+.group:hover .edit-btn,
+.edit-btn:focus-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.edit-btn-always {
+  opacity: 0.6;
+  transition: opacity 0.2s ease, background-color 0.15s ease;
+}
+
+.edit-btn-always:hover {
+  opacity: 1;
+}
+
+/* ── Dev mode indicator ──────────────────────────── */
+
+.dev-badge {
+  background: linear-gradient(135deg, #306998, #ffd43b);
+  background-size: 200% 200%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Tag pill ────────────────────────────────────── */
+
+.tag-pill {
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.tag-pill:hover {
+  border-color: var(--color-python-blue);
+  background-color: rgba(48, 105, 152, 0.08);
+  color: var(--color-python-blue);
+}
+
+.dark .tag-pill:hover {
+  border-color: var(--color-python-yellow);
+  background-color: rgba(255, 212, 59, 0.08);
+  color: var(--color-python-yellow);
+}
+
+/* ── Prose styling for blog content ──────────────── */
+/*
+ * Tailwind v4 preflight resets ALL default browser styles on semantic HTML
+ * elements (headings, lists, blockquotes, etc.). Every property that the
+ * browser normally provides must be explicitly restored here.
+ *
+ * These selectors live outside @layer, giving them higher specificity than
+ * Tailwind's base/utilities layers -- which is exactly what we need so
+ * `.prose` content styles are not stripped by the reset.
+ *
+ * Content may include raw HTML from the Blogger migration (divs, spans,
+ * br tags, tables with inline attributes). Styles must handle those
+ * gracefully.
+ */
+
+.prose {
+  max-width: 72ch;
+  line-height: 1.8;
+  font-size: 1.0625rem;
+  color: var(--color-text-light);
+}
+
+.dark .prose {
+  color: var(--color-text-dark);
+}
+
+/* ── Paragraphs ──────────────────────────────────── */
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 1.25em;
+  line-height: 1.8;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+/* ── Headings ────────────────────────────────────── */
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-display);
+  color: var(--color-text-light);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4 {
+  color: var(--color-text-dark);
+}
+
+.prose h1 {
+  font-size: 2em;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid var(--color-border-light);
+}
+
+.dark .prose h2 {
+  border-bottom-color: var(--color-border-dark);
+}
+
+.prose h3 {
+  font-size: 1.25em;
+}
+
+.prose h4 {
+  font-size: 1.1em;
+}
+
+/* Tighten spacing when a heading directly follows another heading */
+.prose h1 + h2,
+.prose h2 + h3,
+.prose h3 + h4 {
+  margin-top: 1em;
+}
+
+/* ── Inline emphasis ─────────────────────────────── */
+
+.prose strong,
+.prose b {
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+
+.dark .prose strong,
+.dark .prose b {
+  color: var(--color-text-dark);
+}
+
+.prose em,
+.prose i {
+  font-style: italic;
+}
+
+/* ── Links ───────────────────────────────────────── */
+
+.prose a {
+  color: var(--color-python-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(48, 105, 152, 0.4);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-python-blue);
+  color: var(--color-python-blue-dark);
+}
+
+.dark .prose a {
+  color: var(--color-python-yellow);
+  text-decoration-color: rgba(255, 212, 59, 0.4);
+}
+
+.dark .prose a:hover {
+  text-decoration-color: var(--color-python-yellow);
+  color: var(--color-python-yellow-dark);
+}
+
+/* ── Inline code ─────────────────────────────────── */
+
+.prose code {
+  font-family: var(--font-mono);
+  background-color: #f0f0ee;
+  padding: 0.15em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.85em;
+  border: 1px solid #e0e0dd;
+  word-break: break-word;
+}
+
+.dark .prose code {
+  background-color: #1e2030;
+  border-color: #2d2d44;
+  color: #e4e4e7;
+}
+
+/* ── Code blocks (pre > code) ────────────────────── */
+
+.prose pre {
+  background-color: #1a1b26;
+  color: #c0caf5;
+  padding: 1.25em 1.5em;
+  border-radius: 0.75em;
+  overflow-x: auto;
+  border: 1px solid #27272a;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+  word-break: normal;
+}
+
+/* ── Images ──────────────────────────────────────── */
+
+.prose img {
+  border-radius: 0.75em;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em 0;
+}
+
+/* Images inside links (common from Blogger) */
+.prose a > img {
+  margin: 0;
+}
+
+/* Images inside tables (Blogger pattern) */
+.prose td img,
+.prose th img {
+  border-radius: 0.5em;
+  margin: 0.5em auto;
+  display: block;
+}
+
+/* ── Blockquotes ─────────────────────────────────── */
+
+.prose blockquote {
+  border-left: 3px solid var(--color-python-yellow);
+  padding: 0.5em 0 0.5em 1.25em;
+  margin: 1.5em 0;
+  margin-right: 0;
+  color: #555e6b;
+  font-style: italic;
+}
+
+.prose blockquote p {
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.dark .prose blockquote {
+  border-left-color: var(--color-python-yellow-dark);
+  color: #9ca3af;
+}
+
+/* ── Lists ───────────────────────────────────────── */
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.625em;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: 1.625em;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+  padding-left: 0.375em;
+}
+
+.prose li > p {
+  margin-bottom: 0.5em;
+}
+
+.prose li::marker {
+  color: var(--color-python-blue);
+}
+
+.dark .prose li::marker {
+  color: var(--color-python-yellow);
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose ul ul {
+  list-style-type: circle;
+}
+
+.prose ul ul ul {
+  list-style-type: square;
+}
+
+/* ── Horizontal rules ────────────────────────────── */
+
+.prose hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-python-blue), var(--color-python-yellow), transparent);
+  margin: 2.5em 0;
+  opacity: 0.3;
+}
+
+.dark .prose hr {
+  opacity: 0.2;
+}
+
+/* ── Tables ──────────────────────────────────────── */
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  display: table;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--color-border-light);
+  padding: 0.6em 0.9em;
+  text-align: left;
+  vertical-align: top;
+}
+
+.dark .prose th,
+.dark .prose td {
+  border-color: var(--color-border-dark);
+}
+
+.prose th {
+  background-color: #f4f4f3;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dark .prose th {
+  background-color: var(--color-surface-dark-alt);
+}
+
+.prose tr:nth-child(even) td {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.dark .prose tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* ── Figures & captions ──────────────────────────── */
+
+.prose figure {
+  margin: 1.5em 0;
+}
+
+.prose figcaption {
+  font-size: 0.875em;
+  color: #6b7280;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.dark .prose figcaption {
+  color: #9ca3af;
+}
+
+/* ── Definition lists ────────────────────────────── */
+
+.prose dt {
+  font-weight: 700;
+  margin-top: 1em;
+  color: var(--color-text-light);
+}
+
+.dark .prose dt {
+  color: var(--color-text-dark);
+}
+
+.prose dd {
+  margin-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* ── Abbreviations ───────────────────────────────── */
+
+.prose abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/* ── Superscript / subscript ─────────────────────── */
+
+.prose sup,
+.prose sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.prose sup {
+  top: -0.5em;
+}
+
+.prose sub {
+  bottom: -0.25em;
+}
+
+/* ── Keyboard input ──────────────────────────────── */
+
+.prose kbd {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.25em;
+  border: 1px solid var(--color-border-light);
+  background-color: #f4f4f3;
+  box-shadow: 0 1px 0 var(--color-border-light);
+}
+
+.dark .prose kbd {
+  border-color: var(--color-border-dark);
+  background-color: var(--color-surface-dark-alt);
+  box-shadow: 0 1px 0 var(--color-border-dark);
+}
+
+/* ── Small text ──────────────────────────────────── */
+
+.prose small {
+  font-size: 0.875em;
+}
+
+/* ── Raw HTML from Blogger migration ─────────────── */
+/* Handle divs, spans, and other inline/block HTML that
+   was converted from Blogger posts. These should inherit
+   prose typography rather than breaking the flow. */
+
+.prose > div {
+  margin-bottom: 1.25em;
+}
+
+.prose > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Blogger tables often have no semantic structure -- remove
+   default border if the table uses inline cellpadding/cellspacing */
+.prose table[cellpadding],
+.prose table[cellspacing] {
+  border: none;
+  margin: 1.5em auto;
+}
+
+.prose table[cellpadding] td,
+.prose table[cellspacing] td {
+  border: none;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 0.875em;
+  color: #6b7280;
+}
+
+.dark .prose table[cellpadding] td,
+.dark .prose table[cellspacing] td {
+  color: #9ca3af;
+}
+
+/* ── Video / iframe embeds ───────────────────────── */
+
+.prose iframe,
+.prose video {
+  max-width: 100%;
+  margin: 1.5em 0;
+  border-radius: 0.75em;
+}
+
+/* ── Details / summary (expandable sections) ─────── */
+
+.prose details {
+  margin: 1.25em 0;
+  padding: 0.75em 1em;
+  border: 1px solid var(--color-border-light);
+  border-radius: 0.5em;
+}
+
+.dark .prose details {
+  border-color: var(--color-border-dark);
+}
+
+.prose summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.dark .prose summary {
+  color: var(--color-text-dark);
+}
+
+/* ── Mark (highlight) ────────────────────────────── */
+
+.prose mark {
+  background-color: var(--color-python-yellow-muted);
+  color: var(--color-text-light);
+  padding: 0.05em 0.2em;
+  border-radius: 0.15em;
+}
+
+.dark .prose mark {
+  background-color: rgba(255, 212, 59, 0.2);
+  color: var(--color-text-dark);
+}
+
+/* ── not-prose escape hatch ──────────────────────── */
+/* Elements with .not-prose inside .prose should not inherit prose
+   typography. We use :where() to lower specificity so that Tailwind
+   utility classes on the header/footer still work normally. The key
+   properties we need to reset are those set by the .prose rules above. */
+
+.prose :where(.not-prose) {
+  max-width: none;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.prose :where(.not-prose) :where(h1, h2, h3, h4, h5, h6) {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.prose :where(.not-prose) :where(a) {
+  color: inherit;
+  text-decoration: inherit;
+  text-underline-offset: initial;
+  text-decoration-color: initial;
+}
+
+.prose :where(.not-prose) :where(p) {
+  margin: 0;
+}
+
+.prose :where(.not-prose) :where(ul, ol) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prose :where(.not-prose) :where(li) {
+  margin: 0;
+  padding: 0;
+}
+
+.prose :where(.not-prose) :where(strong, b) {
+  color: inherit;
+}
+
+.prose :where(.not-prose) :where(code) {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.prose :where(.not-prose) :where(img) {
+  margin: 0;
+  border-radius: 0;
+}
+
+/* ── Scrollbar ───────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3a3a4a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ── Command palette ──────────────────────────────── */
+
+[cmdk-overlay] {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.15s ease;
+}
+
+.dark [cmdk-overlay] {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+[cmdk-dialog] {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+  width: 90vw;
+  max-width: 640px;
+  animation: cmdkIn 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes cmdkIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+[cmdk-root] {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 24px 60px -12px rgba(0, 0, 0, 0.15),
+    0 8px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+.dark [cmdk-root] {
+  background: rgba(15, 17, 23, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 24px 60px -12px rgba(0, 0, 0, 0.5),
+    0 8px 24px -8px rgba(0, 0, 0, 0.3);
+}
+
+.cmdk-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  color: #a1a1aa;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .cmdk-search-icon {
+  color: #52525b;
+}
+
+[cmdk-input] {
+  width: 100%;
+  padding: 16px 20px 16px 48px;
+  font-size: 16px;
+  font-family: var(--font-body);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark [cmdk-input] {
+  color: var(--color-text-dark);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[cmdk-input]::placeholder {
+  color: #a1a1aa;
+}
+
+.dark [cmdk-input]::placeholder {
+  color: #52525b;
+}
+
+[cmdk-list] {
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 8px;
+  scroll-padding: 8px;
+}
+
+[cmdk-group-heading] {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a1a1aa;
+  padding: 8px 12px 4px;
+}
+
+.dark [cmdk-group-heading] {
+  color: #52525b;
+}
+
+[cmdk-item] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+.dark [cmdk-item] {
+  color: var(--color-text-dark);
+}
+
+[cmdk-item][data-selected="true"] {
+  background: rgba(48, 105, 152, 0.08);
+}
+
+.dark [cmdk-item][data-selected="true"] {
+  background: rgba(255, 212, 59, 0.08);
+}
+
+[cmdk-item]:active {
+  opacity: 0.8;
+}
+
+[cmdk-empty] {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+.dark [cmdk-empty] {
+  color: #52525b;
+}
+
+[cmdk-separator] {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 4px 0;
+}
+
+.dark [cmdk-separator] {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Command palette item content ─────────────────── */
+
+.cmdk-post-icon,
+.cmdk-nav-icon {
+  flex-shrink: 0;
+  color: #a1a1aa;
+}
+
+.dark .cmdk-post-icon,
+.dark .cmdk-nav-icon {
+  color: #52525b;
+}
+
+[cmdk-item][data-selected="true"] .cmdk-post-icon {
+  color: var(--color-python-blue);
+}
+
+.dark [cmdk-item][data-selected="true"] .cmdk-post-icon {
+  color: var(--color-python-yellow);
+}
+
+[cmdk-item][data-selected="true"] .cmdk-nav-icon {
+  color: var(--color-python-blue);
+}
+
+.dark [cmdk-item][data-selected="true"] .cmdk-nav-icon {
+  color: var(--color-python-yellow);
+}
+
+.cmdk-post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cmdk-post-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.cmdk-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #a1a1aa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dark .cmdk-post-meta {
+  color: #52525b;
+}
+
+.cmdk-meta-sep {
+  opacity: 0.5;
+}
+
+.cmdk-post-tags {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmdk-more-results {
+  padding: 6px 12px 2px;
+  font-size: 12px;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+.dark .cmdk-more-results {
+  color: #52525b;
+}
+
+.cmdk-loading {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+.dark .cmdk-loading {
+  color: #52525b;
+}
+
+/* ── Command palette kbd pills ────────────────────── */
+
+.cmdk-kbd {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #e4e4e7;
+  background: #f4f4f5;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #a1a1aa;
+}
+
+.dark .cmdk-kbd {
+  border-color: #27272a;
+  background: #1e2030;
+  color: #52525b;
+}
+
+.cmdk-kbd-inner {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Command palette footer ───────────────────────── */
+
+.cmdk-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px 16px;
+}
+
+.dark .cmdk-footer {
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+.cmdk-footer-hints {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cmdk-footer-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #a1a1aa;
+}
+
+.dark .cmdk-footer-hint {
+  color: #52525b;
+}
+
+.cmdk-kbd-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid #e4e4e7;
+  background: #f4f4f5;
+  padding: 0 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #a1a1aa;
+}
+
+.dark .cmdk-kbd-sm {
+  border-color: #27272a;
+  background: #1e2030;
+  color: #52525b;
+}
+
+/* ── Chord shortcut hints (Linear-style G then H) ──── */
+
+.cmdk-chord {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.cmdk-chord-then {
+  font-size: 10px;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+.dark .cmdk-chord-then {
+  color: #52525b;
+}
+
+/* ── Shortcuts panel ───────────────────────────────── */
+
+.cmdk-shortcuts-panel {
+  padding: 16px 20px 20px;
+}
+
+.cmdk-shortcuts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.dark .cmdk-shortcuts-header {
+  color: var(--color-text-dark);
+}
+
+.cmdk-shortcuts-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cmdk-shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cmdk-shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.cmdk-shortcut-row:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.dark .cmdk-shortcut-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cmdk-shortcut-label {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+.dark .cmdk-shortcut-label {
+  color: var(--color-text-dark);
+}
+
+.cmdk-shortcut-keys {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Floating ? button ─────────────────────────────── */
+
+.shortcut-hint-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #e4e4e7;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  color: #a1a1aa;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.shortcut-hint-btn:hover {
+  border-color: #a1a1aa;
+  color: #52525b;
+  background: #fff;
+}
+
+.dark .shortcut-hint-btn {
+  border-color: #27272a;
+  background: rgba(15, 17, 23, 0.9);
+  color: #52525b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dark .shortcut-hint-btn:hover {
+  border-color: #3f3f46;
+  color: #a1a1aa;
+  background: #161822;
+}
+
+/* ── Python community reference badges ──────────────── */
+/*
+ * Styled inline badges for PEP, PyPI, GitHub repo/user links.
+ * Applied automatically by the remark-python-refs plugin,
+ * and available via explicit <Pep>, <PyPi>, etc. components.
+ */
+
+.prose .ref-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px 1px 6px;
+  border-radius: 6px;
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1.6;
+  text-decoration: none;
+  border: 1px solid;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.prose .ref-badge:hover {
+  text-decoration: none;
+}
+
+.ref-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ref-external {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+
+.prose .ref-badge:hover .ref-external {
+  opacity: 0.7;
+}
+
+/* ── PEP — Python blue ──────────────────────────────── */
+
+.prose .ref-pep {
+  color: #1e4f7a;
+  background-color: rgba(48, 105, 152, 0.08);
+  border-color: rgba(48, 105, 152, 0.2);
+}
+
+.prose .ref-pep:hover {
+  color: #1a3f62;
+  background-color: rgba(48, 105, 152, 0.14);
+  border-color: rgba(48, 105, 152, 0.35);
+}
+
+.dark .prose .ref-pep {
+  color: #7fb8e4;
+  background-color: rgba(48, 105, 152, 0.15);
+  border-color: rgba(48, 105, 152, 0.3);
+}
+
+.dark .prose .ref-pep:hover {
+  color: #9ccbf0;
+  background-color: rgba(48, 105, 152, 0.22);
+  border-color: rgba(48, 105, 152, 0.45);
+}
+
+/* ── CPython docs — Purple ──────────────────────────── */
+
+.prose .ref-docs {
+  color: #5b3a8c;
+  background-color: rgba(100, 60, 160, 0.07);
+  border-color: rgba(100, 60, 160, 0.18);
+}
+
+.prose .ref-docs:hover {
+  color: #4a2d75;
+  background-color: rgba(100, 60, 160, 0.13);
+  border-color: rgba(100, 60, 160, 0.32);
+}
+
+.dark .prose .ref-docs {
+  color: #b89adf;
+  background-color: rgba(140, 100, 200, 0.12);
+  border-color: rgba(140, 100, 200, 0.25);
+}
+
+.dark .prose .ref-docs:hover {
+  color: #cdb5ec;
+  background-color: rgba(140, 100, 200, 0.2);
+  border-color: rgba(140, 100, 200, 0.4);
+}
+
+/* ── PyPI — Amber/orange ────────────────────────────── */
+
+.prose .ref-pypi {
+  color: #92600a;
+  background-color: rgba(180, 120, 20, 0.08);
+  border-color: rgba(180, 120, 20, 0.2);
+}
+
+.prose .ref-pypi:hover {
+  color: #7a5008;
+  background-color: rgba(180, 120, 20, 0.14);
+  border-color: rgba(180, 120, 20, 0.35);
+}
+
+.dark .prose .ref-pypi {
+  color: #e4b85c;
+  background-color: rgba(200, 150, 40, 0.12);
+  border-color: rgba(200, 150, 40, 0.25);
+}
+
+.dark .prose .ref-pypi:hover {
+  color: #f0cc7a;
+  background-color: rgba(200, 150, 40, 0.2);
+  border-color: rgba(200, 150, 40, 0.4);
+}
+
+/* ── GitHub repo — Teal ─────────────────────────────── */
+
+.prose .ref-gh-repo {
+  color: #155e5e;
+  background-color: rgba(20, 140, 140, 0.07);
+  border-color: rgba(20, 140, 140, 0.18);
+}
+
+.prose .ref-gh-repo:hover {
+  color: #104c4c;
+  background-color: rgba(20, 140, 140, 0.13);
+  border-color: rgba(20, 140, 140, 0.32);
+}
+
+.dark .prose .ref-gh-repo {
+  color: #5cc9c9;
+  background-color: rgba(40, 180, 180, 0.1);
+  border-color: rgba(40, 180, 180, 0.22);
+}
+
+.dark .prose .ref-gh-repo:hover {
+  color: #7adada;
+  background-color: rgba(40, 180, 180, 0.18);
+  border-color: rgba(40, 180, 180, 0.38);
+}
+
+/* ── GitHub user/org — Neutral gray ──────────────────── */
+
+.prose .ref-gh-user {
+  color: #3f3f46;
+  background-color: rgba(100, 100, 110, 0.06);
+  border-color: rgba(100, 100, 110, 0.16);
+}
+
+.prose .ref-gh-user:hover {
+  color: #27272a;
+  background-color: rgba(100, 100, 110, 0.12);
+  border-color: rgba(100, 100, 110, 0.3);
+}
+
+.dark .prose .ref-gh-user {
+  color: #a1a1aa;
+  background-color: rgba(160, 160, 170, 0.08);
+  border-color: rgba(160, 160, 170, 0.18);
+}
+
+.dark .prose .ref-gh-user:hover {
+  color: #d4d4d8;
+  background-color: rgba(160, 160, 170, 0.14);
+  border-color: rgba(160, 160, 170, 0.32);
+}

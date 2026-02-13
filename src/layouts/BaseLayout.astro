@@ -1,0 +1,43 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../assets/styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  fullWidth?: boolean;
+}
+
+const { title, description, image, fullWidth = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+  </head>
+  <body class="flex min-h-screen flex-col bg-[#fafaf9] text-[#1a1a2e] dark:bg-[#0f1117] dark:text-[#e4e4e7]">
+    <Header />
+    <main class:list={[
+      "flex-1",
+      !fullWidth && "mx-auto w-full max-w-6xl px-6 py-10",
+    ]}>
+      <slot />
+    </main>
+    <Footer />
+    <button
+      id="shortcut-hint"
+      class="shortcut-hint-btn"
+      aria-label="Keyboard shortcuts"
+      title="Keyboard shortcuts (?)"
+    >?</button>
+    <script>
+      document.getElementById("shortcut-hint")?.addEventListener("click", () => {
+        document.dispatchEvent(new CustomEvent("show-keyboard-shortcuts"));
+      });
+    </script>
+  </body>
+</html>

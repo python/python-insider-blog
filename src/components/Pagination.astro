@@ -1,0 +1,68 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+function pageUrl(page: number): string {
+  if (page === 1) return baseUrl;
+  return `${baseUrl}/${page}`;
+}
+
+// Show max 7 page numbers with ellipsis
+function getVisiblePages(): (number | "...")[] {
+  if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+  const pages: (number | "...")[] = [1];
+  const start = Math.max(2, currentPage - 1);
+  const end = Math.min(totalPages - 1, currentPage + 1);
+  if (start > 2) pages.push("...");
+  for (let i = start; i <= end; i++) pages.push(i);
+  if (end < totalPages - 1) pages.push("...");
+  pages.push(totalPages);
+  return pages;
+}
+---
+
+{totalPages > 1 && (
+  <nav class="flex items-center justify-center gap-1.5 py-10" aria-label="Pagination">
+    {currentPage > 1 && (
+      <a
+        href={pageUrl(currentPage - 1)}
+        class="rounded-lg border border-zinc-300 px-3.5 py-2 text-sm font-medium text-zinc-700 transition-all hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-800"
+      >
+        &larr; Prev
+      </a>
+    )}
+
+    {getVisiblePages().map((page) =>
+      page === "..." ? (
+        <span class="px-2 text-sm text-zinc-400 dark:text-zinc-500">&hellip;</span>
+      ) : (
+        <a
+          href={pageUrl(page)}
+          class:list={[
+            "rounded-lg px-3.5 py-2 text-sm font-medium transition-all",
+            page === currentPage
+              ? "bg-[#306998] text-white shadow-sm dark:bg-[#ffd43b] dark:text-zinc-900"
+              : "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800",
+          ]}
+          aria-current={page === currentPage ? "page" : undefined}
+        >
+          {page}
+        </a>
+      )
+    )}
+
+    {currentPage < totalPages && (
+      <a
+        href={pageUrl(currentPage + 1)}
+        class="rounded-lg border border-zinc-300 px-3.5 py-2 text-sm font-medium text-zinc-700 transition-all hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-800"
+      >
+        Next &rarr;
+      </a>
+    )}
+  </nav>
+)}

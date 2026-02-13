@@ -1,0 +1,83 @@
+---
+export const prerender = true;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { slugify } from "../../lib/utils";
+
+const allPosts = await getCollection("posts");
+const publishedPosts = allPosts.filter((p) => p.data.published);
+const allAuthors = await getCollection("authors");
+
+const authorCounts = new Map<string, number>();
+for (const post of publishedPosts) {
+  const slug = slugify(post.data.author);
+  authorCounts.set(slug, (authorCounts.get(slug) || 0) + 1);
+}
+
+const authorsWithCounts = allAuthors
+  .map((a) => ({
+    slug: a.id,
+    name: a.data.name,
+    github: a.data.github,
+    count: authorCounts.get(a.id) || 0,
+  }))
+  .filter((a) => a.count > 0)
+  .sort((a, b) => b.count - a.count);
+
+const maxCount = authorsWithCounts[0]?.count ?? 1;
+---
+
+<BaseLayout title="Authors | Python Insider">
+  <div class="animate-fade-up">
+    <h1
+      class="text-3xl font-bold text-zinc-900 dark:text-zinc-100"
+      style="font-family: var(--font-display); letter-spacing: -0.02em;"
+    >
+      Authors
+    </h1>
+    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+      {authorsWithCounts.length} authors across {publishedPosts.length} posts
+    </p>
+  </div>
+
+  <div class="mt-10 animate-fade-up stagger-2 space-y-1.5">
+    {authorsWithCounts.map((author) => {
+      const pct = Math.round((author.count / maxCount) * 100);
+      return (
+        <a
+          href={`/authors/${author.slug}`}
+          class="group flex items-center gap-4 rounded-lg px-4 py-3 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
+        >
+          {author.github ? (
+            <img
+              src={`https://github.com/${author.github}.png`}
+              alt=""
+              class="h-7 w-7 flex-shrink-0 rounded-full"
+              loading="lazy"
+            />
+          ) : (
+            <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-zinc-200 text-xs font-bold text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+              {author.name.charAt(0)}
+            </div>
+          )}
+          <span
+            class="w-44 flex-shrink-0 text-sm font-semibold text-zinc-800 dark:text-zinc-200 truncate"
+            style="font-family: var(--font-display);"
+          >
+            {author.name}
+          </span>
+          <div class="flex-1 h-2 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+            <div
+              class="h-full rounded-full bg-[#306998] dark:bg-[#ffd43b] transition-all duration-500 group-hover:opacity-80"
+              style={`width: ${Math.max(pct, 3)}%;`}
+            />
+          </div>
+          <span class="w-10 flex-shrink-0 text-right text-xs tabular-nums font-medium text-zinc-400 dark:text-zinc-500">
+            {author.count}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</BaseLayout>

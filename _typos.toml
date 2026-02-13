@@ -1,0 +1,46 @@
+[files]
+extend-exclude = [
+  "bun.lock",
+  "node_modules/",
+  "dist/",
+  ".astro/",
+  "*.min.js",
+]
+
+[default]
+extend-ignore-re = [
+  # Markdown frontmatter dates
+  "publishDate:.*",
+  "updatedDate:.*",
+  # URLs
+  "https?://[^\\s)\"'>]+",
+  # HTML entities
+  "&[a-z]+;",
+]
+
+[default.extend-words]
+# Author names
+Wouters = "Wouters"
+Brandl = "Brandl"
+Hamel = "Hamel"
+Deily = "Deily"
+Durbin = "Durbin"
+Hastings = "Hastings"
+Kuchling = "Kuchling"
+Galindo = "Galindo"
+Driscoll = "Driscoll"
+Jenvey = "Jenvey"
+Langa = "Langa"
+haypo = "haypo"
+# Python/tech terms
+pyc = "pyc"
+pyo = "pyo"
+repr = "repr"
+compat = "compat"
+noreply = "noreply"
+# Common in migrated Blogger content
+ba = "ba"
+iff = "iff"
+nd = "nd"
+ons = "ons"
+te = "te"

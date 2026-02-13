@@ -1,0 +1,18 @@
+---
+import { githubIcon, externalIcon } from "./_icons";
+
+interface Props {
+  name: string;
+  label?: string;
+}
+
+const { name, label } = Astro.props;
+const displayText = label ?? `@${name}`;
+const href = `https://github.com/${name}`;
+---
+
+<a href={href} class="ref-badge ref-gh-user" target="_blank" rel="noopener noreferrer">
+  <span class="ref-icon" set:html={githubIcon} />
+  <span class="ref-label">{displayText}</span>
+  <span class="ref-external" set:html={externalIcon} />
+</a>

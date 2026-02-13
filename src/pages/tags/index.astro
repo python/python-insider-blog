@@ -1,0 +1,60 @@
+---
+export const prerender = true;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+const publishedPosts = allPosts.filter((p) => p.data.published);
+
+const tagCounts = new Map<string, number>();
+for (const post of publishedPosts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  }
+}
+const sortedTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+const maxCount = sortedTags[0]?.[1] ?? 1;
+---
+
+<BaseLayout title="Tags | Python Insider">
+  <div class="animate-fade-up">
+    <h1
+      class="text-3xl font-bold text-zinc-900 dark:text-zinc-100"
+      style="font-family: var(--font-display); letter-spacing: -0.02em;"
+    >
+      Tags
+    </h1>
+    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+      {sortedTags.length} tags across {publishedPosts.length} posts
+    </p>
+  </div>
+
+  <div class="mt-10 animate-fade-up stagger-2 space-y-1.5">
+    {sortedTags.map(([tag, count]) => {
+      const pct = Math.round((count / maxCount) * 100);
+      return (
+        <a
+          href={`/tags/${tag}`}
+          class="group flex items-center gap-4 rounded-lg px-4 py-3 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
+        >
+          <span
+            class="w-28 flex-shrink-0 text-sm font-semibold text-zinc-800 dark:text-zinc-200 truncate"
+            style="font-family: var(--font-display);"
+          >
+            {tag}
+          </span>
+          <div class="flex-1 h-2 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+            <div
+              class="h-full rounded-full bg-[#306998] dark:bg-[#ffd43b] transition-all duration-500 group-hover:opacity-80"
+              style={`width: ${Math.max(pct, 3)}%;`}
+            />
+          </div>
+          <span class="w-10 flex-shrink-0 text-right text-xs tabular-nums font-medium text-zinc-400 dark:text-zinc-500">
+            {count}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</BaseLayout>

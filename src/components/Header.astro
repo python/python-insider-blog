@@ -1,0 +1,115 @@
+---
+import PythonLogo from "./PythonLogo.astro";
+import CommandPalette from "./CommandPalette";
+const isDev = import.meta.env.DEV;
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-xl dark:border-zinc-800 dark:bg-[#0f1117]/80">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+    <a href="/" class="group flex items-center gap-2.5">
+      <PythonLogo width={30} height={30} class="transition-transform duration-300 group-hover:scale-110" />
+      <span class="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100" style="font-family: var(--font-display);">
+        Python Insider
+      </span>
+    </a>
+
+    <div class="flex items-center gap-1">
+      {navItems.map(({ label, href }) => (
+        <a
+          href={href}
+          class:list={[
+            "rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200",
+            currentPath === href || (href !== "/" && currentPath.startsWith(href))
+              ? "bg-[#306998]/10 text-[#306998] dark:bg-[#ffd43b]/10 dark:text-[#ffd43b]"
+              : "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-100",
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+
+      {isDev && (
+        <a
+          href="/keystatic"
+          class="ml-1 flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-zinc-500 transition-all hover:bg-amber-50 hover:text-amber-700 dark:text-zinc-400 dark:hover:bg-amber-900/20 dark:hover:text-amber-400"
+          title="Keystatic CMS"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+          CMS
+        </a>
+      )}
+
+      <div class="mx-2 h-5 w-px bg-zinc-200 dark:bg-zinc-700" aria-hidden="true"></div>
+
+      <button
+        id="search-trigger"
+        type="button"
+        class="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-sm text-zinc-500 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800"
+        aria-label="Search (Cmd+K)"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <span class="hidden text-xs text-zinc-400 sm:inline">Search</span>
+        <kbd class="hidden items-center gap-0.5 rounded-md border border-zinc-200 bg-zinc-50 px-1.5 py-0.5 text-[10px] font-medium text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-500 sm:inline-flex">&#8984;K</kbd>
+      </button>
+
+      <a
+        href="/rss.xml"
+        class="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-orange-50 hover:text-orange-600 dark:text-zinc-400 dark:hover:bg-orange-900/20 dark:hover:text-orange-400"
+        title="RSS Feed"
+      >
+        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6.18 15.64a2.18 2.18 0 012.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 012.18-2.18zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zM4 10.1a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/>
+        </svg>
+      </a>
+
+      <button
+        id="theme-toggle"
+        class="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
+        aria-label="Toggle dark mode"
+      >
+        <svg class="h-4 w-4 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <svg class="hidden h-4 w-4 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+
+  function setTheme(dark: boolean) {
+    html.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }
+
+  const stored = localStorage.getItem("theme");
+  if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    html.classList.add("dark");
+  }
+
+  toggle?.addEventListener("click", () => {
+    setTheme(!html.classList.contains("dark"));
+  });
+
+  const searchTrigger = document.getElementById("search-trigger");
+  searchTrigger?.addEventListener("click", () => {
+    document.dispatchEvent(new CustomEvent("toggle-command-palette"));
+  });
+</script>
+
+<CommandPalette client:idle />

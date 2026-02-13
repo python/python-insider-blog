@@ -1,0 +1,12 @@
+---
+title: New Contributor Experience in Python and other FOSS Communities - A Survey
+publishDate: '2012-11-19'
+updatedDate: '2012-11-19'
+author: Brian Curtin
+description: 'If you have joined the community of developers contributing to CPython since January 2010, I hope you can find a few spare minutes to participate in a survey...'
+tags: []
+published: true
+legacyUrl: /2012/11/new-contributor-experience-in-python.html
+---
+
+**If you have joined the community of developers contributing to CPython since January 2010, I hope you can find a few spare minutes to participate in a survey being put on by Kevin Carillo. He’s a Ph. D. student at Victoria University of Wellington completing research on new contributors to free and open source projects. Kevin is interested in hearing from everyone from technical to non-technical contributors, whether you had positive or negative experiences. The survey is available at [https://limesurvey.sim.vuw.ac.nz/index.php?sid=65151&lang=en](https://limesurvey.sim.vuw.ac.nz/index.php?sid=65151&lang=en). Kevin states, “The goal of this research is to understand how a person's experience as a newcomer to a Free/Open Source Software (FOSS) community influences that person's behavior and contributions within that community.” He estimates that the survey will take around 20 minutes to complete. Throughout the nearly three year period since January 2010, over 40 [committers](http://docs.python.org/devguide/developers.html) were added and countless others contributed patches, reviews, and bug triage. Since the creation of the [Core-Mentors](http://pythonmentors.com/) group in March 2011, we’ve seen many first timers come through and have their work committed and released. We hope that the mentorship group has helped introduce contributors in a positive manner, so we’re looking forward to the results of Kevin’s studies. One of the things Kevin hopes to find is whether or not formal mentorship programs work for introducing contributors. He also looks to find answers to how much community support of newcomers matters, whether formal joining processes involving sponsorship work, and if newcomer specific tasks are the way to go. If you have the time, please fill out [the survey](https://limesurvey.sim.vuw.ac.nz/index.php?sid=65151&lang=en). Python is participating in this survey along with several other groups including Debian, KDE, Gnome, openSUSE, and OpenHatch. Perhaps we can learn a few things and create an even better experience for new contributors!**

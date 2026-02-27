@@ -28,7 +28,7 @@ if (isDev) {
 }
 
 export default defineConfig({
-  site: "https://blog-stage.python.org",
+  site: "https://blog.python.org",
   base: "/",
   integrations,
   output: isDev ? "server" : "static",

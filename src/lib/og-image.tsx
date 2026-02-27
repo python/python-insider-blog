@@ -67,18 +67,18 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
         <div
           style={{
             position: "absolute",
-            right: "-30",
-            bottom: "-40",
-            width: "320",
-            height: "320",
+            right: "40",
+            bottom: "60",
+            width: "280",
+            height: "280",
             display: "flex",
             opacity: 0.06,
           }}
         >
           <svg
             viewBox="0 0 256 255"
-            width="320"
-            height="320"
+            width="280"
+            height="280"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path

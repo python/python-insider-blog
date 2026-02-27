@@ -18,10 +18,12 @@
     "@astrojs/sitemap": "^3.7.0",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.48",
+    "@resvg/resvg-js": "^2.6.2",
     "astro": "^5.17.1",
     "cmdk": "^1.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "satori": "^0.19.2",
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {

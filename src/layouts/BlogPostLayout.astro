@@ -43,7 +43,7 @@ const sortedGroups = [...refGroups.entries()]
   .sort((a, b) => (groupMeta[a[0]]?.order ?? 99) - (groupMeta[b[0]]?.order ?? 99));
 ---
 
-<BaseLayout title={`${title} | Python Insider`} description={description ?? undefined}>
+<BaseLayout title={`${title} | Python Insider`} description={description ?? undefined} image={slug ? withBase(`/og/${slug}.png`) : undefined}>
   <div class="relative mx-auto flex max-w-6xl gap-10">
     <article class="prose mx-auto min-w-0 max-w-3xl flex-1">
       <header class="not-prose mb-10 animate-fade-up">

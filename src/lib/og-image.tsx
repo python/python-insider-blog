@@ -180,9 +180,11 @@ export function OgPageImage({ title, subtitle, detail }: OgPageImageProps): Reac
 
 export function OgAuthorImage({
   name,
+  bio,
   postCount,
 }: {
   name: string;
+  bio?: string;
   postCount: number;
 }): ReactNode {
   return (
@@ -222,6 +224,19 @@ export function OgAuthorImage({
           >
             {name}
           </div>
+          {bio && (
+            <div
+              style={{
+                fontSize: "22",
+                fontWeight: 400,
+                color: "#a1a1aa",
+                lineHeight: 1.4,
+                maxWidth: "700",
+              }}
+            >
+              {bio}
+            </div>
+          )}
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "16" }}>

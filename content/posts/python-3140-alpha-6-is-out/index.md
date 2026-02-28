@@ -2,7 +2,7 @@
 title: Python 3.14.0 alpha 6 is out
 publishDate: '2025-03-14'
 updatedDate: '2025-04-08'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Here comes the penultimate alpha. https://www.python.org/downloads/release/python-3140a6/ This is an early developer preview of Python 3.14 Major new feature...'
 tags:
   - releases

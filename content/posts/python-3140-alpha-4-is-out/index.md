@@ -2,7 +2,7 @@
 title: Python 3.14.0 alpha 4 is out
 publishDate: '2025-01-14'
 updatedDate: '2025-02-25'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Hello, three dot fourteen dot zero alpha four! https://www.python.org/downloads/release/python-3140a4/ This is an early developer preview of Python 3.14 Majo...'
 tags:
   - releases

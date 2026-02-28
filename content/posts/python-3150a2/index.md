@@ -2,7 +2,7 @@
 title: Python 3.15.0 alpha 2
 publishDate: '2025-11-19'
 updatedDate: '2025-11-19'
-author: Hugo
+author: Hugo van Kemenade
 description: 'This is an early developer preview of Python 3.15 https://www.python.org/downloads/release/python-3150a2/ Major new features of the 3.15 series, compared to ...'
 tags:
   - releases
@@ -42,7 +42,7 @@ The next pre-release of Python 3.15 will be 3.15.0a3, currently scheduled for 20
 # And now for something completely different
 
 > “An hour,” said Ahab, standing rooted in his boat’s stern; and he gazed beyond the whale’s place, towards the dim blue spaces and wide wooing vacancies to leeward. It was only an instant; for again his eyes seemed whirling round in his head as he swept the watery circle. The breeze now freshened; the sea began to swell.
-> 
+>
 > “The birds!—the birds!” cried Tashtego.
 
 # Enjoy the new release

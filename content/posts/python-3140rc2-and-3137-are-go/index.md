@@ -2,7 +2,7 @@
 title: 'Python 3.14.0rc2 and 3.13.7 are go!'
 publishDate: '2025-08-14'
 updatedDate: '2025-08-14'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Not one but two expedited releases! 🎉 🎉 Python 3.14.0rc2 It’s the ~final~ 🪄 penultimate 🪄 3.14 release candidate! https://www.python.org/downloads/releas...'
 tags:
   - releases

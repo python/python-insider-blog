@@ -2,7 +2,7 @@
 title: Python 3.14.0 alpha 3 is out
 publishDate: '2024-12-17'
 updatedDate: '2024-12-17'
-author: Hugo
+author: Hugo van Kemenade
 description: 'O Alpha 3, O Alpha 3, how lovely are your branches! https://www.python.org/downloads/release/python-3140a3/ This is an early developer preview of Python 3.14...'
 tags:
   - releases

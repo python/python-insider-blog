@@ -2,7 +2,7 @@
 title: Python 3.15.0 alpha 4
 publishDate: '2026-01-13'
 updatedDate: '2026-01-15'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Edit: This 3.15.0a4 was accidentally built against \ from 2025-12-23 instead of 2026-01-13, so 3.15.0a5 is an extra release correctly built against 2026-01-1...'
 tags:
   - releases
@@ -45,11 +45,11 @@ The next pre-release of Python 3.15 will be 3.15.0a5, currently scheduled for 20
 ## And now for something completely different
 
 > Upon this every soul was confounded; for the phenomenon just then observed by Ahab had unaccountably escaped every one else; but its very blinding palpableness must have been the cause.
-> 
+>
 > Thrusting his head half way into the binnacle, Ahab caught one glimpse of the compasses; his uplifted arm slowly fell; for a moment he almost seemed to stagger. Standing behind him Starbuck looked, and lo! the two compasses pointed East, and the Pequod was as infallibly going West.
-> 
+>
 > But ere the first wild alarm could get out abroad among the crew, the old man with a rigid laugh exclaimed, “I have it! It has happened before. Mr. Starbuck, last night’s thunder turned our compasses—that’s all. Thou hast before now heard of such a thing, I take it.”
-> 
+>
 > “Aye; but never before has it happened to me, sir,” said the pale mate, gloomily.
 
 ## Enjoy the new release

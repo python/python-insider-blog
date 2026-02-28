@@ -25,18 +25,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
       params: { author: author.id },
       props: {
         name: author.data.name,
+        bio: author.data.bio,
         postCount: authorCounts.get(author.id) || 0,
       },
     }));
 };
 
 export const GET: APIRoute = async ({ props }) => {
-  const { name, postCount } = props as { name: string; postCount: number };
+  const { name, bio, postCount } = props as { name: string; bio?: string; postCount: number };
 
   const fonts = await getFonts();
 
   const svg = await satori(
-    OgAuthorImage({ name, postCount }),
+    OgAuthorImage({ name, bio, postCount }),
     { width: 1200, height: 630, fonts },
   );
 

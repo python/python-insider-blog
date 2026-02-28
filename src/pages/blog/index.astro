@@ -28,6 +28,8 @@ const topTags = [...tagCounts.entries()]
   .sort((a, b) => b[1] - a[1])
   .slice(0, 20);
 
+const ogImage = withBase("/og/blog.png");
+
 // Collect years for sidebar
 const yearSet = new Set<number>();
 for (const post of posts) {
@@ -36,7 +38,7 @@ for (const post of posts) {
 const years = [...yearSet].sort((a, b) => b - a);
 ---
 
-<BaseLayout title="Blog | Python Insider">
+<BaseLayout title="Blog | Python Insider" image={ogImage}>
   <div class="animate-fade-up">
     <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100" style="font-family: var(--font-display); letter-spacing: -0.02em;">All Posts</h1>
     <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{posts.length} posts from the Python core development team</p>

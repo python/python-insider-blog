@@ -17,7 +17,7 @@ const totalPosts = posts.length;
 const authors = new Set(posts.map((p) => p.data.author));
 ---
 
-<BaseLayout title="Python Insider" fullWidth>
+<BaseLayout title="Python Insider" image={withBase("/og/index.png")} fullWidth>
   <!-- Compact editorial strip -->
   <div class="border-b border-zinc-200 dark:border-zinc-800">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2.5">

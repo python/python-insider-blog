@@ -7,8 +7,9 @@ interface Props {
 
 import { withBase } from "../lib/utils";
 const { title, description = "The official blog of the Python core development team.", image } = Astro.props;
+const baseUrl = import.meta.env.DEV ? Astro.url.origin : Astro.site;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? new URL(image, Astro.site) : new URL(withBase("/og-default.png"), Astro.site);
+const ogImage = image ? new URL(image, baseUrl) : new URL(withBase("/og-default.png"), baseUrl);
 ---
 
 <meta charset="utf-8" />

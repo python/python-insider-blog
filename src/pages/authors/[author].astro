@@ -45,7 +45,7 @@ const { slug, author, posts } = Astro.props;
 const avatarUrl = author.avatar || (author.github ? `https://github.com/${author.github}.png` : "");
 ---
 
-<BaseLayout title={`${author.name} | Python Insider`}>
+<BaseLayout title={`${author.name} | Python Insider`} image={withBase(`/og/authors/${slug}.png`)}>
   <div class="animate-fade-up">
     <a
       href={withBase("/authors")}

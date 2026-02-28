@@ -7,11 +7,18 @@ interface OgImageProps {
   tags: string[];
 }
 
-export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode {
-  // Truncate title if too long
-  const displayTitle = title.length > 100 ? title.slice(0, 97) + "…" : title;
-  const displayTags = tags.slice(0, 4);
+interface OgPageImageProps {
+  title: string;
+  subtitle: string;
+  detail?: string;
+}
 
+const pythonLogoBlue =
+  "M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z";
+const pythonLogoYellow =
+  "M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z";
+
+function OgShell({ children }: { children: ReactNode }): ReactNode {
   return (
     <div
       style={{
@@ -25,7 +32,7 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
         overflow: "hidden",
       }}
     >
-      {/* Subtle geometric pattern — diagonal lines */}
+      {/* Subtle geometric pattern */}
       <div
         style={{
           position: "absolute",
@@ -40,7 +47,6 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
           backgroundSize: "56px 56px",
         }}
       />
-
       {/* Top accent bar */}
       <div
         style={{
@@ -51,8 +57,63 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
           flexShrink: 0,
         }}
       />
+      {children}
+    </div>
+  );
+}
 
-      {/* Content area */}
+function SiteBadge(): ReactNode {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "10" }}>
+      <div
+        style={{
+          width: "32",
+          height: "32",
+          borderRadius: "8",
+          background: "linear-gradient(135deg, #306998, #4B8BBE)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <svg width="18" height="18" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg">
+          <path d={pythonLogoBlue} fill="white" />
+          <path d={pythonLogoYellow} fill="rgba(255,255,255,0.6)" />
+        </svg>
+      </div>
+      <span
+        style={{ fontSize: "20", fontWeight: 600, color: "#a1a1aa", letterSpacing: "-0.01em" }}
+      >
+        Python Insider
+      </span>
+    </div>
+  );
+}
+
+function LogoWatermark(): ReactNode {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        right: "40",
+        bottom: "60",
+        width: "280",
+        height: "280",
+        display: "flex",
+        opacity: 0.06,
+      }}
+    >
+      <svg viewBox="0 0 256 255" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+        <path d={pythonLogoBlue} fill="#306998" />
+        <path d={pythonLogoYellow} fill="#ffd43b" />
+      </svg>
+    </div>
+  );
+}
+
+export function OgPageImage({ title, subtitle, detail }: OgPageImageProps): ReactNode {
+  return (
+    <OgShell>
       <div
         style={{
           display: "flex",
@@ -63,91 +124,137 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
           position: "relative",
         }}
       >
-        {/* Python logo watermark */}
-        <div
-          style={{
-            position: "absolute",
-            right: "40",
-            bottom: "60",
-            width: "280",
-            height: "280",
-            display: "flex",
-            opacity: 0.06,
-          }}
-        >
-          <svg
-            viewBox="0 0 256 255"
-            width="280"
-            height="280"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z"
-              fill="#306998"
-            />
-            <path
-              d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z"
-              fill="#ffd43b"
-            />
-          </svg>
-        </div>
+        <LogoWatermark />
+        <SiteBadge />
 
-        {/* Top section: site name */}
+        {/* Center: large title + subtitle */}
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            gap: "12",
+            flexDirection: "column",
+            flex: 1,
+            justifyContent: "center",
+            marginTop: "-16",
+            gap: "16",
           }}
         >
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10",
+              fontSize: "64",
+              fontWeight: 700,
+              color: "#fafafa",
+              lineHeight: 1.15,
+              letterSpacing: "-0.03em",
             }}
           >
-            <div
-              style={{
-                width: "32",
-                height: "32",
-                borderRadius: "8",
-                background: "linear-gradient(135deg, #306998, #4B8BBE)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 256 255"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z"
-                  fill="white"
-                />
-                <path
-                  d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z"
-                  fill="rgba(255,255,255,0.6)"
-                />
-              </svg>
-            </div>
-            <span
-              style={{
-                fontSize: "20",
-                fontWeight: 600,
-                color: "#a1a1aa",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Python Insider
-            </span>
+            {title}
+          </div>
+          <div
+            style={{
+              fontSize: "24",
+              fontWeight: 400,
+              color: "#a1a1aa",
+              lineHeight: 1.4,
+              maxWidth: "700",
+            }}
+          >
+            {subtitle}
           </div>
         </div>
 
-        {/* Middle section: title */}
+        {/* Bottom detail */}
+        {detail && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ fontSize: "18", color: "#71717a" }}>{detail}</span>
+          </div>
+        )}
+      </div>
+    </OgShell>
+  );
+}
+
+export function OgAuthorImage({
+  name,
+  postCount,
+}: {
+  name: string;
+  postCount: number;
+}): ReactNode {
+  return (
+    <OgShell>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          padding: "56px 64px 48px",
+          justifyContent: "space-between",
+          position: "relative",
+        }}
+      >
+        <LogoWatermark />
+        <SiteBadge />
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            justifyContent: "center",
+            marginTop: "-16",
+            gap: "16",
+          }}
+        >
+          <div style={{ fontSize: "24", fontWeight: 400, color: "#71717a" }}>Author</div>
+          <div
+            style={{
+              fontSize: "64",
+              fontWeight: 700,
+              color: "#fafafa",
+              lineHeight: 1.15,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            {name}
+          </div>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "16" }}>
+          <span style={{ fontSize: "18", fontWeight: 600, color: "#ffd43b" }}>
+            {postCount} {postCount === 1 ? "post" : "posts"}
+          </span>
+          <span style={{ fontSize: "18", color: "#52525b" }}>·</span>
+          <span style={{ fontSize: "18", color: "#71717a" }}>Python Insider</span>
+        </div>
+      </div>
+    </OgShell>
+  );
+}
+
+export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode {
+  const displayTitle = title.length > 100 ? title.slice(0, 97) + "…" : title;
+  const displayTags = tags.slice(0, 4);
+
+  return (
+    <OgShell>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          padding: "56px 64px 48px",
+          justifyContent: "space-between",
+          position: "relative",
+        }}
+      >
+        <LogoWatermark />
+        <SiteBadge />
+
         <div
           style={{
             display: "flex",
@@ -171,7 +278,6 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
           </div>
         </div>
 
-        {/* Bottom section: author, date, tags */}
         <div
           style={{
             display: "flex",
@@ -179,40 +285,14 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
             justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "16",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "18",
-                fontWeight: 600,
-                color: "#ffd43b",
-              }}
-            >
-              {author}
-            </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "16" }}>
+            <span style={{ fontSize: "18", fontWeight: 600, color: "#ffd43b" }}>{author}</span>
             <span style={{ fontSize: "18", color: "#52525b" }}>·</span>
-            <span
-              style={{
-                fontSize: "18",
-                color: "#71717a",
-              }}
-            >
-              {date}
-            </span>
+            <span style={{ fontSize: "18", color: "#71717a" }}>{date}</span>
           </div>
 
           {displayTags.length > 0 && (
-            <div
-              style={{
-                display: "flex",
-                gap: "8",
-              }}
-            >
+            <div style={{ display: "flex", gap: "8" }}>
               {displayTags.map((tag) => (
                 <div
                   key={tag}
@@ -233,6 +313,6 @@ export function OgImage({ title, author, date, tags }: OgImageProps): ReactNode 
           )}
         </div>
       </div>
-    </div>
+    </OgShell>
   );
 }

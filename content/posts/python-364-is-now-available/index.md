@@ -3,7 +3,7 @@ title: Python 3.6.4 is now available
 publishDate: '2017-12-19'
 updatedDate: '2017-12-19'
 author: Ned Deily
-description: 'Python 3.6.4 is now available. Python 3.6.4 is the fourth maintenance release of Python 3.6, which was initially released in 2016-12 to great interest. Detai...'
+description: 'Python 3.6.4 is now available. Python 3.6.4 is the fourth maintenance release of Python 3.6, which was initially released in 2016-12 to great interest.'
 tags:
   - releases
 published: true

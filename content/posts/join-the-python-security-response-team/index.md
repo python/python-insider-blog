@@ -22,7 +22,7 @@ Security doesn't happen by accident: it's thanks to the work of volunteers and p
 
 And the PSRT usually can't do this work alone, PSRT coordinators are encouraged to involve maintainers and experts on the projects and submodules. By involving the experts directly in the remediation process ensures fixes adhere to existing API conventions and threat-models, are maintainable long-term, and have minimal impact on existing use-cases.
 
-Sometimes the PSRT even coordinates with other open source projects to avoid catching the Python ecosystem off-guard by publishing a vulnerability advisory that affects multiple other projects. The most recent example of this is [PyPI's ZIP archive differential attack mitigation](https://blog.pypi.org/posts/2025-01-02-zip-archive-differential-attack/).
+Sometimes the PSRT even coordinates with other open source projects to avoid catching the Python ecosystem off-guard by publishing a vulnerability advisory that affects multiple other projects. The most recent example of this is [PyPI's ZIP archive differential attack mitigation](https://blog.pypi.org/posts/2025-08-07-wheel-archive-confusion-attacks/).
 
 This work deserves recognition and celebration just like contributions to source code and documentation. Seth and Jacob are developing further improvements to workflows involving "GitHub Security Advisories" to record the reporter, coordinator, and remediation developers and reviewers to CVE and OSV records to properly thank everyone involved in the otherwise private contribution to open source projects.
 

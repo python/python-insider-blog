@@ -55,5 +55,5 @@ const ogImage = image ? new URL(image, baseUrl) : new URL(withBase("/og-default.
 <meta name="twitter:image" content={ogImage} />
 
 <!-- Plausible Analytics -->
-<script is:inline defer data-domain="blog.python.org" src="https://analytics.python.org/js/script.outbound-links.js"></script>
-<script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<script defer data-domain="blog.python.org" src="https://analytics.python.org/js/script.hash.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>

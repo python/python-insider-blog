@@ -10,7 +10,7 @@ published: true
 legacyUrl: /2026/02/join-the-python-security-response-team.html
 ---
 
-Thanks to the work of the Security Developer-in-Residence Seth Larson, the Python Security Response Team (PSRT) now has an approved public governance document ([PEP 811](https://peps.python.org/pep-0811/)). Following the new governance structure the PSRT now publishes a [public list of members](https://www.python.org/psf/records/board/psrt/), has documented responsibilities for members and admins, and a defined process for onboarding and offboarding members to balance the needs of security and sustainability. The document also clarifies the relationship between the Python Steering Council and the PSRT.
+Thanks to the work of the Security Developer-in-Residence Seth Larson, the Python Security Response Team (PSRT) now has an approved public governance document ([PEP 811](https://peps.python.org/pep-0811/)). Following the new governance structure the PSRT now publishes a [public list of members](https://devguide.python.org/developer-workflow/psrt/#members), has documented responsibilities for members and admins, and a defined process for onboarding and offboarding members to balance the needs of security and sustainability. The document also clarifies the relationship between the Python Steering Council and the PSRT.
 
 And this new onboarding process is already working! The PSF Infrastructure Engineer, [Jacob Coffee](https://github.com/JacobCoffee), has just joined the PSRT as the first new non-"Release Manager" member since Seth joined the PSRT in 2023. We expect new members to join further bolstering the sustainability of security work for the Python programming language.
 

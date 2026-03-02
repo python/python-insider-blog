@@ -2,7 +2,7 @@
 title: Python 3.15.0 alpha 1
 publishDate: '2025-10-15'
 updatedDate: '2025-10-15'
-author: Hugo
+author: Hugo van Kemenade
 description: 'This is an early developer preview of Python 3.15 https://www.python.org/downloads/release/python-3150a1/ Major new features of the 3.15 series, compared to ...'
 tags:
   - releases

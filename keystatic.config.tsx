@@ -3,7 +3,7 @@ import { inline } from "@keystatic/core/content-components";
 
 const knownAuthors = [
   "Thomas Wouters",
-  "Hugo",
+  "Hugo van Kemenade",
   "Pablo Galindo",
   "Łukasz Langa",
   "Ned Deily",

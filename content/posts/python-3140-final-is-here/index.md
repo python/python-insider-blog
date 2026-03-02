@@ -2,7 +2,7 @@
 title: 'Python 3.14.0 (final) is here!'
 publishDate: '2025-10-07'
 updatedDate: '2025-10-07'
-author: Hugo
+author: Hugo van Kemenade
 description: '!Two snakes enjoying a pie with 3.14 on the top and π crimping Python 3.14.0 is now available python.org/downloads/release/python-3140/ This is the stable re...'
 tags:
   - releases
@@ -79,13 +79,13 @@ In 1995, Mike Keith, an American mathematician and author of constrained writing
 
 >             **Poe, E.  
 >       Near a Raven**
-> 
+>
 > Midnights so dreary, tired and weary.  
 >     Silently pondering volumes extolling all by-now obsolete lore.  
 > During my rather long nap - the weirdest tap!  
 >     An ominous vibrating sound disturbing my chamber’s antedoor.  
 >         “This”, I whispered quietly, “I ignore”.  
-> 
+>
 > Perfectly, the intellect remembers: the ghostly fires, a glittering ember.  
 >     Inflamed by lightning’s outbursts, windows cast penumbras upon this floor.  
 > Sorrowful, as one mistreated, unhappy thoughts I heeded:  

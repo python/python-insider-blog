@@ -2,7 +2,7 @@
 title: 'Python 3.14.0rc3 is go!'
 publishDate: '2025-09-18'
 updatedDate: '2025-10-07'
-author: Hugo
+author: Hugo van Kemenade
 description: 'It’s 🪄 finally 🪄 the final 3.14 release candidate! https://www.python.org/downloads/release/python-3140rc3/ Note: It’s another magic release. We fixed anot...'
 tags:
   - releases

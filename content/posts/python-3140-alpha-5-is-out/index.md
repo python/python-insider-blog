@@ -2,7 +2,7 @@
 title: Python 3.14.0 alpha 5 is out
 publishDate: '2025-02-11'
 updatedDate: '2025-02-11'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Here comes the antepenultimate alpha. https://www.python.org/downloads/release/python-3140a5/ This is an early developer preview of Python 3.14 Major new fea...'
 tags:
   - releases

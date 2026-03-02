@@ -2,7 +2,7 @@
 title: 'Python 3.15.0 alpha 5 (yes, another alpha!)'
 publishDate: '2026-01-14'
 updatedDate: '2026-01-15'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Note: 3.15.0a4 was accidentally built against  from 2025-12-23 instead of 2026-01-13, so this 3.15.0a5 is an extra release correctly built against 2026-01-14...'
 tags:
   - releases

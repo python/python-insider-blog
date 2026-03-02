@@ -2,7 +2,7 @@
 title: 'Python 3.14.0 beta 4 is here!'
 publishDate: '2025-07-08'
 updatedDate: '2025-07-08'
-author: Hugo
+author: Hugo van Kemenade
 description: 'It’s the final 3.14 beta! https://www.python.org/downloads/release/python-3140b4/ This is a beta preview of Python 3.14 Python 3.14 is still in development. ...'
 tags:
   - releases

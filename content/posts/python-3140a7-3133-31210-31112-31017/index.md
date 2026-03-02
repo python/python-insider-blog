@@ -2,7 +2,7 @@
 title: 'Python 3.14.0a7, 3.13.3, 3.12.10, 3.11.12, 3.10.17 and 3.9.22 are now available'
 publishDate: '2025-04-08'
 updatedDate: '2025-04-08'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Not one, not two, not three, not four, not five, but six releases! Is this the most in a single day? 3.12-3.14 were regularly scheduled, and we had some secu...'
 tags:
   - releases

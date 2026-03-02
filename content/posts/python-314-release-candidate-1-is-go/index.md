@@ -2,7 +2,7 @@
 title: 'Python 3.14 release candidate 1 is go!'
 publishDate: '2025-07-22'
 updatedDate: '2025-07-30'
-author: Hugo
+author: Hugo van Kemenade
 description: 'It’s the first 3.14 release candidate! https://www.python.org/downloads/release/python-3140rc1/ This is the first release candidate of Python 3.14 This relea...'
 tags:
   - releases

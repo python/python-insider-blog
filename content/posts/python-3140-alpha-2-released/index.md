@@ -2,7 +2,7 @@
 title: Python 3.14.0 alpha 2 released
 publishDate: '2024-11-19'
 updatedDate: '2024-11-19'
-author: Hugo
+author: Hugo van Kemenade
 description: 'Alpha 2? But Alpha 1 only just came out! https://www.python.org/downloads/release/python-3140a2/ This is an early developer preview of Python 3.14 Major new ...'
 tags:
   - releases

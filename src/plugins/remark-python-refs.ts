@@ -8,8 +8,11 @@
  *   - PEP links  (by URL pattern OR link text matching "PEP NNN")
  *   - CPython docs (docs.python.org/...)
  *   - PyPI links (pypi.org/project/NAME/)
+ *   - GitHub issues/PRs (github.com/OWNER/REPO/issues|pull/NNN)
  *   - GitHub repos (github.com/OWNER/REPO — exactly 2 path segments)
  *   - GitHub users/orgs (github.com/NAME — exactly 1 segment, not reserved)
+ *   - CVE references (nvd.nist.gov/vuln/detail/CVE-YYYY-NNNNN)
+ *   - Python releases (python.org/downloads/release/python-XXXX/)
  */
 import type { Root, Link, Paragraph, PhrasingContent } from "mdast";
 import { visit } from "unist-util-visit";
@@ -18,6 +21,9 @@ import {
   docsIcon,
   githubIcon,
   packageIcon,
+  issueIcon,
+  shieldIcon,
+  downloadIcon,
   externalIcon,
 } from "../components/references/_icons.js";
 
@@ -27,6 +33,9 @@ const PEP_OLD = /^https?:\/\/(?:www\.)?python\.org\/dev\/peps\/pep-(\d+)\/?/i;
 const PEP_NEW = /^https?:\/\/peps\.python\.org\/pep-(\d+)\/?/i;
 const DOCS = /^https?:\/\/docs\.python\.org\//i;
 const PYPI = /^https?:\/\/pypi\.org\/project\/([^/]+)\/?/i;
+const GH_ISSUE = /^https?:\/\/github\.com\/([\w.-]+)\/([\w.-]+)\/(issues|pull)\/(\d+)\/?/i;
+const CVE = /^https?:\/\/nvd\.nist\.gov\/vuln\/detail\/(CVE-[\d-]+)\/?/i;
+const PY_RELEASE = /^https?:\/\/(?:www\.)?python\.org\/downloads\/release\/(python-[\w.]+)\/?/i;
 const GITHUB =
   /^https?:\/\/github\.com\/([\w.-]+)(?:\/([\w.-]+))?\/?$/i;
 
@@ -64,7 +73,7 @@ const GH_RESERVED = new Set([
 
 // ── Helpers ─────────────────────────────────────────────
 
-type RefType = "pep" | "docs" | "pypi" | "gh-repo" | "gh-user";
+type RefType = "pep" | "docs" | "pypi" | "gh-repo" | "gh-user" | "gh-issue" | "cve" | "py-release";
 
 interface Match {
   type: RefType;
@@ -106,6 +115,18 @@ function classify(url: string, linkText?: string): Omit<Match, "label" | "url"> 
 
   if ((m = url.match(PYPI))) {
     return { type: "pypi", icon: packageIcon };
+  }
+
+  if ((m = url.match(GH_ISSUE))) {
+    return { type: "gh-issue", icon: issueIcon };
+  }
+
+  if ((m = url.match(CVE))) {
+    return { type: "cve", icon: shieldIcon };
+  }
+
+  if ((m = url.match(PY_RELEASE))) {
+    return { type: "py-release", icon: downloadIcon };
   }
 
   if ((m = url.match(GITHUB))) {

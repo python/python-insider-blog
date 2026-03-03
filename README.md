@@ -1,51 +1,146 @@
 ## Python Insider Blog
 
-Blog for Python core team, mostly for blogging about releases.
+The official blog for the Python core team — mostly release announcements.
 
-## About
+Built with [Astro](https://astro.build/) and [Keystatic](https://keystatic.com/) CMS.
+Content is plain Markdown, built statically at deploy time.
 
-Uses keystatic for WYSIWYG editing.
+## Quickstart
 
-Features some custom components like:
+### Prerequisites
 
-- GitHub User, Repo
-- PyPI Project
-- CPython Docs
+**Bun** — the JavaScript runtime used for this project.
 
-Utilizes Bun for builds. Uses Astro.js which builds statically at build time.
-Pre-commit config, powered by Prek to do CI things and spellchecks.
+```bash
+# macOS
+brew install oven-sh/bun/bun
 
-### From Blogger
+# Linux / WSL
+curl -fsSL https://bun.sh/install | bash
 
-Migrated from Blogger with a field on new posts of "Previous Blogger URL"
-so that we can more easily redirect.
+# Windows — use WSL, then the Linux command above
+```
 
-### Posts
+See [bun.sh/docs/installation](https://bun.sh/docs/installation) for other methods.
 
-Posts are structured under `content/posts/`.
-They have the directory named after the blog entry title.
+**prek** (optional) — runs pre-commit hooks locally. Only needed if you want
+to run linting/spellcheck before pushing. CI will catch these regardless.
 
-Inside is the core markdown (index.md) and optionally the images
-used in the blog entry.
+```bash
+# macOS
+brew install prefix-dev/prek/prek
+
+# Linux / Windows (standalone installer)
+curl -fsSL https://prek.j178.dev/install.sh | bash
+
+# Or via cargo / pip / other methods
+cargo install prek
+```
+
+See [prek.j178.dev/installation](https://prek.j178.dev/installation/#standalone-installer)
+for all installation options.
+
+> [!NOTE]
+> **Windows users**: The Makefile requires a Unix shell. Use
+> [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or Git Bash.
+> Alternatively, skip `make` and run the bun commands directly (see table below).
+
+### Setup
+
+```bash
+git clone https://github.com/python/python-insider-blog.git
+cd python-insider-blog
+make install   # installs node_modules + git hooks
+make dev       # starts dev server at http://127.0.0.1:4321
+```
+
+`make install` runs `bun install` (dependencies) and `prek install` (git hooks).
+If you don't have prek installed, the hook setup will fail but everything else
+still works — you can write and preview posts without it.
+
+## Writing a blog post
+
+### Option A: Use the Keystatic UI (recommended)
+
+1. Run `make dev`
+2. Open http://127.0.0.1:4321/keystatic in your browser
+3. Create or edit a post with the visual editor
+4. Commit and open a pull request
+
+### Option B: Write Markdown directly
+
+Create a new directory under `content/posts/` named after your post slug,
+with an `index.md` inside:
+
+```
+content/posts/python-31213-31115-31020/
+└── index.md
+```
+
+Frontmatter fields:
+
+```yaml
+---
+title: "Python 3.12.13, 3.11.15, and 3.10.20 are now available"
+description: "Security fix release for Python 3.12, 3.11, and 3.10"
+authors:
+  - thomas-wouters
+tags:
+  - "3.12"
+  - "3.11"
+  - "3.10"
+pubDate: 2026-03-03
+draft: false
+previousBloggerUrl: ""
+---
+```
+
+Then write the body in standard Markdown. Open a PR when done.
+
+> [!TIP]
+> Links to PEPs, CPython docs, PyPI, GitHub repos/issues, CVEs, and
+> python.org releases are automatically styled as inline reference badges.
+> Just use normal Markdown links — no special syntax needed.
+>
+> If you're using the Keystatic editor, you also have access to explicit
+> inline components: `{% GhUser name="hugovk" /%}`, `{% Pep number=649 /%}`, etc.
 
 ### Authors
 
-Authors are configured via `content/authors/`.
+Author profiles live in `content/authors/{id}.json`. If you're writing your
+first post, create one (or use the Make target):
 
-## Contributing
+```bash
+make content-new-author ID=your-name NAME="Your Name"
+```
 
-There are `Make` targets to get up and going, assuming you have the
-tooling required (Bun, prek, etc.)
+Then edit the JSON to add your GitHub handle, avatar URL, etc.
 
-### Writing Blog Entries
+## Development
 
-You can pull the repo, run `make dev`, and edit the page via Keystatic
-with the nice UI or you can write markdown in your editor.
+| Make target        | Without make             | What it does                         |
+| ------------------ | ------------------------ | ------------------------------------ |
+| `make install`     | `bun install`            | Install dependencies (+ git hooks)   |
+| `make dev`         | `bun run dev`            | Start Astro dev server               |
+| `make build`       | `bun run build`          | Production build                     |
+| `make preview`     | `bun run preview`        | Build and preview production locally |
+| `make check`       | `bun run lint && bun run typecheck` | Run linter + type checker |
+| `make spellcheck`  | —                        | Run typos spell checker (needs prek) |
+| `make clean`       | —                        | Remove build artifacts and caches    |
+| `make fresh`       | —                        | Full clean reinstall                 |
 
-Both should open a pull request to GitHub for review and CI checks.
+Run `make help` for the complete list.
 
-> [!NOTE]  
-> You have access to a few custom components that can be used like
-> `{% GhUser name="hugovk" /%}`, but PEPs, CPython docs, and GitHub links
-> will automatically be picked up if you use standard markdown via the
-> URL regex.
+## Project structure
+
+```
+content/
+  authors/       # Author profiles (JSON)
+  posts/         # Blog posts (Markdown + images)
+src/
+  components/    # Astro/React components
+  layouts/       # Page layouts
+  pages/         # Astro routes
+  plugins/       # Remark plugins (reference badges, etc.)
+  assets/        # Styles, fonts
+```

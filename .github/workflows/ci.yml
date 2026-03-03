@@ -11,6 +11,75 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint:
+    name: Lint & format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check for trailing whitespace
+        run: |
+          if grep -rn --include='*.md' --include='*.ts' --include='*.tsx' --include='*.astro' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.css' '[[:blank:]]$' .; then
+            echo "::error::Trailing whitespace found"
+            exit 1
+          fi
+
+      - name: Check for missing final newline
+        run: |
+          bad=0
+          while IFS= read -r -d '' f; do
+            if [ -s "$f" ] && [ "$(tail -c1 "$f" | wc -l)" -eq 0 ]; then
+              echo "::error file=$f::Missing final newline"
+              bad=1
+            fi
+          done < <(find . -type f \( -name '*.md' -o -name '*.ts' -o -name '*.tsx' -o -name '*.astro' -o -name '*.json' -o -name '*.yaml' -o -name '*.yml' -o -name '*.css' \) -not -path './node_modules/*' -not -path './.git/*' -print0)
+          exit $bad
+
+      - name: Validate YAML files
+        run: |
+          pip install --quiet yamllint
+          find . -type f \( -name '*.yaml' -o -name '*.yml' \) -not -path './node_modules/*' -not -path './.git/*' | xargs -r python3 -c "
+          import sys, yaml
+          for f in sys.argv[1:]:
+              try:
+                  yaml.safe_load(open(f))
+              except Exception as e:
+                  print(f'::error file={f}::{e}')
+                  sys.exit(1)
+          "
+
+      - name: Validate JSON files
+        run: |
+          find . -type f -name '*.json' -not -path './node_modules/*' -not -path './.git/*' | xargs -r python3 -c "
+          import sys, json
+          for f in sys.argv[1:]:
+              try:
+                  json.load(open(f))
+              except Exception as e:
+                  print(f'::error file={f}::{e}')
+                  sys.exit(1)
+          "
+
+      - name: Check for merge conflict markers
+        run: |
+          if grep -rn '<<<<<<< \|=======$\|>>>>>>> ' --include='*.md' --include='*.ts' --include='*.tsx' --include='*.astro' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.css' .; then
+            echo "::error::Merge conflict markers found"
+            exit 1
+          fi
+
+      - name: Check for large files
+        run: |
+          bad=0
+          while IFS= read -r f; do
+            size=$(stat --printf='%s' "$f" 2>/dev/null || stat -f'%z' "$f")
+            if [ "$size" -gt 512000 ]; then
+              echo "::error file=$f::File is $(( size / 1024 ))KB (max 500KB)"
+              bad=1
+            fi
+          done < <(git diff --cached --name-only --diff-filter=d 2>/dev/null || git ls-files)
+          exit $bad
+
   quality:
     name: Quality checks
     runs-on: ubuntu-latest
@@ -45,7 +114,7 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: [quality, spellcheck]
+    needs: [lint, quality, spellcheck]
     steps:
       - name: Checkout
         uses: actions/checkout@v6

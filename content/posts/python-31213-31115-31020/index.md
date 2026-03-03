@@ -2,13 +2,13 @@
 title: 'Python 3.12.13, 3.11.15 and 3.10.20 are now available!'
 publishDate: '2026-03-03'
 author: Thomas Wouters
-description: '[](https://discuss.python.org/t/python-3-12-13-3-11-15-and-3-10-20-are-now-available/106363)Python 3.12.13, 3.11.15 and 3.10.20 are now available!'
+description: '[Python Releases For Your Security!](https://discuss.python.org/t/python-3-12-13-3-11-15-and-3-10-20-are-now-available/106363) New security releases for 3.10, 3.11 and 3.12 are now available.'
 tags:
   - releases
 published: true
 ---
 
-# [](https://discuss.python.org/t/python-3-12-13-3-11-15-and-3-10-20-are-now-available/106363)Python 3.12.13, 3.11.15 and 3.10.20 are now available!
+# [Python Releases For Your Security!](https://discuss.python.org/t/python-3-12-13-3-11-15-and-3-10-20-are-now-available/106363)
 
 New security releases for 3.10, 3.11 and 3.12 are now available. (As these Python versions are now in security-fix-only mode, these are source-only releases, and there is no pre-set release cadence.)
 
@@ -47,16 +47,15 @@ https://www.python.org/downloads/release/python-31213/
 
 # Python 3.11.15
 
-Additional fixes in this release (they were already included in a previous 3.12 release): 
+Additional fixes in this release (they were already included in a previous 3.12 release):
 * [gh-120298](https://github.com/python/cpython/issues/120298): Fixed a use-after-free in list rich comparison handling (`list_richcompare_impl`) for specially crafted concurrent inputs.
 * [gh-120384](https://github.com/python/cpython/issues/120384): Fixed an out-of-bounds access in list slice assignment (`list_ass_subscript`) under specially crafted concurrent inputs.
-
 
 https://www.python.org/downloads/release/python-31115/
 
 # Python 3.10.20
 
-Additional fixes in this release (they were already included in a previous 3.12 release): 
+Additional fixes in this release (they were already included in a previous 3.12 release):
 * [gh-120298](https://github.com/python/cpython/issues/120298): Fixed a use-after-free in list rich comparison handling (`list_richcompare_impl`) for specially crafted concurrent inputs.
 * [gh-120384](https://github.com/python/cpython/issues/120384): Fixed an out-of-bounds access in list slice assignment (`list_ass_subscript`) under specially crafted concurrent inputs.
 

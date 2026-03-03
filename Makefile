@@ -20,7 +20,11 @@ help: ## Show this help message
 .PHONY: install
 install: ## Install dependencies and git hooks
 	bun install
-	prek install
+	@if command -v prek >/dev/null 2>&1; then \
+		prek install; \
+	else \
+		echo "prek not found — skipping git hook setup (optional, see README)"; \
+	fi
 
 ## Development
 

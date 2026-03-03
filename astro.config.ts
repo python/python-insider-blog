@@ -17,8 +17,8 @@ try {
   // No redirects file yet (run migration first)
 }
 
-// Blogger feed URL → new RSS feed
-redirects["/feeds/posts/default"] = "/rss.xml";
+// Old Blogger feed URL is handled by src/pages/feeds/posts/default.xml.ts
+// so RSS readers get actual XML instead of an HTML meta-refresh redirect.
 
 // Keystatic integration only in dev mode (requires server rendering)
 const integrations = [mdx(), sitemap(), react()];

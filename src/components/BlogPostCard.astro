@@ -1,5 +1,5 @@
 ---
-import { formatDate, postUrl, slugify, withBase } from "../lib/utils";
+import { formatDate, postUrl, slugify, withBase, renderDescriptionLinks } from "../lib/utils";
 
 interface Props {
   slug: string;
@@ -29,7 +29,7 @@ const { slug, title, publishDate, author, description, tags, showEditLink = true
         <time datetime={publishDate}>{formatDate(publishDate)}</time>
       </div>
       {description && (
-        <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{description}</p>
+        <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400" set:html={renderDescriptionLinks(description)} />
       )}
       {tags && tags.length > 0 && (
         <div class="mt-2.5 flex flex-wrap gap-1.5">

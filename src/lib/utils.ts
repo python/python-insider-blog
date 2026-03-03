@@ -34,6 +34,23 @@ export function postUrl(slug: string, publishDate: string | Date): string {
   return `/${year}/${month}/${slug}`;
 }
 
+/**
+ * Converts markdown-style links [text](url) in a description to HTML anchor tags.
+ */
+export function renderDescriptionLinks(desc: string): string {
+  return desc.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" class="text-amber-700 underline hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300">$1</a>',
+  );
+}
+
+/**
+ * Strips markdown-style links [text](url) to plain text for meta tags.
+ */
+export function stripDescriptionLinks(desc: string): string {
+  return desc.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+}
+
 export function slugify(text: string): string {
   return text
     .normalize("NFD")

@@ -11,6 +11,11 @@ published: true
 legacyUrl: /2026/03/the-python-insider-blog-has-moved.html
 ---
 
+import ShowcasePostCards from '../../../src/components/showcase/ShowcasePostCards.astro';
+import ShowcaseTagCloud from '../../../src/components/showcase/ShowcaseTagCloud.astro';
+import ShowcaseAuthors from '../../../src/components/showcase/ShowcaseAuthors.astro';
+import ShowcaseSearch from '../../../src/components/showcase/ShowcaseSearch.astro';
+
 Python Insider now lives at [blog.python.org](https://blog.python.org), backed by a Git repository. All 307 posts from the Blogger era have been migrated over, and old URLs redirect to the new ones automatically. Your RSS readers should pick up the new feed without any action on your part, but if something looks off, the new feed URL is [blog.python.org/rss.xml](https://blog.python.org/rss.xml).
 
 ## Why we moved
@@ -32,14 +37,36 @@ The repo README has more detail on frontmatter fields and local development if y
 
 ## What's new on the site
 
-Beyond the content itself, the new site has a few features the old Blogger setup never had:
+Beyond the content itself, the new site has a few features the old Blogger setup never had. Here's a live look:
 
-- **[Browse all posts](/blog/)** with pagination and a tag sidebar for filtering by topic. You can also filter by [year](/blog/year/2025) to find posts from a specific period.
-- **[Authors page](/authors/)** listing every contributor and how many posts they've written. Each author has their own page showing all of their posts.
-- **[Tags page](/tags/)** with every tag and its post count, so you can quickly find all release announcements, security updates, or community posts.
-- **Search** via the command palette — hit `Ctrl+K` (or `Cmd+K` on Mac) from any page to search across all 307+ posts instantly.
+### Browse & filter posts
+
+All posts are browsable with pagination, a year filter, and a tag sidebar. Click any tag or year to narrow things down.
+
+<ShowcasePostCards />
+
+### Every author has a page
+
+See who's been writing, how much they've contributed, and browse their posts individually.
+
+<ShowcaseAuthors />
+
+### Tags at a glance
+
+Every tag across the archive, ranked by how often it appears. Great for finding all the release announcements or security updates in one place.
+
+<ShowcaseTagCloud />
+
+### Search everything
+
+Hit <kbd>Ctrl+K</kbd> (or <kbd>Cmd+K</kbd> on Mac) from any page to open the command palette. It searches across all 307+ posts by title, author, tags, and description. There are also keyboard chord shortcuts for quick navigation.
+
+<ShowcaseSearch />
+
+### And more
+
 - **RSS feed** at [blog.python.org/rss.xml](https://blog.python.org/rss.xml), compatible with the old Blogger feed URL so existing subscribers don't need to change anything.
-- **Dark mode** that follows your system preference.
+- **Dark mode** that follows your system preference (try the toggle in the header).
 - **Open Graph images** generated automatically for every post, so links shared on social media get proper preview cards.
 
 ## What's under the hood

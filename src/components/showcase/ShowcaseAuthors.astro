@@ -1,0 +1,80 @@
+---
+import { getCollection } from "astro:content";
+import { slugify, withBase } from "../../lib/utils";
+
+const allPosts = await getCollection("posts");
+const publishedPosts = allPosts.filter((p) => p.data.published);
+const allAuthors = await getCollection("authors");
+
+const authorCounts = new Map<string, number>();
+for (const post of publishedPosts) {
+  const slug = slugify(post.data.author);
+  authorCounts.set(slug, (authorCounts.get(slug) || 0) + 1);
+}
+
+const authorsWithCounts = allAuthors
+  .map((a) => ({
+    slug: a.id,
+    name: a.data.name,
+    github: a.data.github,
+    count: authorCounts.get(a.id) || 0,
+  }))
+  .filter((a) => a.count > 0)
+  .sort((a, b) => b.count - a.count);
+
+const topAuthors = authorsWithCounts.slice(0, 6);
+const maxCount = topAuthors[0]?.count ?? 1;
+---
+
+<div class="not-prose my-8 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+  <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-5 py-3 dark:border-zinc-800 dark:bg-zinc-900/50">
+    <div class="flex items-center gap-2">
+      <svg class="h-4 w-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="text-sm font-semibold text-zinc-700 dark:text-zinc-300" style="font-family: var(--font-display);">Authors</span>
+      <span class="text-xs text-zinc-400 dark:text-zinc-500">{authorsWithCounts.length} contributors</span>
+    </div>
+    <a href={withBase("/authors")} class="text-xs font-medium text-[#306998] hover:underline dark:text-[#ffd43b]">
+      View all &rarr;
+    </a>
+  </div>
+  <div class="space-y-0.5 p-3">
+    {topAuthors.map((author) => {
+      const pct = Math.round((author.count / maxCount) * 100);
+      return (
+        <a
+          href={withBase(`/authors/${author.slug}`)}
+          class="group flex items-center gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
+        >
+          {author.github ? (
+            <img
+              src={`https://github.com/${author.github}.png`}
+              alt=""
+              class="h-6 w-6 flex-shrink-0 rounded-full"
+              loading="lazy"
+            />
+          ) : (
+            <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-zinc-200 text-xs font-bold text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400">
+              {author.name.charAt(0)}
+            </div>
+          )}
+          <span class="w-36 flex-shrink-0 truncate text-sm font-semibold text-zinc-700 dark:text-zinc-300" style="font-family: var(--font-display);">
+            {author.name}
+          </span>
+          <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
+            <div
+              class="h-full rounded-full bg-[#306998] transition-all duration-500 group-hover:opacity-80 dark:bg-[#ffd43b]"
+              style={`width: ${Math.max(pct, 4)}%;`}
+            />
+          </div>
+          <span class="w-8 flex-shrink-0 text-right text-xs tabular-nums font-medium text-zinc-400 dark:text-zinc-500">
+            {author.count}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</div>

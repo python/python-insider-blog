@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+import { withBase } from "../../lib/utils";
+
+const allPosts = await getCollection("posts");
+const publishedPosts = allPosts.filter((p) => p.data.published);
+
+const tagCounts = new Map<string, number>();
+for (const post of publishedPosts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  }
+}
+const topTags = [...tagCounts.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 8);
+const maxCount = topTags[0]?.[1] ?? 1;
+---
+
+<div class="not-prose my-8 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+  <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-5 py-3 dark:border-zinc-800 dark:bg-zinc-900/50">
+    <div class="flex items-center gap-2">
+      <svg class="h-4 w-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" stroke-linecap="round" stroke-linejoin="round" />
+        <line x1="7" y1="7" x2="7.01" y2="7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="text-sm font-semibold text-zinc-700 dark:text-zinc-300" style="font-family: var(--font-display);">Tags</span>
+      <span class="text-xs text-zinc-400 dark:text-zinc-500">{tagCounts.size} total</span>
+    </div>
+    <a href={withBase("/tags")} class="text-xs font-medium text-[#306998] hover:underline dark:text-[#ffd43b]">
+      View all &rarr;
+    </a>
+  </div>
+  <div class="space-y-0.5 p-3">
+    {topTags.map(([tag, count]) => {
+      const pct = Math.round((count / maxCount) * 100);
+      return (
+        <a
+          href={withBase(`/tags/${tag}`)}
+          class="group flex items-center gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/60"
+        >
+          <span class="w-24 flex-shrink-0 truncate text-sm font-semibold text-zinc-700 dark:text-zinc-300" style="font-family: var(--font-display);">
+            {tag}
+          </span>
+          <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
+            <div
+              class="h-full rounded-full bg-[#306998] transition-all duration-500 group-hover:opacity-80 dark:bg-[#ffd43b]"
+              style={`width: ${Math.max(pct, 4)}%;`}
+            />
+          </div>
+          <span class="w-8 flex-shrink-0 text-right text-xs tabular-nums font-medium text-zinc-400 dark:text-zinc-500">
+            {count}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</div>

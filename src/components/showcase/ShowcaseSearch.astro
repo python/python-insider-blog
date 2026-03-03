@@ -1,0 +1,96 @@
+---
+// Static mockup of the command palette — not interactive, just a visual preview
+---
+
+<div class="not-prose my-8 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+  <div class="flex items-center justify-between border-b border-zinc-200 bg-zinc-50 px-5 py-3 dark:border-zinc-800 dark:bg-zinc-900/50">
+    <div class="flex items-center gap-2">
+      <svg class="h-4 w-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <span class="text-sm font-semibold text-zinc-700 dark:text-zinc-300" style="font-family: var(--font-display);">Command Palette</span>
+    </div>
+    <span class="inline-flex items-center gap-1 text-xs text-zinc-400 dark:text-zinc-500">
+      Press
+      <kbd class="rounded-md border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400" style="font-family: var(--font-mono);">&#8984;K</kbd>
+      to try it
+    </span>
+  </div>
+
+  <!-- Fake command palette mockup -->
+  <div class="bg-white/80 p-1 backdrop-blur dark:bg-[#0f1117]/80">
+    <!-- Search input -->
+    <div class="relative">
+      <div class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-zinc-300 dark:text-zinc-600">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </div>
+      <div class="border-b border-zinc-100 px-4 py-3 pl-11 text-sm text-zinc-400 dark:border-zinc-800 dark:text-zinc-600">
+        Search posts, tags, authors...
+      </div>
+    </div>
+
+    <!-- Mock results -->
+    <div class="px-2 py-2">
+      <div class="mb-1 px-3 pt-2 text-[11px] font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-600" style="font-family: var(--font-display);">Go to</div>
+
+      <div class="flex items-center gap-3 rounded-lg bg-[#306998]/[0.06] px-3 py-2.5 dark:bg-[#ffd43b]/[0.06]">
+        <svg class="h-4 w-4 flex-shrink-0 text-[#306998] dark:text-[#ffd43b]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span class="text-sm font-medium text-zinc-800 dark:text-zinc-200">Go to Home</span>
+        <span class="ml-auto inline-flex items-center gap-1">
+          <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">G</kbd>
+          <span class="text-[10px] italic text-zinc-400 dark:text-zinc-600">then</span>
+          <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">H</kbd>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors">
+        <svg class="h-4 w-4 flex-shrink-0 text-zinc-300 dark:text-zinc-600" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+        </svg>
+        <span class="text-sm text-zinc-600 dark:text-zinc-400">Go to Blog</span>
+        <span class="ml-auto inline-flex items-center gap-1">
+          <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">G</kbd>
+          <span class="text-[10px] italic text-zinc-400 dark:text-zinc-600">then</span>
+          <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">B</kbd>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors">
+        <svg class="h-4 w-4 flex-shrink-0 text-zinc-300 dark:text-zinc-600" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+          <line x1="7" y1="7" x2="7.01" y2="7" />
+        </svg>
+        <span class="text-sm text-zinc-600 dark:text-zinc-400">Go to Tags</span>
+        <span class="ml-auto inline-flex items-center gap-1">
+          <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">G</kbd>
+          <span class="text-[10px] italic text-zinc-400 dark:text-zinc-600">then</span>
+          <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">T</kbd>
+        </span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex items-center gap-4 border-t border-zinc-100 px-4 py-2 dark:border-zinc-800">
+      <span class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-600">
+        <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">&uarr;&darr;</kbd>
+        Navigate
+      </span>
+      <span class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-600">
+        <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">&crarr;</kbd>
+        Open
+      </span>
+      <span class="flex items-center gap-1.5 text-[11px] text-zinc-400 dark:text-zinc-600">
+        <kbd class="inline-flex h-[18px] min-w-[20px] items-center justify-center rounded border border-zinc-200 bg-zinc-100 px-1 text-[10px] text-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/80 dark:text-zinc-500" style="font-family: var(--font-mono);">Esc</kbd>
+        Close
+      </span>
+    </div>
+  </div>
+</div>

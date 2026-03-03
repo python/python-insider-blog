@@ -2,7 +2,7 @@
 title: 'Python 3.12.13, 3.11.15 and 3.10.20 are now available!'
 publishDate: '2026-03-03'
 author: Thomas Wouters
-description: '[Python Releases For Your Security!](https://discuss.python.org/t/python-3-12-13-3-11-15-and-3-10-20-are-now-available/106363) New security releases for 3.10, 3.11 and 3.12 are now available.'
+description: 'Python Releases For Your Security!'
 tags:
   - releases
 published: true

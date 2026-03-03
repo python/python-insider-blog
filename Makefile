@@ -17,8 +17,23 @@ help: ## Show this help message
 		}' $(MAKEFILE_LIST)
 	@echo ""
 
+.PHONY: check-deps
+check-deps: ## Verify required tools are installed
+	@command -v bun >/dev/null 2>&1 || { \
+		echo ""; \
+		echo "  bun is required but not installed."; \
+		echo ""; \
+		echo "  Install:"; \
+		echo "    macOS:       brew install oven-sh/bun/bun"; \
+		echo "    Linux/WSL:   curl -fsSL https://bun.sh/install | bash"; \
+		echo ""; \
+		echo "  See: https://bun.sh/docs/installation"; \
+		echo ""; \
+		exit 1; \
+	}
+
 .PHONY: install
-install: ## Install dependencies and git hooks
+install: check-deps ## Install dependencies and git hooks
 	bun install
 	@if command -v prek >/dev/null 2>&1; then \
 		prek install; \
@@ -29,17 +44,17 @@ install: ## Install dependencies and git hooks
 ## Development
 
 .PHONY: dev
-dev: ## Start development server
+dev: check-deps ## Start development server
 	bun run dev
 
 .PHONY: preview
-preview: ## Build and preview production locally
+preview: check-deps ## Build and preview production locally
 	bun run preview
 
 ## Build
 
 .PHONY: build
-build: ## Build production bundle
+build: check-deps ## Build production bundle
 	bun run build
 
 .PHONY: clean
@@ -49,11 +64,11 @@ clean: ## Clean build artifacts and caches
 ## Quality
 
 .PHONY: lint
-lint: ## Run oxlint on source files
+lint: check-deps ## Run oxlint on source files
 	bunx oxlint src/
 
 .PHONY: typecheck
-typecheck: ## Run TypeScript type checking
+typecheck: check-deps ## Run TypeScript type checking
 	bunx astro check
 
 .PHONY: check

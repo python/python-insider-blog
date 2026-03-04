@@ -16,12 +16,13 @@ export async function GET(context: APIContext) {
     title: "Python Insider",
     description: "The official blog of the Python core development team.",
     site: context.site!.toString(),
+    xmlns: { dc: "http://purl.org/dc/elements/1.1/" },
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.publishDate,
       description: post.data.description ?? "",
       link: withBase(`${postUrl(post.id, post.data.publishDate)}/`),
-      author: post.data.author,
+      customData: `<dc:creator>${post.data.author}</dc:creator>`,
       categories: post.data.tags,
     })),
   });

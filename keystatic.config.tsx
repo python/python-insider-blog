@@ -36,6 +36,7 @@ const knownTags = [
   "docs",
   "contributors",
   "buildbot",
+  "history",
 ];
 
 const referenceComponents = {

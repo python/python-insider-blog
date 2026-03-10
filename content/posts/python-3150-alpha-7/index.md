@@ -22,14 +22,14 @@ During the alpha phase, features may be added up until the start of the beta pha
 
 Many new features for Python 3.15 are still being planned and written. Among the new major new features and changes so far:
 
-* [PEP 810](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-pep810): Explicit lazy imports
+* [PEP 810](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-lazy-imports): Explicit lazy imports
 * [PEP 814](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-frozendict): `frozendict` built-in type
 * [PEP 799](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-sampling-profiler): A new high-frequency, low-overhead, statistical sampling profiler and dedicated profiling package
 * [PEP 798](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-unpacking-in-comprehensions): Unpacking in comprehensions with `*` and `**`
 * [PEP 686](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-utf8-default): Python now uses UTF-8 as the default encoding
 * [PEP 728](https://peps.python.org/pep-0728/): `TypedDict` with typed extra items
 * [PEP 747](https://docs.python.org/3.15/whatsnew/3.15.html#typing): Annotating type forms with `TypeForm`
-* [PEP 782](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-pep782): A new `PyBytesWriter` C API to create a Python bytes object
+* [PEP 782](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-pybyteswriter): A new `PyBytesWriter` C API to create a Python bytes object
 * The [JIT compiler](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-jit) has been significantly upgraded, with 3-4% geometric mean performance improvement on x86-64 Linux over the standard interpreter, and 7-8% speedup on AArch64 macOS over the tail-calling interpreter
 * [Improved error messages](https://docs.python.org/3.15/whatsnew/3.15.html#improved-error-messages)
 * <small>(Hey, **fellow core team member,** if a feature you find important is missing from this list, let Hugo know.)</small>

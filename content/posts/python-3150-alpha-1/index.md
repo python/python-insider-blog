@@ -26,7 +26,7 @@ Many new features for Python 3.15 are still being planned and written. Among the
 
 -   [PEP 799](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-sampling-profiler): A dedicated profiling package for Python profiling tools
 -   [PEP 686](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-utf8-default): Python now uses UTF-8 as the default encoding
--   [PEP 782](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-pep782): A new `PyBytesWriter` C API to create a Python bytes object
+-   [PEP 782](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-pybyteswriter): A new `PyBytesWriter` C API to create a Python bytes object
 -   [Improved error messages](https://docs.python.org/3.15/whatsnew/3.15.html#improved-error-messages)
 -   (Hey, **fellow core developer,** if a feature you find important is missing from this list, let Hugo know.)
 

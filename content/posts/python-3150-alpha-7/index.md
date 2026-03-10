@@ -1,7 +1,6 @@
 ---
 title: Python 3.15.0 alpha 7
 publishDate: '2026-03-10'
-updatedDate: '2026-03-10'
 author: Hugo van Kemenade
 description: 'The penultimate 3.15 alpha is out!'
 tags:

@@ -12,6 +12,7 @@ published: true
 **This is an early developer preview of Python 3.15**
 
 [www.python.org/downloads/release/python-3150a7/](https://www.python.org/downloads/release/python-3150a7/)
+
 ## Major new features of the 3.15 series, compared to 3.14
 
 Python 3.15 is still in development. This release, 3.15.0a7, is the seventh of eight planned alpha releases.

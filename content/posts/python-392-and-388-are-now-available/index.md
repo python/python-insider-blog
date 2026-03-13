@@ -18,9 +18,9 @@ Next up, the **last** full regular maintenance release of Python 3.8 is planned 
 This release, just as the candidate before it, contains two security fixes:
 
 -   [bpo-42938](https://bugs.python.org/issue42938): Avoid static buffers when computing the repr of `ctypes.c_double` and `ctypes.c_longdouble` values. This issue was assigned [CVE-2021-3177](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3177).
-    
+
 -   [bpo-42967](https://bugs.python.org/issue42967): Fix web cache poisoning vulnerability by defaulting the query args separator to `&`, and allowing the user to choose a custom separator. This issue was assigned [CVE-2021-23336](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23336).
-    
+
 
 Since the announcement of the release candidates for 3.9.2 on 3.8.8, we received a number of inquiries from end users urging us to expedite the final releases due to the security content, especially [CVE-2021-3177](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3177).
 
@@ -35,13 +35,13 @@ We recommend you upgrade your systems to Python 3.8.8 or 3.9.2.
 Our understanding is that while the CVE is listed as “remote code execution”, practical exploits of this vulnerability as such are very unlikely due the following conditions needing to be met for successful RCE:
 
 -   pass an untrusted floating point number from a remote party to `ctypes.c_double.from_param` (note: Python floating point numbers were not affected);
-    
+
 -   have that object be passed to `repr()` (for instance through logging);
-    
+
 -   have that float point number be valid machine code;
-    
+
 -   have the buffer overflow overwrite the stack at exactly the right place for the code to get executed.
-    
+
 
 In fact, Red Hat’s evaluation of the vulnerability was consistent with ours. They write: “[the highest threat from this vulnerability is to system availability](https://access.redhat.com/security/cve/cve-2021-3177).”
 

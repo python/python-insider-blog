@@ -21,7 +21,7 @@ Check the new alpha of 3.12 with some Star Trek vibes:
 
 *210 new commits since 3.12.0a4 last month*
 
-  
+
 
 ### Python 3.11.2
 
@@ -31,7 +31,7 @@ A shipment of bugfixes and security releases for the newest Python!
 
 *194 new commits since 3.11.1*
 
-  
+
 
 ### Python 3.10.10
 
@@ -41,11 +41,11 @@ Your trusty Python3.10 just got more stable and secure!
 
 *131 new commits since 3.10.9*
 
-  
+
 
 ## We hope you enjoy the new releases!
 
-### 
+###
 
 Thanks to all of the many volunteers who help make Python Development and these releases possible! Please consider supporting our efforts by volunteering yourself or through organization contributions to the Python Software Foundation.
 

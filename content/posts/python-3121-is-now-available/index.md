@@ -13,7 +13,7 @@ Python 3.12.1 is now available.
 
 [https://www.python.org/downloads/release/python-3121/](https://www.python.org/downloads/release/python-3121/)
 
-  
+
 
 # This is the first maintenance release of Python 3.12
 
@@ -64,7 +64,7 @@ For more details on the changes to Python 3.12, see [What’s new in Python 3.12
 -   Report bugs via [GitHub Issues](https://github.com/python/cpython/issues).
 -   [Help fund Python directly](https://www.python.org/psf/donations/python-dev/) or [via GitHub Sponsors](https://github.com/sponsors/python), and support [the Python community](https://www.python.org/psf/donations/).
 
-  
+
 
 # Enjoy the new releases
 

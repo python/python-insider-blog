@@ -29,7 +29,7 @@ Python 3.13.10 is the tenth maintenance release of 3.13, containing around 300 b
 -   Report bugs at [https://github.com/python/cpython/issues](https://github.com/python/cpython/issues).
 -   [Help fund Python directly](https://www.python.org/psf/donations/python-dev/) (or [via GitHub Sponsors](https://github.com/sponsors/python)), and support [the Python community](https://www.python.org/psf/donations/).
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-6-has-been-released/101482#p-265330-enjoy-the-new-releases-4)Enjoy the new releases
 

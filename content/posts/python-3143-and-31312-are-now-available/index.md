@@ -20,7 +20,7 @@ Python 3.14.3 is the third maintenance release of 3.14, containing around 299 bu
 
 [https://www.python.org/downloads/release/python-3143/](https://www.python.org/downloads/release/python-3143/)
 
-  
+
 
 ## Major new features of the 3.14 series, compared to 3.13
 
@@ -89,7 +89,7 @@ Python 3.13.12 is *also* now available!
 
 [https://www.python.org/downloads/release/python-31312/](https://www.python.org/downloads/release/python-31312/)
 
-  
+
 
 ## This is the twelfth maintenance release of Python 3.13
 

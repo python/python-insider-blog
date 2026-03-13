@@ -25,7 +25,7 @@ There are no other changes in this release, compared to 3.13.8.
 -   Report bugs at [github.com/python/cpython/issues](https://github.com/python/cpython/issues)
 -   [Help fund Python and its community](https://www.python.org/psf/donations/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-9-released/104362#p-274483-enjoy-the-new-releases-3)Enjoy the new releases
 

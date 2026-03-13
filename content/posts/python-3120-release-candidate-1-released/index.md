@@ -13,7 +13,7 @@ I'm pleased to announce the release of Python 3.12 release candidate 1.
 
 [https://www.python.org/downloads/release/python-3120rc1/](https://www.python.org/downloads/release/python-3120rc1/)
 
-  
+
 
 # This is the first release candidate of Python 3.12.0
 

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { formatDate, postUrl, slugify, withBase } from "../../lib/utils";
+import { formatDate, postUrl, withBase } from "../../lib/utils";
 
 const allPosts = await getCollection("posts");
 const recentPosts = allPosts

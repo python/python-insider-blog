@@ -25,5 +25,5 @@ Many new features for Python 3.9 are still being planned and written. Among the 
 -   A number of standard library modules (audioop, ast, grp, \_hashlib, pwd, \_posixsubprocess, random, select, struct, termios, zlib) are now using the stable ABI defined by [PEP 384](https://www.python.org/dev/peps/pep-0384/).
 -   (Hey, **fellow core developer,** if a feature you find important is missing from this list, [let Łukasz know](mailto:lukasz@python.org).)
 
-  
+
 The next pre-release of Python 3.9 will be 3.9.0a4, currently scheduled for 2020-02-17.

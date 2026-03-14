@@ -10,7 +10,7 @@ legacyUrl: /2013/02/announcing-defusedxml-fixes-for-xml.html
 ---
 
 *The following post was created on behalf of CPython contributor Christian Heimes using a subset of details found [here](https://bitbucket.org/tiran/defusedxml).* Christian Heimes announces the release of his [defusedxml](https://bitbucket.org/tiran/defusedxml) and [defusedexpat](https://bitbucket.org/tiran/defusedexpat) packages to address XML-related security issues which were reported to [security@python.org](mailto:security@python.org) over the last several months. Throughout the development of the patches, the security team has coordinated with other open source projects in order to make this announcement at 1500 UTC on Tuesday February 19. Details will follow once releases of CPython have been organized. ***Note: this post will be updated with more details as they switch from being private to publicly available, including links to the public bug reports on [http://bugs.python.org](http://bugs.python.org/).***  
-  
+
 defusedxml on PyPI: [https://pypi.python.org/pypi/defusedxml](https://pypi.python.org/pypi/defusedxml)  
 defusedexpat on PyPI: [https://pypi.python.org/pypi/defusedexpat](https://pypi.python.org/pypi/defusedexpat)  
 "XML vulnerabilities" on bug tracker: [http://bugs.python.org/issue17239](http://bugs.python.org/issue17239)  
@@ -92,7 +92,7 @@ vulnerabilities and features
 6.  Library has (limited) XInclude support but requires an additional step to process inclusion.
 7.  These are features but they may introduce exploitable holes
 
-  
+
 
 ## [How to avoid XML vulnerabilities](https://bitbucket.org/PSF/defusedxml#id24)
 

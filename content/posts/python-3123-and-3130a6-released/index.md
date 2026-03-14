@@ -35,7 +35,7 @@ What’s that? The last alpha release? Just one more month until feature freeze!
 
 [https://www.python.org/downloads/release/python-3130a6/](https://www.python.org/downloads/release/python-3130a6/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-12-3-and-3-13-0a6-released/50601#we-hope-you-enjoy-the-new-releases-3)We hope you enjoy the new releases!
 

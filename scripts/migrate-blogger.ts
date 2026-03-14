@@ -49,18 +49,6 @@ interface BloggerEntry {
     | null;
 }
 
-interface MigratedPost {
-  slug: string;
-  title: string;
-  author: string;
-  publishDate: string;
-  updatedDate: string;
-  tags: string[];
-  description: string;
-  legacyUrl: string;
-  content: string;
-}
-
 // ── Turndown Setup ────────────────────────────────────────────
 function createTurndown(): TurndownService {
   const td = new TurndownService({
@@ -317,7 +305,7 @@ function generateDescription(markdown: string): string {
 function yamlEscape(str: string): string {
   // If string contains special chars, is numeric, or starts with special chars, wrap in single quotes
   if (
-    /[:#\[\]{}&*!|>'"%@`?,\n]/.test(str) ||
+    /[:#[{}&*!|>'"%@`?,\n\]]/.test(str) ||
     str.startsWith("-") ||
     str.startsWith(" ") ||
     /^\d+(\.\d+)?$/.test(str) ||

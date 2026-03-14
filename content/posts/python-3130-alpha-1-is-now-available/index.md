@@ -39,7 +39,7 @@ The next pre-release of Python 3.13 will be 3.13.0a2, currently scheduled for 20
 -   [PEP 719](https://www.python.org/dev/peps/pep-0719/), 3.13 Release Schedule
 -   Report bugs at [https://github.com/python/cpython/issues](https://github.com/python/cpython/issues).
 -   [Help fund Python and its community](https://discuss.python.org/psf/donations/).  
-    
+
 
 # [](https://discuss.python.org/t/python-3-13-0-alpha-1/36109#enjoy-the-new-releases-3)
 

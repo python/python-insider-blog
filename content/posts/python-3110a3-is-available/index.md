@@ -19,7 +19,7 @@ Among the new major new features and changes so far:
 
 -   [PEP 657](https://www.python.org/dev/peps/pep-0657/) – Include Fine-Grained Error Locations in Tracebacks
 -   [PEP 654](https://www.python.org/dev/peps/pep-0654/) – PEP 654 – Exception Groups and except\*  
-    
+
 
 -   The [Faster Cpython Project](https://github.com/faster-cpython) is already yielding some exciting results: this version of CPython 3.11 is ~19% faster on the geometric mean of the [performance benchmarks](http://speed.python.org), compared to 3.10.0.
 (Hey, fellow core developer, if a feature you find important is missing from this list, [let Pablo know](mailto:pablogsal@python.org).)

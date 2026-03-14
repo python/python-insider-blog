@@ -23,7 +23,7 @@ Python 3.12’s *ninth* maintenance release already. Just 180 changes for 3.12, 
 
 [https://www.python.org/downloads/release/python-3129/](https://www.python.org/downloads/release/python-3129/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-1-3-12-8-3-11-11-3-10-16-and-3-9-21-are-now-available/73214#p-211771-enjoy-the-new-releases-7)Enjoy the new releases
 

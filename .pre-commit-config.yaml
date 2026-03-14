@@ -1,31 +1,53 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
-      - id: trailing-whitespace
-        args: [--markdown-linebreak-ext=md]
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-json
-      - id: check-merge-conflict
       - id: check-added-large-files
         args: [--maxkb=500]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.37.0
+    hooks:
+      - id: check-dependabot
+      - id: check-github-workflows
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.11
+    hooks:
+      - id: actionlint
+
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.23.1
+    hooks:
+      - id: zizmor
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.32.0
+    rev: v1.44.0
     hooks:
       - id: typos
 
+  - repo: https://github.com/oxc-project/mirrors-oxlint
+    rev: v1.55.0
+    hooks:
+      - id: oxlint
+
   - repo: local
     hooks:
-      - id: lint
-        name: lint
-        entry: bun run lint
-        language: system
-        pass_filenames: false
-
       - id: typecheck
         name: typecheck
         entry: bun run typecheck
         language: system
         pass_filenames: false
+        files: ^src/.*\.(ts|tsx|astro)$
+
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes

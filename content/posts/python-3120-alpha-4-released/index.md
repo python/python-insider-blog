@@ -36,7 +36,7 @@ For more details on the changes in Python 3.12, see [What's New In Python 3.12](
 -   Report bugs at [https://github.com/python/cpython/issues](https://github.com/python/cpython/issues).
 -   [Help fund Python and its community](https://www.python.org/psf/donations/).
 
-#   
+#  
 
 # And now for something completely different
 
@@ -50,7 +50,7 @@ Haiku by Katsushika Hokusai.
 
 Haiku by Kobayashi Issa.
 
-#   
+#  
 
 # Enjoy the new releases
 

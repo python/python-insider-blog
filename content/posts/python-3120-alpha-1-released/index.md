@@ -43,7 +43,7 @@ The next pre-release of Python 3.12 will be 3.12.0a2, currently scheduled for 20
 ### And now for something completely different
 
   
-[This is Not the Poem that I Had Hoped to Write](https://twitter.com/brian_bilston/status/1579378460610662401)  
+[This is Not the Poem that I Had Hoped to Write](https://www.instagram.com/p/DCv30j2IuW2/)  
   
 This is not the poem that I had hoped to write  
 when I sat at my desk and the page was white.  
@@ -59,7 +59,7 @@ Humanity examined with lessons applied.
 But the right words escaped me; so often they do.  
 Have these in lieu.  
   
-[Brian Bilston](https://twitter.com/brian_bilston)  
+[Brian Bilston](https://brianbilston.com/)
   
 
 ## Enjoy the new releases

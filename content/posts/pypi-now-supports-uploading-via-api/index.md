@@ -19,7 +19,7 @@ The token management screen shows you when each of your tokens were created, and
 
 <table align="center" cellpadding="0" cellspacing="0"><tbody><tr><td><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdl0Eh-5WXEGUSr2K7pbu4V5GsU-DoxH459y9hyphenhyphenT59zQ47ufguUwZ8a7IQvI6xfSFPOvp27LRNly_tBNwlyrSUbevtTLlVQNSBfa2iWrye_QtKQj2MjKInmZJt_1dpuHHfwfwsOGFezEc/s1600/pypi-api-token-management.png" imageanchor="1"><img src="./image-2.png" alt="API token management interface displays each token"></a></td></tr><tr><td>PyPI API token management interface</td></tr></tbody></table>
 
-  
+
 Uploading with an API token is currently optional but encouraged; in the future, PyPI will set and enforce a policy requiring users with two-factor authentication enabled to use API tokens to upload (rather than just their password sans second factor). Watch [our announcement mailing list](https://mail.python.org/mailman3/lists/pypi-announce.python.org/) for future details.
 
 <table align="center" cellpadding="0" cellspacing="0"><tbody><tr><td><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvJPtHPH5oEYRjZN047Cg9Uo3pIN5frJDdfW2bYr2N26RJGeIcqPGJAEA2-xVh3tUcm_qC5mhkrvAISMw2_0oVcImKfNUEQM0ADnhn4TQyVUeot0feoICfG8Ap0rc_NgfqbQJBo_XlNZs/s1600/pypi-api-token-just-created.png" imageanchor="1"><img src="./image-3.png" alt="A successful API token creation: a long string that only appears once, for the user to copy"></a></td></tr><tr><td>Immediately after creating the API token,<br>PyPI gives the user one chance to copy it</td><td><br></td></tr></tbody></table>

@@ -36,13 +36,13 @@ Some of the new major new features and changes in Python 3.12 are:
 
 For more details on the changes to Python 3.12, see [What’s new in Python 3.12](https://docs.python.org/dev/whatsnew/3.12.html). The next pre-release of Python 3.12 will be 3.12.0b2, currently scheduled for 2023-05-29.
 
-  
+
 
 # More resources
 
 [Online Documentation](https://docs.python.org/3.12/). [PEP 693](https://www.python.org/dev/peps/pep-0693/), the Python 3.12 Release Schedule. Report bugs via [GitHub Issues](https://github.com/python/cpython/issues). [Help fund Python and its community](https://www.python.org/psf/donations/).
 
-#   
+#  
 
 # And now for something completely different
 
@@ -66,7 +66,7 @@ As the first beta release marks the point at which we fork off the release branc
 > I took the one less traveled by,  
 > And that has made all the difference.
 
-  
+
 *The Road Not Taken*, by Robert Frost.
 
 # Enjoy the new release

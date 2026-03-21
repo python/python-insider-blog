@@ -15,12 +15,12 @@ On behalf of the Python development community and the Python 3.10 release team, 
 
 Python 3.10.0 is the newest major release of the Python programming language, and it contains many new features and optimizations.
 
-  
+
 [https://www.python.org/downloads/release/python-3100/](https://www.python.org/downloads/release/python-3100/)
 
 ## Major new features of the 3.10 series, compared to 3.9
 
-  
+
 Among the new major new features and changes so far:  
 
 -   [PEP 623](https://www.python.org/dev/peps/pep-0623/) – Deprecate and prepare for the removal of the wstr member in PyUnicodeObject.
@@ -67,7 +67,7 @@ More resources
 
 For a Schwarzschild black hole (a black hole with no rotation or electromagnetic charge), given a free fall particle starting at the event horizon, the maximum propper time (which happens when it falls without angular velocity) it will experience to fall into the singularity is \`π\*M\` ([in natural units](https://en.wikipedia.org/wiki/Natural_units)), where M is the mass of the black hole. For Sagittarius A\* (the black hole at the centre of the milky way) this time is approximately 1 minute.
 
-  
+
 Schwarzschild black holes are also unique because they have a space-like singularity at their core, which means that the singularity doesn't happen at a specific point in \*space\* but happens at a specific point in \*time\* (the future). This means once you are inside the event horizon you cannot point with your finger towards the direction the singularity is located because the singularity happens in your future: no matter where you move, you will "fall" into it.  
 
 ## We hope you enjoy the new releases!

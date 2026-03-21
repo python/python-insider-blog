@@ -36,7 +36,7 @@ Some of the new major new features and changes in Python 3.12 are:
 
 For more details on the changes to Python 3.12, see [What’s new in Python 3.12](https://docs.python.org/dev/whatsnew/3.12.html). The next pre-release of Python 3.12 will be 3.12.0b4, the last beta release, currently scheduled for 2023-07-10.
 
-  
+
 
 # More resources
 

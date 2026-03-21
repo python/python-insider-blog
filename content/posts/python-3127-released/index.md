@@ -63,7 +63,7 @@ For more details on the changes to Python 3.12, see [What’s new in Python 3.12
 
 Thanks to all of the many volunteers who help make Python Development and these releases possible! Please consider supporting our efforts by volunteering yourself or through organization contributions to the Python Software Foundation.
 
-  
+
 
 Your release team,  
 Thomas Wouters  

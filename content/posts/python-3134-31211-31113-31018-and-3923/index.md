@@ -37,7 +37,7 @@ In addition to the security fixes, the fourth maintenance release of Python 3.13
 
 # Python 3.10.18
 
-  
+
 
 [https://www.python.org/downloads/release/python-31018/](https://www.python.org/downloads/release/python-31018/)
 

@@ -41,7 +41,7 @@ Thanks to all of the many volunteers who help make Python Development and these 
 
 [https://www.python.org/psf/](https://www.python.org/psf/)
 
-  
+
 
 Your friendly release team,
 

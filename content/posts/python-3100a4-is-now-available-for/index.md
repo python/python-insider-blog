@@ -26,19 +26,19 @@ Many new features for Python 3.10 are still being planned and written. Among the
 new features and changes so far:
 
 -   [PEP 623](https://www.python.org/dev/peps/pep-0623/) – Remove wstr from Unicode
-    
+
 -   [PEP 604](https://www.python.org/dev/peps/pep-0604/) – Allow writing union types as X | Y
-    
+
 -   [PEP 612](https://www.python.org/dev/peps/pep-0612/) – Parameter Specification Variables
-    
+
 -   [PEP 626](https://www.python.org/dev/peps/pep-0626/) – Precise line numbers for debugging and other tools.
-    
+
 -   [bpo-38605](https://bugs.python.org/issue38605): `from __future__ import annotations` ([PEP 563](https://www.python.org/dev/peps/pep-0563/)) is now the default.
-    
+
 -   [PEP 618](https://www.python.org/dev/peps/pep-0618/) – Add Optional Length-Checking To zip.
-    
+
 -   (Hey, fellow core developer, if a feature you find important is missing from this list, [let Pablo know](mailto:pablogsal@python.org).)
-    
+
 
 The next pre-release of Python 3.10 will be 3.10.0a5, currently scheduled for 2021-02-01.
 

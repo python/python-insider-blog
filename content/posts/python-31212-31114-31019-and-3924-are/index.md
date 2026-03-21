@@ -49,7 +49,7 @@ We couldn’t just let Hugo have fun with 3.14.0, so here are new security relea
 
 [https://www.python.org/downloads/release/python-31212/](https://www.python.org/downloads/release/python-31212/)  
 
-##   
+##  
 
 ### Python 3.11.14
 
@@ -57,10 +57,10 @@ Additional security content in this release:
 
 -   [gh-135374](https://github.com/python/cpython/issues/135374): Update the bundled copy of setuptools to 79.0.1 to fix [CVE-2025-47273](https://nvd.nist.gov/vuln/detail/CVE-2025-47273) and [CVE-2024-6345](https://nvd.nist.gov/vuln/detail/CVE-2024-6345).
 
-  
+
 [https://www.python.org/downloads/release/python-31114/](https://www.python.org/downloads/release/python-31114/)
 
-##   
+##  
 
 ### Python 3.10.19
 
@@ -68,10 +68,10 @@ Additional security content in this release:
 
 -   [gh-135374](https://github.com/python/cpython/issues/135374): Update the bundled copy of setuptools to 79.0.1 to fix [CVE-2025-47273](https://nvd.nist.gov/vuln/detail/CVE-2025-47273) and [CVE-2024-6345](https://nvd.nist.gov/vuln/detail/CVE-2024-6345).
 
-  
+
 [https://www.python.org/downloads/release/python-31019/](https://www.python.org/downloads/release/python-31019/)
 
-##   
+##  
 
 ### Python 3.9.24
 
@@ -82,7 +82,7 @@ Additional security content in this release:
 
 [https://www.python.org/downloads/release/python-3924/](https://www.python.org/downloads/release/python-3924/)
 
-##   
+##  
 
 # Stay safe and upgrade!
 

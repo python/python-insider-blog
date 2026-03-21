@@ -23,7 +23,7 @@ Python 3.12 might be slowly reaching middle age, but still received over 250 bug
 
 [https://www.python.org/downloads/release/python-3128/](https://www.python.org/downloads/release/python-3128/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-1-3-12-8-3-11-11-3-10-16-and-3-9-21-are-now-available/73214#p-211771-python-31111-3)Python 3.11.11
 
@@ -31,7 +31,7 @@ I know it’s probably hard to hear, but this is the *second* security-only rele
 
 [https://www.python.org/downloads/release/python-31111/](https://www.python.org/downloads/release/python-31111/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-1-3-12-8-3-11-11-3-10-16-and-3-9-21-are-now-available/73214#p-211771-python-31016-4)Python 3.10.16
 
@@ -39,7 +39,7 @@ Python 3.10 received a total of 14 commits since 3.10.15. Why more than 3.11? Be
 
 [https://www.python.org/downloads/release/python-31016/](https://www.python.org/downloads/release/python-31016/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-1-3-12-8-3-11-11-3-10-16-and-3-9-21-are-now-available/73214#p-211771-python-3921-5)Python 3.9.21
 
@@ -47,7 +47,7 @@ Python 3.9 isn’t quite ready for pasture yet, as it’s set to receive securit
 
 [https://www.python.org/downloads/release/python-3921/](https://www.python.org/downloads/release/python-3921/)
 
-  
+
 
 # [](https://discuss.python.org/t/python-3-13-1-3-12-8-3-11-11-3-10-16-and-3-9-21-are-now-available/73214#p-211771-stay-safe-and-upgrade-6)Stay safe and upgrade!
 

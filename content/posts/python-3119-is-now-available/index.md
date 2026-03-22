@@ -11,7 +11,7 @@ legacyUrl: /2024/04/python-3119-is-now-available.html
 
 [![](./image-1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEickKZquPSoujo5pHqw1C1q7m4_kEMV27tJ-7lIt1sxNnzvPQMpKso_RVbnrnkq1x4rQ2Ybx8zmTy-LmL3K5Ye3fP_bfwTdMRSFhFRCGcLXLNNtlj4mEurgdSvz5msOKq1fmLGKVfeXxxVh9W_SzLCfK9M5HsviItUSLPy19qTWch9mMh5YWpmCjC0a/s507/311logo.png)  
 
-## 
+##
 
 ![:warning:](./image-2.png) This is the last bug fix release of Python 3.11 ![:warning:](./image-3.png)
 

@@ -12,9 +12,9 @@ legacyUrl: /2020/02/python-382rc2-is-now-available-for.html
 Python 3.8.2rc2 is the second release candidate of the second maintenance release of Python 3.8. Go get it here:  
 [https://www.python.org/downloads/release/python-382rc2/](https://www.python.org/downloads/release/python-382rc2/)  
 
-  
 
-  
+
+
 
 ### Why a second release candidate?
 

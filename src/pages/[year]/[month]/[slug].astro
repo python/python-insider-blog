@@ -1,5 +1,4 @@
 ---
-import type { InferGetStaticPropsType } from "astro";
 import BlogPostLayout from "../../../layouts/BlogPostLayout.astro";
 import { getCollection, render } from "astro:content";
 
@@ -22,7 +21,6 @@ export async function getStaticPaths() {
     });
 }
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { post } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
 const references = (remarkPluginFrontmatter?.references ?? []) as Array<{ type: string; label: string; url: string }>;

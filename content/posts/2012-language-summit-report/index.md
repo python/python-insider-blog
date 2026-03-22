@@ -66,5 +66,5 @@ PEP [3154](http://www.python.org/dev/peps/pep-3154/), mentioned by Lukasz Langa,
 
 * * *
 
-  
+
 If you have any questions or comments, please post to [python-dev](http://mail.python.org/mailman/listinfo/python-dev). *Thanks to Eric Snow and Senthil Kumaran for contributing to this post.*

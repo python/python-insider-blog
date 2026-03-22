@@ -17,7 +17,7 @@ https://www.python.org/downloads/release/python-3101/
 
 Python 3.10.1 is the newest major release of the Python programming language, and it contains many new features and optimizations.
 
-##   
+##  
 
 ## Major new features of the 3.10 series, compared to 3.9
 

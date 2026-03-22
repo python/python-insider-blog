@@ -36,7 +36,7 @@ For more details on the changes in Python 3.12, see [What's New In Python 3.12](
 -   Report bugs at [https://github.com/python/cpython/issues](https://github.com/python/cpython/issues).
 -   [Help fund Python and its community](https://www.python.org/psf/donations/).
 
-#   
+#  
 
 # And now for something completely different
 
@@ -46,7 +46,7 @@ For more details on the changes in Python 3.12, see [What's New In Python 3.12](
 
 > Averse to personal publicity, we veiled our own names under those of Currer, Ellis and Acton Bell; the ambiguous choice being dictated by a sort of conscientious scruple at assuming Christian names positively masculine, while we did not like to declare ourselves women, because – without at that time suspecting that our mode of writing and thinking was not what is called "feminine" – we had a vague impression that authoresses are liable to be looked on with prejudice; we had noticed how critics sometimes use for their chastisement the weapon of personality, and for their reward, a flattery, which is not true praise.
 
-#   
+#  
 
 # Enjoy the new releases
 

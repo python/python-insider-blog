@@ -18,9 +18,9 @@ Following that, the **last** full regular maintenance release of Python 3.8 is p
 ### Notable security content in today’s releases
 
 -   [bpo-42967](https://bugs.python.org/issue42967): Fix web cache poisoning vulnerability by defaulting the query args separator to `&`, and allowing the user to choose a custom separator.
-    
+
 -   [bpo-42938](https://bugs.python.org/issue42938): Avoid static buffers when computing the repr of `ctypes.c_double` and `ctypes.c_longdouble` values.
-    
+
 
 ### What’s new?
 

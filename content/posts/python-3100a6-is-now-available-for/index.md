@@ -17,13 +17,13 @@ Check them here and tell us how we can improve it:
 
 ### [https://docs.python.org/3.10/tutorial/controlflow.html#match-statements](https://docs.python.org/3.10/tutorial/controlflow.html#match-statements)
 
-  
+
 
 Go get the new alpha here:
 
 [https://www.python.org/downloads/release/python-3100a6/](https://www.python.org/downloads/release/python-3100a6/)
 
-  
+
 
 This is an early developer preview of Python 3.10
 
@@ -37,31 +37,31 @@ Many new features for Python 3.10 are still being planned and written. Among the
 new features and changes so far:
 
 -   [PEP 623](https://www.python.org/dev/peps/pep-0623/) – Remove wstr from Unicode
-    
+
 -   [PEP 604](https://www.python.org/dev/peps/pep-0604/) – Allow writing union types as X | Y
-    
+
 -   [PEP 612](https://www.python.org/dev/peps/pep-0612/) – Parameter Specification Variables
-    
+
 -   [PEP 626](https://www.python.org/dev/peps/pep-0626/) – Precise line numbers for debugging and other tools.
-    
+
 -   [bpo-38605](https://bugs.python.org/issue38605): `from __future__ import annotations` ([PEP 563](https://www.python.org/dev/peps/pep-0563/)) is now the default.
-    
+
 -   [PEP 618](https://www.python.org/dev/peps/pep-0618/) – Add Optional Length-Checking To zip.
-    
+
 -   [bpo-12782](https://bugs.python.org/issue12782): Parenthesized context managers are now officially allowed.
-    
+
 -   [PEP 632](https://www.python.org/dev/peps/pep-0632/) – Deprecate distutils module.
-    
+
 -   [PEP 613](https://www.python.org/dev/peps/pep-0613/) – Explicit Type Aliases
-    
+
 -   [PEP 634](https://www.python.org/dev/peps/pep-0634/) – Structural Pattern Matching: Specification
-    
+
 -   [PEP 635](https://www.python.org/dev/peps/pep-0635/) – Structural Pattern Matching: Motivation and Rationale
-    
+
 -   [PEP 636](https://www.python.org/dev/peps/pep-0636/) – Structural Pattern Matching: Tutorial
-    
+
 -   (Hey, fellow core developer, if a feature you find important is missing from this list, [let Pablo know](mailto:pablogsal@python.org).)
-    
+
 
 The next pre-release of Python 3.10 will be 3.10.0a7 ( last alpha release), currently scheduled for Monday, 2021-04-05.
 

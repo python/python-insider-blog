@@ -37,7 +37,7 @@ Some of the new major new features and changes in Python 3.13 are:
 -   Docstrings now have [their leading indentation stripped](https://docs.python.org/3.13/whatsnew/3.13.html#other-language-changes), reducing memory use and the size of .pyc files. (Most tools handling docstrings already strip leading indentation.)
 -   The [dbm module](https://docs.python.org/3.13/library/dbm.html) has a new [dbm.sqlite3 backend](https://docs.python.org/3.13/whatsnew/3.13.html#dbm) that is used by default when creating new files.
 -   The minimum supported macOS version was changed from 10.9 to **10.13 (High Sierra)**. Older macOS versions will not be supported going forward.  
-    
+
 
 ## [](https://discuss.python.org/t/3-13-0b2-now-available/55056#typing-3)Typing
 

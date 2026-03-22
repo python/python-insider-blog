@@ -20,7 +20,7 @@ This is an early developer preview of Python 3.12
 
 # Major new features of the 3.12 series, compared to 3.11
 
-  
+
 Python 3.12 is still in development. This release, 3.12.0a1, is the first of seven planned alpha releases. Alpha releases are intended to make it easier to test the current state of new features and bug fixes and to test the release process. During the alpha phase, features may be added up until the start of the beta phase (2023-05-08) and, if necessary, may be modified or deleted up until the release candidate phase (2023-07-31). Please keep in mind that this is a preview release and its use is ***not*** recommended for production environments. Many new features for Python 3.12 are still being planned and written. Among the new major new features and changes so far:  
 
 -   The deprecated \`wstr\` and \`wstr\_length\` members of the C implementation of unicode objects were removed, per [PEP 623](https://peps.python.org/pep-0623/).
@@ -38,13 +38,12 @@ The next pre-release of Python 3.12 will be 3.12.0a2, currently scheduled for 20
 -   Report bugs at [https://github.com/python/cpython/issues](https://github.com/python/cpython/issues).
 -   Help fund Python and its community at [https://www.python.org/psf/donations/](https://www.python.org/psf/donations/).
 
-  
+
 
 ### And now for something completely different
 
-  
 [This is Not the Poem that I Had Hoped to Write](https://www.instagram.com/p/DCv30j2IuW2/)  
-  
+
 This is not the poem that I had hoped to write  
 when I sat at my desk and the page was white.  
 You see, there were other words that I’d had in mind,  
@@ -58,9 +57,9 @@ Nope. I had grand aspirations. Believe me, I tried.
 Humanity examined with lessons applied.  
 But the right words escaped me; so often they do.  
 Have these in lieu.  
-  
+
 [Brian Bilston](https://brianbilston.com/)
-  
+
 
 ## Enjoy the new releases
 

@@ -60,7 +60,7 @@ For more details on the changes to Python 3.13, see [What’s new in Python 3.13
 -   [PEP 719](https://peps.python.org/pep-0719/), 3.13 Release Schedule
 -   Report bugs at [Issues · python/cpython · GitHub](https://github.com/python/cpython/issues).
 -   [Help fund Python directly](https://www.python.org/psf/donations/python-dev/) (or [via GitHub Sponsors](https://github.com/sponsors/python)), and support [the Python community](https://www.python.org/psf/donations/).  
-    
+
 
 # [](https://discuss.python.org/t/python-3-13-0b1-now-available/52891#enjoy-the-new-releases-6)
 

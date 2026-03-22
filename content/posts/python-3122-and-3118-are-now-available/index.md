@@ -9,7 +9,7 @@ published: true
 legacyUrl: /2024/02/python-3122-and-3118-are-now-available.html
 ---
 
-#   
+#  
 
 Python 3.12.2 and 3.11.8 are now available. In addition to all the usual bugfixes, these releases contain a small security fix: [hidden .pth files are no longer automatically read and executed](https://docs.python.org/release/3.12.2/whatsnew/changelog.html#security) as part of Python startup. (New releases of 3.8, 3.9 and 3.10 containing the same fix are expected next week.)
 

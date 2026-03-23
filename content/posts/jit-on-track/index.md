@@ -9,6 +9,10 @@ tags:
 published: true
 ---
 
+This was [originally posted](https://fidget-spinner.github.io/posts/jit-on-track.html) on [Ken Jin's Blog](https://fidget-spinner.github.io/).
+
+---
+
 ![JIT performance as of 17 March (PST). Lower is better versus interpreter](brrr-20260317.png)
 (JIT performance as of 17 March (PST). Lower is better versus interpreter. Image credits to [doesjitgobrrr.com](https://doesjitgobrrr.com/)).
 
@@ -82,7 +86,3 @@ Ideas don't exist in a silo. I suspect I became better at writing JITs thanks to
 # Conclusion
 
 People are important, and with some luck, [JIT go brrr](https://doesjitgobrrr.com/).
-
----
-
-This was [originally posted](https://fidget-spinner.github.io/posts/jit-on-track.html) on [Ken Jin's Blog](https://fidget-spinner.github.io/).

@@ -2,7 +2,7 @@
 title: Python 3.15's JIT is now back on track
 publishDate: '2026-03-23'
 author: Ken Jin
-description: 'A look at Python's JIT in 3.15a7.'
+description: "A look at Python's JIT in 3.15a7."
 tags:
   - JIT
   - performance

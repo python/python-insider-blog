@@ -85,4 +85,4 @@ People are important, and with some luck, [JIT go brrr](https://doesjitgobrrr.co
 
 ---
 
-This was [originally posted](https://fidget-spinner.github.io/posts/faster-jit-plan.html) on [Ken Jin's Blog](https://fidget-spinner.github.io/).
+This was [originally posted](https://fidget-spinner.github.io/posts/jit-on-track.html) on [Ken Jin's Blog](https://fidget-spinner.github.io/).

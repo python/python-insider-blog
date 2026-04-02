@@ -28,13 +28,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/postcss": "^4.2.2",
     "@types/mdast": "^4.0.4",
     "@types/turndown": "^5.0.6",
     "fast-xml-parser": "^5.3.5",
     "oxlint": "^1.47.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
     "turndown": "^7.2.2",
     "turndown-plugin-gfm": "^1.0.2",
     "typescript": "^5.9.3"

@@ -22,7 +22,6 @@ const authors = defineCollection({
     bio: z.string().optional(),
     github: z.string().optional(),
     avatar: z.string().optional(),
-    twitter: z.string().optional(),
     bluesky: z.string().optional(),
     mastodon: z.string().optional(),
     website: z.string().optional(),

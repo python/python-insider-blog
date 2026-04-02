@@ -109,7 +109,6 @@ export default config({
         bio: fields.text({ label: "Bio", multiline: true }),
         github: fields.text({ label: "GitHub Username" }),
         avatar: fields.url({ label: "Avatar URL" }),
-        twitter: fields.url({ label: "Twitter/X" }),
         bluesky: fields.url({ label: "Bluesky" }),
         mastodon: fields.url({ label: "Mastodon" }),
         website: fields.url({ label: "Website" }),

@@ -60,7 +60,7 @@ Python 3.13.13 is the lucky thirteenth maintenance release of 3.13, containing a
 https://www.python.org/downloads/release/python-31313/
 
 
-## Enjoy the new release
+## Enjoy the new releases
 
 Thanks to all of the many volunteers who help make Python development and these releases possible! Please consider supporting our efforts by volunteering yourself or through organisation contributions to the [Python Software Foundation](https://www.python.org/psf/donations/).
 

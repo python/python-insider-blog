@@ -2,15 +2,17 @@
 title: 'Python 3.15.0a8, 3.14.4 and 3.13.13 are out!'
 publishDate: '2026-04-07'
 author: Hugo van Kemenade
-description: 'A final alpha and two bug fixes are waiting your upgrade.'
+description: 'A final alpha and two bug fixes are awaiting your upgrade.'
 tags:
   - releases
 published: true
 ---
 
-## Python 3.15.0 alpha 5
+## Python 3.15.0 alpha 8
 
 *This is an early developer preview of Python 3.15*
+
+https://www.python.org/downloads/release/python-3150a8/
 
 ### Major new features of the 3.15 series, compared to 3.14
 

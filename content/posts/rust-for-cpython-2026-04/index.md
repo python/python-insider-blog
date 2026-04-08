@@ -1,6 +1,6 @@
 ---
 title: Rust for CPython Progress Update April 2026
-publishDate: '2026-04-07'
+publishDate: '2026-04-08'
 author: Emma Smith
 description: "Rust for CPython project status update April 2026"
 tags:

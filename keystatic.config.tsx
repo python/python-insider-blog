@@ -23,6 +23,7 @@ const knownAuthors = [
   "Michael Markert",
   "Mike Driscoll",
   "Philip Jenvey",
+  "Emma Smith",
 ];
 
 const knownTags = [
@@ -37,6 +38,7 @@ const knownTags = [
   "contributors",
   "buildbot",
   "history",
+  "Rust",
 ];
 
 const referenceComponents = {

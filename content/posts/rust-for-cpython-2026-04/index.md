@@ -8,7 +8,7 @@ tags:
 published: true
 ---
 
-> This post has also been shared on [discuss.python.org](<DPO link>).
+> This post has also been shared on [discuss.python.org](https://discuss.python.org/t/rust-for-cpython-progress-update-april-2026/106895).
 
 ---
 

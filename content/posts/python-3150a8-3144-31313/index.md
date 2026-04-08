@@ -32,6 +32,7 @@ Many new features for Python 3.15 are still being planned and written. Among the
 * [PEP 728](https://peps.python.org/pep-0728/): `TypedDict` with typed extra items
 * [PEP 747](https://docs.python.org/3.15/whatsnew/3.15.html#typing): Annotating type forms with `TypeForm`
 * [PEP 782](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-pybyteswriter): A new `PyBytesWriter` C API to create a Python bytes object
+* [PEP 803](https://peps.python.org/pep-0803/): Stable ABI for free-threaded builds
 * The [JIT compiler](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-jit) has been significantly upgraded, with 6-7% geometric mean performance improvement on x86-64 Linux over the standard interpreter, and 12-13% speedup on AArch64 macOS over the tail-calling interpreter
 * The official Windows 64-bit binaries now [use the tail-calling interpreter](https://docs.python.org/3.15/whatsnew/3.15.html#whatsnew315-windows-tail-calling-interpreter)
 * [Improved error messages](https://docs.python.org/3.15/whatsnew/3.15.html#improved-error-messages)

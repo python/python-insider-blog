@@ -17,7 +17,7 @@
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@keystatic/astro": "^5.0.6",
-    "@keystatic/core": "^0.5.48",
+    "@keystatic/core": "^0.5.50",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^5.17.1",
     "cmdk": "^1.1.1",

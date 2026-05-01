@@ -30,7 +30,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Run prek
-        uses: j178/prek-action@v1
+        uses: j178/prek-action@v2.0.2
 
   build:
     name: Build

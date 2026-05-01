@@ -36,3 +36,7 @@ updates:
     open-pull-requests-limit: 5
     cooldown:
       default-days: 14
+    groups:
+      actions:
+        patterns:
+          - "*"

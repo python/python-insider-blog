@@ -11,15 +11,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/node": "^9.5.3",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/mdx": "^5.0.2",
+    "@astrojs/node": "^10.0.2",
+    "@astrojs/react": "^5.0.1",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.48",
     "@resvg/resvg-js": "^2.6.2",
-    "astro": "^5.17.1",
+    "astro": "^6.0.6",
     "cmdk": "^1.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -27,7 +27,7 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.8",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/mdast": "^4.0.4",
     "@types/turndown": "^5.0.6",

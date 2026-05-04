@@ -8,13 +8,13 @@ tags:
 published: true
 ---
 
-Python 3.14.5rc1 is the fifth maintenance release of 3.14, containing around 113 bugfixes, build improvements and documentation changes since 3.14.4.
+Python 3.14.5rc1 is a release candidate for the fifth maintenance release of 3.14, containing around 113 bugfixes, build improvements and documentation changes since 3.14.4.
 
 https://www.python.org/downloads/release/python-3145rc1/
 
 ## Garbage collector
 
-Notably, the garbage collector (GC) has changed in Python 3.14.5.
+Notably, the garbage collector (GC) has changed in Python 3.14.5rc1.
 
 The incremental garbage collector shipped in Python 3.14.0-3.14.4 has been reverted back to the generational garbage collector from 3.13, due to a number of [reports](https://github.com/python/cpython/issues/142516) of significant memory pressure in production environments. See [What's New](https://docs.python.org/3/whatsnew/3.14.html#garbage-collection) and [discuss.python.org](https://discuss.python.org/t/reverting-the-incremental-gc-in-python-3-14-and-3-15/107014) for details.
 

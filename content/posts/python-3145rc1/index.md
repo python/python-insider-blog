@@ -1,6 +1,6 @@
 ---
 title: 'Python 3.14.5 release candidate'
-publishDate: '2026-05-02'
+publishDate: '2026-05-04'
 author: Hugo van Kemenade
 description: 'A special release candidate with a new (old) garbage collector.'
 tags:
@@ -91,7 +91,7 @@ I asked [Rodrigo Girão Serrão](https://mathspp.com/) for a fun _π_ fact:
 
 Thanks to all of the many volunteers who help make Python Development and these releases possible! Please consider supporting our efforts by volunteering yourself or through organisation contributions to the [Python Software Foundation](https://www.python.org/psf-landing/).
 
-Regards from a sunny Helsinki,
+Regards from a cherry-blossoming Helsinki,
 
 Your release team,\
 Hugo van Kemenade\

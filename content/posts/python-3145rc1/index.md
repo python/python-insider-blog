@@ -29,7 +29,7 @@ Please keep in mind that this is a preview release and its use is ***not*** reco
 
 Some of the major new features and changes in Python 3.14 are:
 
-## New features
+### New features
 
 - [PEP 779](https://docs.python.org/3/whatsnew/3.14.html#whatsnew314-free-threaded-now-supported):  Free-threaded Python is officially supported
 - [PEP 649](https://docs.python.org/3/whatsnew/3.14.html#whatsnew314-deferred-annotations): The evaluation of annotations is now deferred, improving the semantics of using annotations.
@@ -51,26 +51,26 @@ Some of the major new features and changes in Python 3.14 are:
 For more details on the changes to Python 3.14, see [What’s new in Python 3.14](https://docs.python.org/3/whatsnew/3.14.html).
 
 
-## Build changes
+### Build changes
 
 - [PEP 761](https://docs.python.org/3/whatsnew/3.14.html#whatsnew314-no-more-pgp): Python 3.14 and onwards no longer provides PGP signatures for release artifacts. Instead, Sigstore is recommended for verifiers.
 - Official macOS and Windows release binaries include an [*experimental* JIT compiler](https://docs.python.org/3/whatsnew/3.14.html#whatsnew314-jit-compiler).
 - Official [Android binary releases](https://docs.python.org/3/whatsnew/3.14.html#whatsnew314-build-changes) are now available.
 
 
-## Incompatible changes, removals and new deprecations
+### Incompatible changes, removals and new deprecations
 
 - [Incompatible changes](https://docs.python.org/3/whatsnew/3.14.html#incompatible-changes)
 - Python [removals](https://docs.python.org/3/whatsnew/3.14.html#removed) and [deprecations](https://docs.python.org/3/whatsnew/3.14.html#deprecated)
 - C API [removals](https://docs.python.org/3/whatsnew/3.14.html#removed-c-apis) and [deprecations](https://docs.python.org/3/whatsnew/3.14.html#deprecated-c-apis)
 - Overview of all [pending deprecations](https://docs.python.org/3/deprecations/index.html)
 
-# Python install manager
+## Python install manager
 
 The installer we offer for Windows is being replaced by our new install manager, which can be installed from [the Windows Store](https://apps.microsoft.com/detail/9NQ7512CXL7T) or from its [download page](https://www.python.org/downloads/latest/pymanager/). See [our documentation](https://docs.python.org/3/using/windows.html) for more information. The JSON file available for download contains the list of all the installable packages available as part of this release, including file URLs and hashes, but is not required to install the latest release. The traditional installer will remain available throughout the 3.14 and 3.15 releases.
 
 
-# More resources
+## More resources
 
 - [Online documentation](https://docs.python.org/3/)
 - [PEP 745](https://peps.python.org/pep-0745/), 3.14 Release Schedule
@@ -78,7 +78,7 @@ The installer we offer for Windows is being replaced by our new install manager,
 - [Help fund Python directly](https://www.python.org/psf/donations/python-dev/) (or via [GitHub Sponsors](https://github.com/sponsors/python)) and support [the Python community](https://www.python.org/psf/donations/)
 
 
-# And now for something completely different
+## And now for something completely different
 
 I asked [Rodrigo Girão Serrão](https://mathspp.com/) for a fun _π_ fact:
 
@@ -87,7 +87,7 @@ I asked [Rodrigo Girão Serrão](https://mathspp.com/) for a fun _π_ fact:
 [Source](https://en.wikipedia.org/wiki/Euler's_identity)
 
 
-# Enjoy the new release
+## Enjoy the new release
 
 Thanks to all of the many volunteers who help make Python Development and these releases possible! Please consider supporting our efforts by volunteering yourself or through organisation contributions to the [Python Software Foundation](https://www.python.org/psf-landing/).
 

@@ -73,7 +73,7 @@ migrate: ## Migrate Blogger posts
 content-new-author: ## Create a new author (ID=author-id NAME="Author Name")
 	@if [ -z "$(ID)" ] || [ -z "$(NAME)" ]; then \
 		echo "Usage: make content-new-author ID=author-id NAME=\"Author Name\""; exit 1; fi
-	@echo '{"name":"$(NAME)","bio":"","github":"","avatar":"","twitter":"","bluesky":"","mastodon":"","website":"","featured":false}' \
+	@echo '{"name":"$(NAME)","bio":"","github":"","avatar":"","bluesky":"","mastodon":"","website":"","featured":false}' \
 		| python3 -m json.tool > content/authors/$(ID).json
 	@echo "Created content/authors/$(ID).json"
 

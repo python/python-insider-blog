@@ -50,9 +50,8 @@ Some of the major new features and changes in Python 3.15 are:
 
 For more details on the changes to Python 3.15, see [What’s new in Python 3.15](https://docs.python.org/3.15/whatsnew/3.15.html). The next pre-release of Python 3.15 will be 3.15.0b2, scheduled for 2026-06-02.
 
-## Incompatible changes, removals and new deprecations
+## Removals and new deprecations
 
-- [Incompatible changes](https://docs.python.org/3.15/whatsnew/3.15.html#incompatible-changes)
 - Python [removals](https://docs.python.org/3.15/whatsnew/3.15.html#removed) and [deprecations](https://docs.python.org/3.15/whatsnew/3.15.html#deprecated)
 - C API [removals](https://docs.python.org/3.15/whatsnew/3.15.html#c-api-removed) and [deprecations](https://docs.python.org/3.15/whatsnew/3.15.html#c-api-deprecated)
 - Overview of all [pending deprecations](https://docs.python.org/3.15/deprecations/index.html)

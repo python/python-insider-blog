@@ -284,9 +284,16 @@ export default function remarkPythonRefs() {
     visit(tree, "link", (node: Link, index, parent) => {
       if (index == null || !parent) return;
 
-      const label = extractText(node.children);
-      const info = classify(node.url, label);
+      const rawLabel = extractText(node.children);
+      const info = classify(node.url, rawLabel);
       if (!info) return;
+
+      // For autolinked bare URLs, drop the protocol, leading "www.",
+      // and trailing slash so the badge reads "python.org/downloads/..."
+      // rather than the full "https://www.python.org/.../" form.
+      const label = rawLabel.startsWith("http")
+        ? rawLabel.replace(/^https?:\/\/(?:www\.)?/i, "").replace(/\/$/, "")
+        : rawLabel;
 
       collectRef(info.type, label, node.url);
       const html = buildBadgeHtml({ ...info, label, url: node.url });

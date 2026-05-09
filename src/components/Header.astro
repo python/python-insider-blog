@@ -25,6 +25,7 @@ const currentPath = Astro.url.pathname;
           href={href}
           class:list={[
             "rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200",
+            label === "Home" && "hidden sm:inline-flex",
             currentPath === href || (href !== "/" && currentPath.startsWith(href))
               ? "bg-[#306998]/10 text-[#306998] dark:bg-[#ffd43b]/10 dark:text-[#ffd43b]"
               : "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-100",

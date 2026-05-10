@@ -8,7 +8,7 @@ tags:
 published: true
 ---
 
-Python 3.14.5 is the fifth maintenance release of 3.14, containing around 154 bugfixes, build improvements and documentation changes since 3.14.4.
+Python 3.14.5 final is the fifth maintenance release of 3.14, containing around 154 bugfixes, build improvements and documentation changes since 3.14.4.
 
 https://www.python.org/downloads/release/python-3145/
 
@@ -56,12 +56,11 @@ For more details on the changes to Python 3.14, see [What’s new in Python 3.14
 - Official [Android binary releases](https://docs.python.org/3/whatsnew/3.14.html#whatsnew314-build-changes) are now available.
 
 
-### Incompatible changes, removals and new deprecations
+### Removals and new deprecations
 
-- [Incompatible changes](https://docs.python.org/3/whatsnew/3.14.html#incompatible-changes)
 - Python [removals](https://docs.python.org/3/whatsnew/3.14.html#removed) and [deprecations](https://docs.python.org/3/whatsnew/3.14.html#deprecated)
 - C API [removals](https://docs.python.org/3/whatsnew/3.14.html#removed-c-apis) and [deprecations](https://docs.python.org/3/whatsnew/3.14.html#deprecated-c-apis)
-- Overview of all [pending deprecations](https://docs.python.org/3/deprecations/index.html)
+- Overview of all [pending removals](https://docs.python.org/3/deprecations/index.html)
 
 ## Python install manager
 

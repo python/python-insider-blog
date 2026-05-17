@@ -1495,6 +1495,8 @@ body {
   color: #1a5276;
   background-color: rgba(30, 100, 160, 0.08);
   border-color: rgba(30, 100, 160, 0.2);
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .prose .ref-py-release:hover {

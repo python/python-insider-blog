@@ -99,12 +99,6 @@ const avatarUrl = author.avatar || (author.github ? `https://github.com/${author
               {author.github}
             </a>
           )}
-          {author.twitter && (
-            <a href={author.twitter} class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
-              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              Twitter
-            </a>
-          )}
           {author.bluesky && (
             <a href={`https://bsky.app/profile/${author.bluesky}`} class="inline-flex items-center gap-1 text-xs text-zinc-500 transition-colors hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
               <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.627 3.588 3.476 6.182 3.21-4.024.564-7.545 2.254-2.88 7.543 5.528 5.283 7.435-1.36 8.074-3.953.639 2.593 1.9 9.108 8.073 3.953 4.665-5.289 1.145-6.979-2.88-7.543 2.595.267 5.398-.583 6.183-3.21.245-.83.624-5.789.624-6.479 0-.688-.139-1.86-.902-2.203-.659-.3-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>

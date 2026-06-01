@@ -27,7 +27,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 26
 
@@ -49,7 +49,7 @@ jobs:
         run: bunx astro check
 
       - name: Spell check
-        uses: crate-ci/typos@v1.45.1
+        uses: crate-ci/typos@v1.46.2
 
       - name: Build
         run: bun run build

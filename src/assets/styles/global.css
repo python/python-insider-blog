@@ -1281,7 +1281,7 @@ body {
   text-decoration: none;
   border: 1px solid;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
   vertical-align: baseline;
 }
 
@@ -1495,8 +1495,6 @@ body {
   color: #1a5276;
   background-color: rgba(30, 100, 160, 0.08);
   border-color: rgba(30, 100, 160, 0.2);
-  overflow-wrap: anywhere;
-  white-space: normal;
 }
 
 .prose .ref-py-release:hover {

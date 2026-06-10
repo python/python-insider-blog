@@ -17,7 +17,7 @@ https://www.python.org/downloads/release/python-3146/
 
 ## Python 3.13.14
 
-Python 3.13.14 is the fourteenth maintenance release of 3.13, containing around TODO bugfixes, build improvements and documentation changes since 3.13.13.
+Python 3.13.14 is the fourteenth maintenance release of 3.13, containing around 240 bugfixes, build improvements and documentation changes since 3.13.13.
 
 https://www.python.org/downloads/release/python-31314/
 

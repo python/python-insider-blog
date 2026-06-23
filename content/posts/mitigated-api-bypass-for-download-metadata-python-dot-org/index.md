@@ -33,10 +33,10 @@ The codebase was manually audited and additional hardening was applied. In addit
 
 ## Timeline
 
-* February 23rd: Report received from DEVCORE Research Team
-* February 23rd: Report acknowledged and confirmed by PSRT
-* February 24th: Patch reviewed and applied to python.org
-* February 24th: Patch confirmed working by DEVCORE Research Team
+* February 23rd: Report received from DEVCORE Research Team.
+* February 23rd: Report acknowledged and confirmed by PSRT.
+* February 24th: Patch reviewed and applied to python.org.
+* February 24th: Patch confirmed working by DEVCORE Research Team.
 * February 25th: Audit of logs, database backups, Sigstore and PGP completed, showing no exploitation. Codebase was manually audited by staff.
 * April 23rd: LLM security auditing tools were applied to the codebase, finding no issues related to authentication or authorization.
 * June 1st: Trail of Bits began audit of python.org and Python release process.

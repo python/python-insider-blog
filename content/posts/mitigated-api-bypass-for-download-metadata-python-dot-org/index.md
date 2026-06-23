@@ -11,9 +11,9 @@ published: true
 
 ## Summary
 
-On February 23rd 2026, Splitline Ng from the DEVCORE Research Team reported to the [Python Security Response Team](https://devguide.python.org/security/psrt/) (PSRT) an authentication bypass vulnerability in the “[python.org](python.org)” release management API. By supplying an admin username with an arbitrary API key the request was processed with admin privileges.
+On February 23rd 2026, Splitline Ng from the DEVCORE Research Team reported to the [Python Security Response Team](https://devguide.python.org/security/psrt/) (PSRT) an authentication bypass vulnerability in the [python.org](https://python.org) release management API. By supplying an admin username with an arbitrary API key the request was processed with admin privileges.
 
-If exploited, this would allow an attacker to modify Python release and file metadata that affects what URLs users are offered when visiting [python.org/downloads](python.org/downloads). While it would not enable existing release files to be modified in-place, it would enable an attacker to modify the URLs that are provided on [python.org](http://python.org) for each release file, including verification material URLs. There is no evidence this vulnerability was exploited after auditing logs and database backups. This scenario is even more unlikely to have happened unnoticed due to the many redistributions requiring Python Sigstore and PGP materials be verified prior to builds.
+If exploited, this would have allowed an attacker to modify Python release and file metadata that affects what URLs users are offered when visiting [python.org/downloads](python.org/downloads). While it would not enable existing release files to be modified in-place, it would enable an attacker to modify the URLs that are provided on [python.org](http://python.org) for each release file, including verification material URLs. There is no evidence this vulnerability was exploited after auditing logs and database backups. This scenario is even more unlikely to have happened unnoticed due to the many redistributions requiring Python Sigstore and PGP materials be verified prior to builds.
 
 ## Details
 
@@ -27,7 +27,7 @@ The codebase was manually audited and additional hardening was applied. In addit
 
 ## Remediations
 
-* Patch applied and deployed which doesn’t mix behavior between the “guest” authentication mode and API key authentication. This fixes the issue and documents clearly the branch in behavior between the two cases. ([python/pythondotorg#2946](https://github.com/python/pythondotorg/pull/2946)). Trail of Bits audit improved this functionality to require HTTPS URLs for newer releases ([python/pythondotorg#3014](https://github.com/python/pythondotorg/pull/3014)) through a custom field validator.
+* Patch applied and deployed to ensure that behavior is not mixed between the “guest” authentication mode and API key authentication. This fixes the issue and documents clearly the branch in behavior between the two cases. ([python/pythondotorg#2946](https://github.com/python/pythondotorg/pull/2946)). Trail of Bits audit improved this functionality to require HTTPS URLs for newer releases ([python/pythondotorg#3014](https://github.com/python/pythondotorg/pull/3014)) through a custom field validator.
 * Added test cases for all negative authentication branches.
 * Database and API now rejects URLs which do not start with “`https://www.python.org/`”. This additional hardening will reject attacker-controlled URLs even if authentication or authorization is circumvented. ([python/pythondotorg#2947](https://github.com/python/pythondotorg/pull/2947))
 * Increased logging retention from 3 days to 30 days for requests to python.org. This will aid in audit work for any follow-up reports.

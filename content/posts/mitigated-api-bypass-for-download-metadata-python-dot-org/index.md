@@ -1,7 +1,6 @@
 ---
 title: Mitigated API authentication bypass for python.org download metadata
 publishDate: '2026-06-23'
-updatedDate: '2026-06-23'
 author: Seth Larson
 description: 'Vulnerability mitigated in python.org with follow-up third-party audit from Trail of Bits'
 tags:
@@ -17,9 +16,9 @@ If exploited, this would have allowed an attacker to modify Python release and f
 
 ## Details
 
-PSRT confirmed the vulnerability on a local instance of python.org. [Seth Larson](https://github.com/sethmlarson) and [Hugo van Kemenade](https://github.com/hugovk) developed and deployed [the patch](https://github.com/python/pythondotorg/pull/2946) to production with help from [Jacob Coffee](https://github.com/jacobcoffee). Less than 48 hours after the initial report the PSRT and the reporter confirmed that the proof-of-concept provided by the reporter no longer worked locally or on the production deployment.
+PSRT confirmed the vulnerability on a local instance of python.org. [Seth Larson](https://github.com/sethmlarson) and [Hugo van Kemenade](https://hugovk.dev/) developed and deployed [the patch](https://github.com/python/pythondotorg/pull/2946) to production with help from [Jacob Coffee](https://github.com/jacobcoffee). Less than 48 hours after the initial report the PSRT and the reporter confirmed that the proof-of-concept provided by the reporter no longer worked locally or on the production deployment.
 
-This vulnerability was likely never exploited, however due to the age of the vulnerability ([existing in the codebase since 2014](https://github.com/python/pythondotorg/commit/0be429f0213cc735084a81d9b5d2dcf56467849b#diff-79d93d354534ebbcabe21fac3845315a8efe1fa0350576810962b3cc50fa3f5cR5-R14)) we don’t have absolute certainty beyond our logs and database backups. We believe attempts to exploit this vulnerability would have been “loud” and discovered quickly given the number of downstream tools and distributions automatically verifying the Sigstore and PGP materials.
+This vulnerability was likely never exploited, however due to the age of the vulnerability ([existing in the codebase since 2014](https://github.com/python/pythondotorg/commit/0be429f0213cc735084a81d9b5d2dcf56467849b#diff-79d93d354534ebbcabe21fac3845315a8efe1fa0350576810962b3cc50fa3f5cR12-R14)) we don’t have absolute certainty beyond our logs and database backups. We believe attempts to exploit this vulnerability would have been “loud” and discovered quickly given the number of downstream tools and distributions automatically verifying the Sigstore and PGP materials.
 
 We confirmed that all artifacts on python.org had not been modified by verifying Sigstore and PGP materials. Our own workflow verifying all Sigstore signatures did not signal any changes to artifacts from years prior. While verifying PGP materials we were able to verify all signatures where keys are still readily accessible from Python 2.5 to 3.13. Note that Python 3.14 and onwards [no longer provide PGP materials](https://peps.python.org/pep-0761/), so these were verified with Sigstore.
 

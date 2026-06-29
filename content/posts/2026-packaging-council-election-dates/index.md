@@ -16,7 +16,7 @@ The council will also serve as a coordinating body for the Python packaging ecos
 
 ## Election Overview
 
-The 2026 inaugural election fills all five seats on the PPC. The two candidates receiving the highest number of votes shall be designated Cohort A with a two year term, and the three candidates receiving the next highest number of votes shall be designated Cohort B with a one year term.
+The 2026 inaugural election fills all five seats on the PPC. The two candidates receiving the highest number of votes shall be designated Cohort A with a two-year term, and the three candidates receiving the next highest number of votes shall be designated Cohort B with a one-year term.
 
 In future elections, each cohort will be elected for a full two-year term in alternating years, so that roughly half of the PPC turns over each cycle.
 
@@ -37,8 +37,8 @@ You must be a Contributing, Supporting, or Fellow member by August 25th **and** 
 
 Check out the [PSF membership](https://www.python.org/psf/membership/) page to learn more about membership classes and benefits. You can affirm your voting intention by following the steps in [the PSF’s video tutorial](https://www.youtube.com/watch?v=lWfyvPqAAJs):
 
-- Log in to [psfmember.org](http://psfmember.org)
-- Choose “Your Memberships” page at the top right to check your eligibility to vote (You must be a Contributing, Supporting, or Fellow member)
+- Log in to [psfmember.org](https://psfmember.org/)
+- Choose “Your Memberships” page at the top right to check your eligibility to vote (you must be a Contributing, Supporting, or Fellow member)
 - Choose “Voting Affirmation” page at the top right
 - Select your preferred intention for voting in 2026 (which now includes a second affirmation regarding your intention to vote in the PPC election)
 - Click the “Submit” button
@@ -47,17 +47,17 @@ Like the PSF Board elections, casting a vote in a PPC election will automaticall
 
 If you have questions about membership, please email [pc-elections@python.org](mailto:pc-elections@python.org).
 
-### Election communications from [psfmember.org](http://psfmember.org)
+### Election communications from [psfmember.org](https://psfmember.org)
 
-PSF Members should review their communication preferences on [psfmember.org](http://psfmember.org) if you would like to opt in or out of receiving emails about the PSF Board, PPC elections, or both. Here’s how:
+PSF Members should review their communication preferences on [psfmember.org](https://psfmember.org) if you would like to opt in or out of receiving emails about the PSF Board, PPC elections, or both. Here’s how:
 
-- Login to [psfmember.org](http://psfmember.org)
+- Log in to [psfmember.org](https://psfmember.org)
 - Navigate to your [“Profile” page](https://psfmember.org/profile/)
 - Click the “Name and Address” tab
 - Scroll down, designate your preferences
 - Click submit
 
-If you had previously opted out of communications from the PSF through [psfmember.org](http://psfmember.org) and would like to review or change your preference, we encourage you to update them using the instructions above. The PSF only sends a handful of election and fundraising related communications every year via [psfmember.org](http://psfmember.org).
+If you had previously opted out of communications from the PSF through [psfmember.org](https://psfmember.org) and would like to review or change your preference, we encourage you to update them using the instructions above. The PSF only sends a handful of election and fundraising related communications every year via [psfmember.org](https://psfmember.org).
 
 ## Running for the Packaging Council
 

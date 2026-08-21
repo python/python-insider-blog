@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import node from "@astrojs/node";
+import tailwindcss from "@tailwindcss/vite";
 import fs from "node:fs";
 import remarkPythonRefs from "./src/plugins/remark-python-refs";
 
@@ -39,4 +40,7 @@ export default defineConfig({
     remarkPlugins: [remarkPythonRefs],
   },
   redirects,
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

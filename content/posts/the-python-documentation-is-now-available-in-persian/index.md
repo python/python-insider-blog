@@ -1,6 +1,6 @@
 ---
 title: The Python documentation is now available in Persian
-publishDate: 2026-09-19
+publishDate: 2026-09-23
 author: Stan Ulbrych
 tags:
   - docs

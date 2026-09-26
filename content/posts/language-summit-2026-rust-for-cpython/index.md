@@ -1,7 +1,6 @@
 ---
 title: Rust for CPython (Python Language Summit 2026)
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:05Z'
 author: Seth Larson
 description: 'David Hewitt shares a status update, first module, and potential acceptance criteria for the Rust for CPython project'
 tags: [language-summit, language-summit-2026]

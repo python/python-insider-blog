@@ -1,7 +1,6 @@
 ---
 title: 'PEP 827: Type Manipulation (Python Language Summit 2026)'
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:09Z'
 author: Seth Larson
 description: 'Michael J. Sullivan presents PEP 827 and discusses a key design decision: how to store type annotations?'
 tags: [language-summit, language-summit-2026]

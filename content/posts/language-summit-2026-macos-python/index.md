@@ -1,7 +1,6 @@
 ---
 title: macOS and Python (Python Language Summit 2026)
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:01Z'
 author: Seth Larson
 description: 'Ned Deily weighs whether Python should continue shipping macOS installers'
 tags: [language-summit, language-summit-2026]

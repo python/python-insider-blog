@@ -1,7 +1,6 @@
 ---
 title: Spicycrab (Python Language Summit 2026)
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:06Z'
 author: Seth Larson
 description: 'Kushal Das shows off Spicycrab, a Python-to-Rust transpiler for Python users who need performance without learning Rust or leaving Python'
 tags: [language-summit, language-summit-2026]

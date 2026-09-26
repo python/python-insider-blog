@@ -1,7 +1,6 @@
 ---
 title: Memory Snapshots for CPython (Python Language Summit 2026)
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:04Z'
 author: Seth Larson
 description: 'Hood Chatham proposes memory snapshots and an initialization phase for speedier Python startups'
 tags: [language-summit, language-summit-2026]

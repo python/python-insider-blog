@@ -1,7 +1,6 @@
 ---
 title: One namespace to namespace them all (Python Language Summit 2026)
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:00Z'
 author: Seth Larson
 description: 'Pablo Galindo Salgado proposes a top-level `std` namespace for the Python standard library to prevent module shadowing and free up module names.'
 tags: [language-summit, language-summit-2026]

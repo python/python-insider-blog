@@ -1,7 +1,6 @@
 ---
 title: 'Lightning Talks (Python Language Summit 2026)'
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:10Z'
 author: Seth Larson
 description: 'Lightning talks on a one-time ABI break, safer interruptions, EktuPy (Scratch but Python), an AGENTS.md file for CPython, and a call to read PEP 836.'
 tags: [language-summit, language-summit-2026]

@@ -1,7 +1,6 @@
 ---
 title: Free-Threaded Python Post-Era (Python Language Summit 2026)
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:08Z'
 author: Seth Larson
 description: 'Tobias Wrigstad, Fridtjof Stoldt, and Donghee Na propose a safe and performant, high-level concurrency model for free-threaded Python'
 tags: [language-summit, language-summit-2026]

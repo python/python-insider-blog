@@ -1,7 +1,6 @@
 ---
 title: 'Developer-in-Residence Update & Future (Python Language Summit 2026)'
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:07Z'
 author: Seth Larson
 description: 'Petr Viktorin gives an update on the Developer-in-Residence role and asks Python core developers for projects to prioritize'
 tags: [language-summit, language-summit-2026]

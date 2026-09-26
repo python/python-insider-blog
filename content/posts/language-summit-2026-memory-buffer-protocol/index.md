@@ -1,7 +1,6 @@
 ---
 title: 'Memory Buffer Protocol (Python Language Summit 2026)'
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:03Z'
 author: Seth Larson
 description: 'Nathan Goldbaum proposes safe concurrent access through buffer leases and custom data types for the Python Buffer Protocol.'
 tags: [language-summit, language-summit-2026]

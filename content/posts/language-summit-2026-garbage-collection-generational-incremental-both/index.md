@@ -1,7 +1,6 @@
 ---
 title: 'Garbage Collection: Generational? Incremental? Both! (Python Language Summit 2026)'
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:02Z'
 author: Seth Larson
 description: 'Mark Shannon proposes a future garbage collection strategy for Python following the revert of the incremental garbage collector in Python 3.14'
 tags: [language-summit, language-summit-2026]

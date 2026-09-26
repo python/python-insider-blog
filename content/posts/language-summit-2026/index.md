@@ -1,7 +1,6 @@
 ---
 title: Python Language Summit 2026
-publishDate: '2026-09-30'
-updatedDate: '2026-09-30'
+publishDate: '2026-09-30T12:00:11Z'
 author: Seth Larson
 description: 'The 2026 Python Language Summit was hosted in Kraków, Poland before EuroPython 2026. There were 15 talks covering free-threading, Rust, garbage collection, type annotations, and more.'
 tags: [language-summit, language-summit-2026]
@@ -37,7 +36,7 @@ I hope you enjoy them, and thank you for your patience.
 * “[Developer-in-Residence Update & Future](/2026/09/language-summit-2026-developer-in-residence-update-and-future)” by Petr Viktorin
 * “[Free-Threaded Python Post-Era](/2026/09/language-summit-2026-free-threading-post-era)” by Donghee Na, Tobias Wrigstad, and Fridtjof Stoldt
 * “[PEP 827: Type Manipulation](/2026/09/language-summit-2026-pep-827-type-manipulation)” by Michael J. Sullivan
-* [Lightning Talks](/2026/09/language-summit-2026-lightning-talks)
+* “[Lightning Talks](/2026/09/language-summit-2026-lightning-talks)”
   * “One-time ABI breakage” by Mark Shannon
   * “Safer and Generic Interruptions” by Daniele Parmeggiani
   * “EktuPy, Scratch but Python” by Kushal Das

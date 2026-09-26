@@ -53,3 +53,5 @@ nd = "nd"
 ons = "ons"
 te = "te"
 writeable = "writeable"
+BOCpy = "BOCpy"
+Cpy = "Cpy"  # BOCpy read as 'CPy'?

@@ -2,7 +2,7 @@
 title: Python Language Summit 2026
 publishDate: '2026-09-30T12:00:11Z'
 author: Seth Larson
-description: 'The 2026 Python Language Summit was hosted in Kraków, Poland before EuroPython 2026. There were 15 talks covering free-threading, Rust, garbage collection, type annotations, and more.'
+description: 'The 2026 Python Language Summit was hosted in Kraków, Poland as part of EuroPython 2026. There were 15 talks covering free-threading, Rust, garbage collection, type annotations, and more.'
 tags: [language-summit, language-summit-2026]
 published: true
 ---
@@ -20,7 +20,7 @@ Going forward, the Python Language Summit will alternate between
 PyCon US and EuroPython on a yearly basis.
 
 The summit was organized by Emily Morehouse, Hugo van Kemenade, Lysandros Nikolaou,
-and Łukasz Langa and blog posts were written by Seth Larson.
+and Łukasz Langa, and blog posts were written by Seth Larson.
 
 Below are summaries of the 10 full-length
 talks and 5 lightning talks that were presented at the 2026 Python Language Summit.

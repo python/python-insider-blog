@@ -25,7 +25,7 @@ Referencing the explicit “Responding to requests for assistance from core deve
 
 Petr continued with an update on what he’d accomplished from 2024 to 2026, including maintaining [buildbots](https://devguide.python.org/testing/buildbots/), mentoring multiple people into becoming triagers or core developers, working on the [Stable ABI](https://docs.python.org/3/c-api/stable.html) for [free-threaded Python](https://docs.python.org/3/howto/free-threading-python.html), working on security vulnerability fixes, and managing CPython sprints at conferences. He compared this work to what Łukasz had accomplished in his five years of tenure, which included more “large-scale project management”, organizing events like the Language Summit, talking to sponsors, and overseeing the other Python Developers-in-Residence.
 
-Petr summarized his approach to the role as focusing on “important tasks, but leaving fun and glamorous ones to volunteers”. He also noted collaborating with people in other “Developer-in-Residence”-like roles, such as Hugo van Kemenade and Stan Ulbrych, who are Sovereign Tech Agency fellows focusing on CPython. Petr opened the floor for discussion by asking what challenges core developers would like the Developers-in-Residence to focus on.
+Petr summarized his approach to the role as focusing on “important tasks, but leaving fun and glamorous ones to volunteers”. He also noted collaborating with people in other “Developer-in-Residence”-like roles, such as Hugo van Kemenade and Stan Ulbrych, who are [Sovereign Tech Agency fellows](https://www.sovereign.tech/news/meet-the-2026-sovereign-tech-fellows) focusing on CPython. Petr opened the floor for discussion by asking what challenges core developers would like the Developers-in-Residence to focus on.
 
 ## Discussion
 
@@ -39,5 +39,5 @@ Petr confirmed triaging every LLM pull request wasn’t something he wanted to d
 There was some discussion between Stefan Behnel and Mark Shannon about ensuring some amount of review “before a human looks at a pull request”, such as having an LLM provide a first pass on a pull request. Savannah Ostrowski was hesitant to engage with drive-by LLM contributions: “I’m not willing to give away my time because it won’t change their behavior”. She suggested that other core developers “nope out” if they didn’t want to engage.
 
 Mark Shannon recommended everyone [watch Pablo Galindo Salgado’s keynote on this topic](https://www.youtube.com/watch?v=e8uozuvRf7g).
-There is also a Language Summit Lightning Talk by Gregory P. Smith about attempting to
+There is also a Language Summit Lightning Talk by Gregory P. Smith and Łukasz Langa about attempting to
 steer or improve these contributions [using `AGENTS.md`](/2026/09/language-summit-2026-lightning-talks#agentsmd-for-cpython).

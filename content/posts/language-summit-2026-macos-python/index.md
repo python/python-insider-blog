@@ -41,6 +41,7 @@ Ned listed a few other projects which build and distribute Python for macOS, inc
 ## What’s next?
 
 Ned closed the topic by listing his plans for macOS and Python. He noted that there was no section for macOS in [PEP 11](https://peps.python.org/pep-0011/), the PEP which details platform support for CPython, [whereas there was a section for Windows](https://peps.python.org/pep-0011/#microsoft-windows). He planned to propose such a section for macOS and get feedback from other core developers. More generally, Ned wanted a policy for “supporting macOS in general”, covering people who want to build Python themselves and detailing what is supported.
+
 Currently, all three build types and architectures are considered the same in terms of “support” in PEP 11. Ned wondered whether each of these builds should be treated as a different PEP 11 target. This would allow macOS on ARM to be in a different support tier from macOS on x86-64. Ned would also like to leverage the large overlap in building and packaging for iOS and macOS.
 
 Ned would like to automate the build process, including the packaging and continuous integration, much like Windows already has as a part of the Python release process. In addition, Ned wants to modernize Python’s macOS support, including deprecating and removing the PPC universal builds and migrating to [XCFramework](https://developer.apple.com/documentation/xcode/creating-a-multi-platform-binary-framework-bundle) packaging instead of the legacy Framework format. “We’ve got a lot of cruft”.

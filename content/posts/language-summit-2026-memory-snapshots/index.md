@@ -20,11 +20,11 @@ Python fixed this issue in Python 3.3, as did many other programming languages, 
 
 The danger of snapshotting and restoring the memory of a Python process post-initialization is captured by Randall Munroe’s [xkcd “Random Number”](https://xkcd.com/221/) (image below licensed CC-BY-NC 2.5), where the fixed value of “4” was at some indeterminate time in the past chosen by a fair dice roll and is now reused whenever a new random number is requested.
 
-![](image.png)
+![xkcd comic: a getRandomNumber function that always returns 4, with the comment "chosen by fair dice roll, guaranteed to be random"](image.png)
 
 If a Python process were to begin “restoring from a memory snapshot”, effectively this is what would happen for hash seed randomization: a value that is expected to be randomized every time would become deterministic and shared across all snapshots. Hood noted that there were likely other places, especially in libraries and programs, where this assumption would break existing use-cases, too.
 
-Hood proposed that the concept of an “initialization phase” be added to the Python language model, citing [RPython](https://rpython.readthedocs.io/en/latest/) and [SPy](https://github.com/spylang/spy) as two runtimes that have introduced an “explicit entrypoint to an initialization phase”. These entry points were useful for tree-shaking and pre-evaluation, respectively, but could be reused for the purpose of fixing issues related to adding memory snapshots to CPython. This initialization phase could be called again on re-initialization, allowing the runtime and third-party libraries to safely reintroduce randomness into the program if memory snapshotting were implemented.
+Hood proposed that the concept of an “initialization phase” be added to the Python language model, citing [RPython](https://rpython.readthedocs.io/) and [SPy](https://github.com/spylang/spy) as two runtimes that have introduced an “explicit entrypoint to an initialization phase”. These entry points were useful for tree-shaking and pre-evaluation, respectively, but could be reused for the purpose of fixing issues related to adding memory snapshots to CPython. This initialization phase could be called again on re-initialization, allowing the runtime and third-party libraries to safely reintroduce randomness into the program if memory snapshotting were implemented.
 
 
 ## Discussion

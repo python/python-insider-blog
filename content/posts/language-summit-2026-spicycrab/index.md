@@ -9,9 +9,6 @@ published: true
 
 Kushal Das brought a project that fills a niche for Python users who hit a performance wall that can’t be solved by scaling horizontally, but who also don’t want to learn a new programming language. [Spicycrab](https://github.com/kushaldas/spicycrab/) is a Python-to-Rust transpiler named for Kushal’s love of spicy food. The demonstration showed compiling a simple Python script to Rust source code and then into an executable binary.
 
-```commandline
-$ crabpy transpile greet.py -o greet
-```
 
 This simple demo produces Rust source code at `greet/src/main.rs`, which can be run with `cargo run`.
 
@@ -26,9 +23,9 @@ Now that Rust is here, some of the challenges like security and crashing are add
 
 Kushal shared that many smaller organizations he knows in this exact resource-constrained situation would move away from a programming language like Python towards a language like Go for web backends. Kushal wanted to provide a tool that offers easy performance without needing to leave Python behind. “I hope that Python can become that fast one day, but what can we do until then?”
 
-Next, Kushal demonstrated [an async web service using actix-web](https://spicycrab.readthedocs.io/en/latest/actix_web.html), which includes [type annotations](https://docs.python.org/3/library/typing.html). This mechanism works by transpiling [actix-web](https://actix.rs/) and its dependencies to Python and then installing the resulting code as a Python package behind the scenes.
+Next, Kushal demonstrated [an async web service using actix-web](https://spicycrab.readthedocs.io/en/latest/actix_web.html), which includes [type annotations](https://docs.python.org/3/library/typing.html). This mechanism works by transpiling Python code written using [actix-web](https://actix.rs/) patterns into idiomatic Rust, with the actix-web API made available to Python beforehand as a package of generated stubs.
 
-Kushal installed actix-web using [Cargo](https://doc.rust-lang.org/cargo/), with a few chuckles as 180 dependencies were downloaded and compiled, a callback to some concerns from the “Rust for CPython” project regarding third-party dependencies. After installation and transpiling completed, the following web server was built using Spicycrab:
+Kushal installed actix-web using [Cargo](https://doc.rust-lang.org/cargo/), with a few chuckles as 180 dependencies were downloaded and compiled, a [callback to some concerns from the “Rust for CPython” project](/2026/09/language-summit-2026-rust-for-cpython) regarding third-party dependencies. After installation and transpiling completed, the following web server was built using Spicycrab:
 
 ```python
 from spicycrab_actix_web import App, HttpServer, HttpResponse, get
@@ -44,8 +41,8 @@ After running the transpiler and compiling again, the resulting binary served th
 
 ## Discussion
 
-Ken Jin asked why this approach would be chosen over [mypyc](https://mypyc.readthedocs.io/), Cython, or [SPy](https://github.com/spylang/spy). Kushal answered that
-“SPy only supports a subset of Python” but admitted that “mypyc is good and in many cases that [mypyc] be used directly”. Kushal’s primary
+Ken Jin asked why this approach would be chosen over [mypyc](https://mypyc.readthedocs.io/), [Cython](https://cython.org/), or [SPy](https://github.com/spylang/spy). Kushal answered that
+“SPy only supports a subset of Python” but admitted that “mypyc is good and in many cases that [mypyc] could be used directly”. Kushal’s primary
 motivation for going this route was to solve multiple problems at once, and one of the problems was getting
 Python users to use Rust “without being scared of the syntax”.
 

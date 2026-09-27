@@ -8,9 +8,9 @@ published: true
 ---
 
 Steering Council member and Release Manager Pablo Galindo Salgado opened the Language Summit this year to propose solutions to a problem that everyone who’s used Python has encountered at least once before.
+
 The issue manifests as seemingly random `AttributeError` exceptions from modules like `json`, `math`, or `http` for names you know are correct. Why is the standard library suddenly raising errors?
 
-```terminaloutput
 $ cat game.py
 import random
 if int(input("Pick a number 1-10")) == random.randint(1, 10):
@@ -24,7 +24,6 @@ AttributeError: module 'random' has no attribute 'randint' (???)
 
 The issue is usually that a module is “shadowing” the standard library module from a higher-precedence location in `sys.path`, such as your current working directory or a directory on `PYTHONPATH`. There is probably a file named `json.py` or `math.py` in your project, and that module takes precedence over the standard library module of the same name, which is only noticed once you start using the module elsewhere in your project.
 
-```terminaloutput
 $ ls
 game.py   random.py
 
@@ -106,7 +105,9 @@ listed in [`Gemfile`](https://bundler.io/guides/gemfile.html), the Ruby equivale
 ## Discussion
 
 Kushal Das shared that the shadowing issue was a “big problem for newcomers”, especially first-time Python users writing code doing arithmetic in a file named `math.py`.
+
 Jukka Lehtosalo shared that he had also “personally encountered this problem”, and asked if there was “data about how often this happens”. Pablo didn’t have concrete data and shared that the error message has improved in recent Python versions.
+
 Pablo didn’t want to over-focus on the shadowing issue and instead wanted to focus on what he believed was the larger issue: how the flat namespace affects how core developers choose standard library module names.
 
 David Hewitt wondered whether there is a “security edge” to this proposal, positing that core developers are “more familiar with what is in the standard library” compared to a beginner, and asked whether this change could help learners know what is included in Python and what isn’t. Pablo pushed back on the security angle: “the standard library is huge, we could do [standard library module] trivia and we’d all fail”. He concluded that this could be another positive reason to adopt the proposal, but he didn’t want to oversell this aspect, either.
@@ -117,7 +118,7 @@ Peter Bierma asked whether the new `std` namespace would add performance costs, 
 
 Thomas Wouters imagined an incremental rollout of the new `std` namespace, proposing that new modules would land under the `std` namespace, with the possibility of a future mode that disables top-level shadowing entirely once enough of the ecosystem has moved.
 
-Stefan Behnel felt that Python “should provide a way to confidently import from the standard library”. He offered a potential solution that would keep most code the same: limiting the proposal to `from` imports. The syntax would be `from std import random`, so the module name would be the same and the `std` namespace wouldn’t appear in user code. This would also avoid the issue of [`sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules) duplicating the module. Guido concurred, noting that `from std` could be magic, a “special keyword”, Pablo added.
+Stefan Behnel felt that Python “should provide a way to confidently import from the standard library”. He offered a potential solution that would keep most code the same: limiting the proposal to `from` imports. The syntax would be `from std import random`, so the module name would be the same and the `std` namespace wouldn’t appear in user code. This would also avoid the issue of [`sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules) duplicating the module. Guido concurred, noting that `from std` could be magic. A “special keyword”, Pablo added.
 
 David Hewitt noted the precedent already set by the [`lazy` keyword](https://peps.python.org/pep-0810/) (new in Python 3.15) for changing the `import` statement without having to introduce a new module.
 After a show of hands to get a temperature check on the idea of using a keyword, no one attending “hated the idea” and many attendees “loved the idea”.

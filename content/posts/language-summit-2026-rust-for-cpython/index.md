@@ -7,16 +7,14 @@ tags: [language-summit, language-summit-2026]
 published: true
 ---
 
-# Rust for CPython
-
 “No one said ‘don’t do this’ last year”. After [testing the waters at PyCon US 2025](https://pyfound.blogspot.com/2025/06/python-language-summit-2025-what-do-core-developers-want-from-rust.html), David Hewitt returned to the Python Language Summit asking what Python core developers want from Rust, along with proposed timelines, phases, and success criteria for how the Rust for CPython project might proceed and become a permanent fixture within the CPython project.
 
-David is acting as an “ambassador” for the Rust for CPython project team, which is currently led by core developers [Kirill Podoprigora](https://github.com/eclips4) and [Emma Smith](https://github.com/emmatyping) as [authors of the Rust for CPython PEP draft](https://discuss.python.org/t/pre-pep-rust-for-cpython/104906). Emma also [spoke at PyCon US 2026](https://www.youtube.com/watch?v=42kibVnUHYE) about the Rust for CPython project. The team itself is around 60 developers in a Discord channel, among them a “few [Python] core developers” and a “delegation from the Rust project”. The team has experience with previous projects integrating Rust into existing codebases, such as Android and the Linux kernel, and is “excited by the work and keen to support [the project] if we proceed”.
+David is acting as an “ambassador” for the Rust for CPython project team, which is currently led by core developers Kirill Podoprigora and Emma Smith as [authors of the Rust for CPython PEP draft](https://discuss.python.org/t/pre-pep-rust-for-cpython/104906). Emma also [spoke at PyCon US 2026](https://www.youtube.com/watch?v=42kibVnUHYE) about the Rust for CPython project. The team itself is around 60 developers in a Discord channel, among them a “few [Python] core developers” and a “delegation from the Rust project”. The team has experience with previous projects integrating Rust into existing codebases, such as Android and the Linux kernel, and is “excited by the work and keen to support [the project] if we proceed”.
 
 
 ## Why Rust?
 
-![Graph showing the number of 'type-crash' issues increasing over time](type-crash.png)
+![Bar chart of type-crash issues opened per year, rising from 82 in 2021 to 222 in 2025, with 2026 projected at around 353.](type-crash.png)
 
 Showing how adopting Rust may specifically help CPython, David noted how the number of issues labeled with “[`type-crash`](https://github.com/python/cpython/issues?q=is%3Aissue%20state%3Aopen%20label%3Atype-crash)” has been steadily rising over time. “We’ve been making some big technical bets”, he said, referencing the [new parser](https://peps.python.org/pep-0617/), the [JIT](https://peps.python.org/pep-0744/), and [free-threading](https://peps.python.org/pep-0703/). These large, complex features may be one of the reasons more crash reports are being opened on GitHub, and Rust could be a potential solution here. David explained that Jeff Vander Stoep described Rust in Android as “move fast and fix things”, and that “fewer revisions for patches of the same size” was the experience Android has had since adopting Rust.
 
@@ -40,7 +38,7 @@ Below are the proposed timelines for the Rust for CPython project making a “si
 The timeline includes a build system and CI, Rust API proof-of-concept happening
 in the Summer 2026, a PEP defining success criteria in late 2026,
 an optional Rust backend for the zlib module and private Rust API in Python 3.16 (October 2027),
-resolving platform issues and Rust in more places (json, xml, memoryview, parser)
+resolving platform issues and Rust in more places (io, json, xml, memoryview, parser)
 for Python 3.17 (October 2028). Finally, in some distant Python version (October 2029+)
 the Rust build would be made required and a public Rust API would be published.
 
@@ -92,7 +90,7 @@ David noted that the first point reads “open”, not “familiar”, and share
 
 ## Discussion
 
-On the topic of designing the new Rust API so that it’s “familiar” to users of the C API, Thomas Wouters advised against “making compromises for the dinosaurs”, including himself in the subset, instead asking whether the Rust API should be designed from first principles. David Hewitt responded that there are “places to lean into Rust”, such as dropping resources on scope exit, but there are also idiomatic Rust designs which “won’t be the best fit”. David noted that it would be reasonable for core developers to be looking at both the C and Rust API at the same time while working. “We should be mindful of our audience, which is also ourselves”.
+On the topic of designing the new Rust API so that it’s “familiar” to users of the C API, Thomas Wouters advised against “making compromises for the dinosaurs”, including himself in the subset, instead asking whether the Rust API should be designed from first principles. David responded that there are “places to lean into Rust”, such as dropping resources on scope exit, but there are also idiomatic Rust designs which “won’t be the best fit”. David noted that it would be reasonable for core developers to be looking at both the C and Rust API at the same time while working. “We should be mindful of our audience, which is also ourselves”.
 
 Larry Hastings asked why the Rust for CPython project wasn’t a “rewrite”, suggesting the team “display your success as a fork”. David acknowledged that “[RustPython](https://github.com/RustPython/RustPython) already exists” and that the Rust for CPython team had already spoken with the contributors of the project. “RustPython isn’t as performant as CPython, but could be used to inform what APIs we design”.
 
@@ -100,4 +98,4 @@ Larry also shared that he “wasn’t super excited to learn Rust to work on CPy
 
 Pablo Galindo Salgado was more concerned about the future, which was “reaching for our dependencies from Cargo”, noting that this would be a “huge problem” and a potential “showstopper” for the project. “We vendor our dependencies, and we have a very selective set”, he said, noting that each time a vulnerability is published for one of those projects, the release managers need to make new releases, which can be “tiresome”. “Right now we’re only focusing on the APIs and the basics”, he added, highlighting that the challenge of taking on many Rust dependencies hasn’t been addressed yet.
 
-David Hewitt answered that the team should “select as few external dependencies as possible”; “zlib-rs is only one dependency”, and the Rust sources would be vendored so that “building CPython would not require Cargo”. David added that “Cargo has a relatively clean system for vendoring dependencies” and that the “Rust for CPython proof-of-concept uses this system”. The vendored sources “wouldn’t live in the CPython tree”. Łukasz Langa agreed that “it’s better for dependencies to live separately”, referencing the [cpython-source-deps repository](https://github.com/python/cpython-source-deps), with Thomas reminding everyone that this would be a new usage of that repository; today it is only used for binary installers of CPython.
+David answered that the team should “select as few external dependencies as possible”; “zlib-rs is only one dependency”, and the Rust sources would be vendored so that “building CPython would not require Cargo”. David added that “Cargo has a relatively clean system for vendoring dependencies” and that the “Rust for CPython proof-of-concept uses this system”. The vendored sources “wouldn’t live in the CPython tree”. Łukasz Langa agreed that “it’s better for dependencies to live separately”, referencing the [cpython-source-deps repository](https://github.com/python/cpython-source-deps), with Thomas reminding everyone that this would be a new usage of that repository; today it is only used for binary installers of CPython.

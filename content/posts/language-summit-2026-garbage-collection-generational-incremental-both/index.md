@@ -11,7 +11,7 @@ The third Language Summit talk was brought by Mark Shannon, who is the author of
 
 Mark’s talk opened with a graph about where Python spends its time, split between the interpreter, lookups, modules, and the focus of the talk: garbage collection, which takes around 11.67% of execution time. Mark remarked that even if the [Just-in-Time (JIT) compiler](https://peps.python.org/pep-0744/) makes the interpreter faster (representing 30.6% of time), we’ll unfortunately still have to worry about memory management and garbage collection to make the runtime faster: Mark’s talk was about minimizing the time spent doing these tasks.
 
-![](image.svg)
+![Pie chart of where Python spends its time: interpreter 30.60%, memory 11.89%, gc 11.67%, lookup 8.88%, dynamic 4.91%, dict 3.86%, tuple 3.33%, int 3.30%, str 2.39%, smaller ones unlabelled](image.svg)
 
 What does Python’s garbage collector do today? Funnily enough, this ~12% of time spent is not Python’s primary garbage collection mechanism; [reference counting](https://docs.python.org/3/glossary.html#term-reference-count) is. The garbage collector is a “backup” and “should be much faster”. Reference counting is already collecting dead objects, therefore the garbage collector should only have to find dead unreachable cycles.
 
@@ -20,7 +20,7 @@ Mark emphasized pause times during garbage collection, a metric which the increm
 So how would we know whether we’ve improved the garbage collector? Mark defined a term “effectiveness” along with other definitions that will be useful for thinking about different approaches to garbage collection:
 
 * **Scavenge**: This is the minimal garbage collector operation. Give the garbage collector a set of objects and all unreachable cycles are collected. At a high level, users don’t have to worry about how the garbage collector accomplishes this task.
-* **Scavenge Effectiveness**: This is the metric being optimized for, calculated as “objects collected” divided by the “number of objects visited”. The effectiveness of the two Python garbage collectors is “pretty poor”, with the old generational GC at 0.3% effectiveness and the reverted incremental GC at ~1% effectiveness.
+* **Scavenge Effectiveness**: This is the metric being optimized for, calculated as “objects collected” divided by the “number of objects visited”. The effectiveness of the two Python garbage collectors is “pretty poor”, with the generational GC at 0.3% effectiveness and the reverted incremental GC at ~1% effectiveness.
 * **Generational hypothesis**: The assumption that “most objects die young”, which garbage collectors can use to be more effective. However, the exact profile depends on the program being executed.
 * **Spaces**: Grouping of objects that are consecutively allocated. All new objects are added to the newest “space”. Spaces have a defined size, and once they are full, the GC can begin scavenging the space and a new empty space is created for newly created objects to be added to. The period when spaces are closed to new objects is a good opportunity to scavenge, as no scavenge operations can occur on an open space.
 * **Generation**: A group of consecutive spaces. Generations are much fewer than spaces and typically baked into the garbage collector. Spaces only move in one direction through generations.
@@ -32,6 +32,7 @@ Mark then turned to explaining the now-reverted incremental garbage collector. T
 ## Can we have the best of both worlds?
 
 Generational garbage collectors have lower memory usage overall but suffer from higher pause times, whereas incremental garbage collectors pause for less time but at the expense of more memory. What should Python do as a default?
+
 Mark’s final proposal included how he’d interleave the concepts of generational and incremental garbage collectors to achieve the best of both:
 
 * Two generations: one “young” and one “old”.
@@ -43,7 +44,7 @@ Donghee Na was concerned that any changes to the garbage collector would cause i
 
 Donghee asked whether configuration options similar to what is available for [JVM garbage collectors](https://docs.oracle.com/en/java/javase/21/gctuning/) could be made available so users could tweak settings to fit their needs. Mark didn’t think this should be necessary; in JVM languages the GC is “the whole thing”, compared to Python where GC is only the “backup” behind reference counting.
 
-Jukka signaled his interest in helping Mark and asked about existing applications that had fine-tuned their GC, noting that these fine-tunings “go stale” whenever the GC changes, even if the new GC is better on average. Mark hoped that if done correctly, Python could remove the need to fine-tune GCs.
+Jukka Lehtosalo signaled his interest in helping Mark and asked about existing applications that had fine-tuned their GC, noting that these fine-tunings “go stale” whenever the GC changes, even if the new GC is better on average. Mark hoped that if done correctly, Python could remove the need to fine-tune GCs.
 
 Gregory P. Smith lamented that adding [public APIs for the garbage collector](https://docs.python.org/3/library/gc.html) and allowing fine-tuning inhibits being able to improve the general case. Greg also didn’t want to support multiple GC implementations like the JVM does. Greg’s biggest takeaway from the incremental GC revert in Python 3.14 is that there are use-cases which are served well by one GC and not by another, and “those cases should be in our test suite”.
 

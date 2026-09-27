@@ -7,13 +7,13 @@ tags: [language-summit, language-summit-2026]
 published: true
 ---
 
-Tobias Wrigstad and Fridtjof Stoldt returned to the Python Language Summit, now joined by Donghee Na. Tobias and Fridtjof previously presented “[Fearless Concurrency](https://pyfound.blogspot.com/2025/06/python-language-summit-2025-fearless-concurrency.html)” to the Python Language Summit in 2025. This year the topic at hand was the “post-Free-Threading era of Python”, and what high-level concurrency primitives would be provided by Python.
+Tobias Wrigstad and Fridtjof Stoldt returned to the Python Language Summit, now joined by Donghee Na. Tobias and Fridtjof previously presented “[Fearless Concurrency](https://pyfound.blogspot.com/2025/06/python-language-summit-2025-fearless-concurrency.html)” to the Python Language Summit in 2025. This year the topic at hand was the “post-era of free-threading Python”, and what high-level concurrency primitives would be provided by Python.
 
 ## Comfortable doesn’t mean “Good”
 
 Today the interface for accessing free-threading is, unsurprisingly, “threads”. Threads are how people typically first learn about true parallelism from school, textbooks, and other familiar materials. But what if threads as a user interface aren’t very good? Using threads means users need to care about deadlocks and race conditions.
 
-Python’s free-threading project has made considerable progress since [PEP 779](https://peps.python.org/pep-0779/)’s acceptance. But there was one aspect of PEP 779’s acceptance criteria that hadn’t been addressed yet: high-level concurrency primitives. The complete message from the Steering Council’s acceptance stated:
+Python’s free-threading project has made considerable progress since [PEP 779](https://peps.python.org/pep-0779/)’s acceptance. But there was one aspect of PEP 779’s acceptance criteria that hadn’t been addressed yet: high-level concurrency primitives. The [Steering Council’s acceptance](https://discuss.python.org/t/pep-779-criteria-for-supported-status-for-free-threaded-python/84319/123) stated:
 
 > Preparation for high-level concurrency primitives. \
 > The Python core team should begin considering and proposing higher-level concurrency primitives that users can use safely and effectively, without requiring a deep understanding of the underlying threading mechanism. And the SC wishes that this task should be prioritized once the above tasks are stable. We recommend using the `concurrent` package in the stdlib for this, where appropriate.
@@ -27,7 +27,7 @@ The talk opened by contrasting approaches to implementing concurrency in differe
 
 C is fast and simple, offering direct access to memory through pointers, which also allows dangerous and unsafe operations; C relies on programmer discipline for program correctness. Erlang has multiple threads, but to communicate, data is copied over to the other “actor”, so it’s safe and simple, but performance suffers. Rust is performant and safe, but it’s not simple: “you’ll find yourself often fighting with the [borrow checker](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)”.
 
-![](image.png)
+![What do we want for concurrency in Python? Triangle with corners labeled safety, performance and simplicity. C is fast + simple, Erlang is safe + simple, Rust is fast + safe.](image.png)
 
 “Where would we put Python on this triangle?”
 
@@ -49,9 +49,6 @@ Some examples of programs written using locks and threads were then transformed 
 
 There are [many more examples available on GitHub](https://github.com/microsoft/bocpy/tree/main/examples). This proof of concept, implemented using subinterpreters, is available for anyone to try: [bocpy](https://microsoft.github.io/bocpy), available on the [Python Package Index](https://pypi.org/project/bocpy):
 
-```commandline
-$ python -m pip install bocpy
-```
 
 Checking bocpy against their own criteria of simplicity, safety, and performance: bocpy is simple, as can be seen in the above examples. On the safety front, bocpy today runs in “stable Python”, and for this reason only isolation has been implemented so far. “We don’t yet have ownership, you can’t implement [ownership] as a third-party library”, as this would require changes to the runtime. Performance is “good for programs that aren’t communication dominated” due to “communication being expensive for subinterpreters”.
 
@@ -61,7 +58,7 @@ The bocpy package provides three features:
 * [Behaviors](https://microsoft.github.io/bocpy/#behaviors) (the tasks spawned with `@when` decorators)
 * Scheduler (implemented with subinterpreters, with planned support for free-threading)
 
-Looking forward, the three have two other proofs of concept that modify the Python runtime “to allow for safe concurrency and create safe abstractions while keeping performance”. The first implements isolation by organizing the heap into isolated groups of objects, where ownership violations would raise an exception from Cowns. The second is for immutability of Python objects ([PEP 795](https://peps.python.org/pep-0795/)).
+Looking forward, the three have two other proofs of concept that modify the Python runtime “to allow for safe concurrency and create safe abstractions while keeping performance”. The first implements isolation by organizing the heap into isolated groups of objects, where ownership violations would raise an exception from Cowns. The second is for immutability of Python objects ([PEP 795](https://github.com/python/peps/pull/4468)).
 
 The group made it clear that changes to core Python would be needed to support safe concurrency, asking whether Python would trade “some performance for safety”. What primitives do we want to provide in the standard library; are locks enough? And if we do provide primitives, should they be something like bocpy?
 
@@ -69,7 +66,7 @@ The group made it clear that changes to core Python would be needed to support s
 
 Thomas Wouters recalled that the core team “has experience trying to create universal interfaces for subprocesses, multiprocessing, threading”. In practice, there are always corner cases, and performance is suboptimal because of the constraints of the APIs. Thomas asked “how confident [the three] are that this isn’t the case for bocpy?” The three shared Thomas’s concern. “This is a question we’re working on”, answered Fridtjof. “If you have [the bocpy] ownership model it’s possible to treat subinterpreters and threads similarly, you can have communication, and you can share objects directly with the ownership model”.
 
-“Notion of tasks and schedulers immediately brings async to my head”, David Hewitt said, wondering “how does async fit into this picture?” He asked the trio whether bocpy “should be built on [`asyncio`](https://docs.python.org/3/library/asyncio.html)” and have “async mutex primitives instead of being [synchronous]”. Tobias confirmed that bocpy “could be” built using `asyncio`: “it depends on what backend infrastructure” is used and the trade-offs of each backend. “If you want to do some I/O, you tell the I/O library to put something into a Cown once data is available and schedule a task to run when the data is available to avoid blocking”.
+“Notion of tasks and schedulers immediately brings async to my head”, David Hewitt said, wondering “how does async fit into this picture?” He asked the trio whether bocpy “should be built on [`asyncio`](https://docs.python.org/3/library/asyncio.html)” and have “async mutex primitives instead of being [synchronous]”. Tobias confirmed that bocpy “could be” built using `asyncio`: “it depends on what backend infrastructure” is used and the trade-offs of each backend. “If you want to do some I/O, you tell the I/O library to put something into a cown once data is available and schedule a task to run when the data is available to avoid blocking”.
 
 Larry Hastings was “happy to see this research going on” and welcomed more from the group, but didn’t see bocpy or any singular solution as “the” method to do concurrency in Python. “[Larry] would like Python to have all the tools that give you and other groups with competing ideas the ability to implement ideas and provide them to users”. Instead, Larry was wary of “anointing a single way”, to avoid locking Python into a particular implementation in case better options are discovered later. Donghee shared that the group wasn’t initially trying to force a single way, only to start the conversation.
 

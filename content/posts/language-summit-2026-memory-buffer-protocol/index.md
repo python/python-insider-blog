@@ -17,6 +17,7 @@ Nathan Goldbaum opened with some suggestions that were unlikely to be controvers
 ![Format string showing "T{>Q:t:(3)f:pos:T{H:id:xf:v:}:s:}"](image.png)
 
 Today, users are expected to read [PEP 3118](https://peps.python.org/pep-3118/) or implementations like [NumPy](https://numpy.org) to understand the full grammar, “including records, field names, subarrays, byte order, alignment, and complex numbers”. Documenting all features within the Python documentation would be a meaningful improvement.
+
 Continuing with helping consumers of the Buffer Protocol, Nathan proposed creating a HOWTO guide for exporters and consumers of the Buffer Protocol, citing a lack of “complete examples” in C that implement validation, cleanup, ownership, and safe use of threads.
 
 ## Safe concurrency
@@ -51,7 +52,7 @@ Leases could be opened in either `SHARED_READ` or `EXCLUSIVE_WRITE` mode, and ca
 
 The existing [`PyObject_GetBuffer()`](https://docs.python.org/3/c-api/buffer.html#c.PyObject_GetBuffer), [`PyBuffer_Release()`](https://docs.python.org/3/c-api/buffer.html#c.PyBuffer_Release), and other related interfaces would remain unchanged under Nathan’s proposal. Buffer exporters would advertise explicit support for the new access modes, and exporters that don’t support the new access APIs would continue to use existing APIs as-is. Consumers would query the exporter using `PyObject_GetBufferAccessModes()` and use a lease if the desired access mode is available from the exporter.
 
-There is already an implementation being [worked on that is similar to this proposal](https://github.com/kumaraditya303/numpy/tree/view-tracking). [Kumar Aditya](https://github.com/kumaraditya303) is working on changes to NumPy allowing interoperability with the PEP, but Nathan noted that NumPy allowing access to raw pointers presented an “interesting” challenge.
+There is already an implementation being [worked on that is similar to this proposal](https://github.com/kumaraditya303/numpy/tree/view-tracking). Kumar Aditya is working on changes to NumPy allowing interoperability with the PEP, but Nathan noted that NumPy allowing access to raw pointers presented an “interesting” challenge.
 
 Nathan [published his PEP draft](https://github.com/ngoldbaum/peps/blob/stable-views/peps/pep-9999.rst), is requesting feedback, and will open a PEP discussion soon.
 

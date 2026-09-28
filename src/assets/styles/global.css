@@ -369,6 +369,14 @@ body {
   word-break: normal;
 }
 
+/* Higher specificity than `.dark .prose code`, which would otherwise
+   paint per-line inline-code backgrounds inside code blocks in dark mode. */
+.dark .prose pre code {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
 /* ── Images ──────────────────────────────────────── */
 
 .prose img {

@@ -19,6 +19,7 @@ Steering Council member and Release Manager Pablo Galindo Salgado opened the Lan
 
 The issue manifests as seemingly random `AttributeError` exceptions from modules like `json`, `math`, or `http` for names you know are correct. Why is the standard library suddenly raising errors?
 
+```console
 $ cat game.py
 import random
 if int(input("Pick a number 1-10")) == random.randint(1, 10):
@@ -32,6 +33,7 @@ AttributeError: module 'random' has no attribute 'randint' (???)
 
 The issue is usually that a module is “shadowing” the standard library module from a higher-precedence location in `sys.path`, such as your current working directory or a directory on `PYTHONPATH`. There is probably a file named `json.py` or `math.py` in your project, and that module takes precedence over the standard library module of the same name, which is only noticed once you start using the module elsewhere in your project.
 
+```console
 $ ls
 game.py   random.py
 

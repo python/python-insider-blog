@@ -61,8 +61,46 @@ Providing a scheduler with a program written with the above constraints gets you
 
 Some examples of programs written using locks and threads were then transformed into programs using the BOC model, such as two bank accounts transferring money between them and printing the results:
 
-There are [many more examples available on GitHub](https://github.com/microsoft/bocpy/tree/main/examples). This proof of concept, implemented using subinterpreters, is available for anyone to try: [bocpy](https://microsoft.github.io/bocpy), available on the [Python Package Index](https://pypi.org/project/bocpy):
+```python
+from bocpy import Cown, wait, when
 
+class Account:
+    def __init__(self, name: str, balance: float):
+        """Initialize an account with a starting balance."""
+        self.name = name
+        self.balance = balance
+
+    def __repr__(self) -> str:
+        """Return a readable representation for debugging."""
+        return f"Account(name='{self.name}', balance={self.balance})"
+
+
+def atomic_transfer(src: Cown[Account], dst: Cown[Account], amount: float):
+    """Move funds from ``src`` to ``dst`` if both are unfrozen and funded."""
+    @when(src, dst)
+    def do_transfer(src: Cown[Account], dst: Cown[Account], amount=amount):
+        src_account = src.value
+        dst_account = dst.value
+        if src_account.balance > amount:
+            src_account.balance -= amount
+            dst_account.balance += amount
+
+def check_balance(message: str, account: Cown[Account]):
+    """Log the current balance of the provided account."""
+    @when(account)
+    def do_check(account: Cown[Account], message=message):
+        print(message, account.value)
+
+alice = Cown(Account("Alice", 100))
+bob = Cown(Account("Bob", 0))
+
+check_balance("src (before transfer):", alice)
+check_balance("dst (before transfer):", bob)
+atomic_transfer(alice, bob, 10)
+wait()
+```
+
+There are [many more examples available on GitHub](https://github.com/microsoft/bocpy/tree/main/examples). This proof of concept, implemented using subinterpreters, is available for anyone to try: [bocpy](https://microsoft.github.io/bocpy), available on the [Python Package Index](https://pypi.org/project/bocpy):
 
 Checking bocpy against their own criteria of simplicity, safety, and performance: bocpy is simple, as can be seen in the above examples. On the safety front, bocpy today runs in “stable Python”, and for this reason only isolation has been implemented so far. “We don’t yet have ownership, you can’t implement [ownership] as a third-party library”, as this would require changes to the runtime. Performance is “good for programs that aren’t communication dominated” due to “communication being expensive for subinterpreters”.
 

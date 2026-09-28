@@ -7,7 +7,7 @@ tags: [language-summit, language-summit-2026]
 published: true
 ---
 
-Ned Deily, the macOS expert and release manager, shared that this was the first time discussing this topic in 15 years of Python Language Summits.
+Ned Deily, the macOS and release expert, shared that this was the first time discussing this topic in 15 years of Python Language Summits.
 
 <figure>
 

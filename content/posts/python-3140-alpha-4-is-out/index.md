@@ -48,7 +48,7 @@ The next pre-release of Python 3.14 will be 3.14.0a5, currently scheduled for 20
 
 In Python, you can use Greek letters as constants. For example:
 
-```
+```python
 from math import pi as π
 
 def circumference(radius: float) -> float:

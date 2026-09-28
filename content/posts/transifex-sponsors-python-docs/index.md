@@ -9,7 +9,7 @@ tags:
   - docs
 published: true
 ---
-![](transifex-logo.svg)
+![Transifex logo](transifex-logo.svg)
 
 We’re pleased to announce that [Transifex](https://www.transifex.com/) is supporting Python’s
 documentation translations by providing its Growth plan, at no cost, for 12 months.

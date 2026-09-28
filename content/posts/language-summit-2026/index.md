@@ -40,5 +40,5 @@ I hope you enjoy them, and thank you for your patience.
   * “One-time ABI breakage” by Mark Shannon
   * “Safer and Generic Interruptions” by Daniele Parmeggiani
   * “EktuPy, Scratch but Python” by Kushal Das
-  * “`AGENTS.md` for CPython” by Gregory P. Smith
+  * “`AGENTS.md` for CPython” by Gregory P. Smith and Łukasz Langa
   * “Please read PEP 836 (JIT go brrr)” by Ken Jin

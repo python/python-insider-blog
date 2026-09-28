@@ -5,10 +5,10 @@ author: Stan Ulbrych
 description: >-
   Transifex is supporting Python’s documentation translation teams with a year
   of free access to its Growth plan.
-tags: []
+tags:
+  - docs
 published: true
 ---
-
 ![](transifex-logo.svg)
 
 We’re pleased to announce that [Transifex](https://www.transifex.com/) is supporting Python’s
@@ -25,8 +25,8 @@ consistent terminology, and catch potential errors.
 For developers interested in localizing their own Python applications, Transifex
 has also prepared a tutorial on using [Transifex Native](https://www.transifex.com/).
 
-Interested in helping translate Python’s documentation? Visit the [translation
-section of the Python Developer’s Guide](https://devguide.python.org/documentation/translations/translating/#translating) and [translations.python.org](https://translations.python.org/)
+Interested in helping translate Python’s documentation? Visit the [translation](https://devguide.python.org/documentation/translations/translating/#translating)
+[section of the Python Developer’s Guide](https://devguide.python.org/documentation/translations/translating/#translating) and [translations.python.org](https://translations.python.org/)
 to find your language’s team and learn how to get involved.
 
 Thank you to Transifex for supporting this work, and to the translators,

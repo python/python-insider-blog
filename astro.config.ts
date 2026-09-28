@@ -38,6 +38,9 @@ export default defineConfig({
   }),
   markdown: {
     remarkPlugins: [remarkPythonRefs],
+    shikiConfig: {
+      theme: "github-dark-default",
+    },
   },
   redirects,
   vite: {

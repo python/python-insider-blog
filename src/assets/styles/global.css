@@ -359,7 +359,8 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-.prose pre code {
+.prose pre code,
+.dark .prose pre code {
   background: none;
   padding: 0;
   border: none;

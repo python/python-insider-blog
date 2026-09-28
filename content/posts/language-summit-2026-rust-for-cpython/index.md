@@ -9,6 +9,13 @@ published: true
 
 “No one said ‘don’t do this’ last year”. After [testing the waters at PyCon US 2025](https://pyfound.blogspot.com/2025/06/python-language-summit-2025-what-do-core-developers-want-from-rust.html), David Hewitt returned to the Python Language Summit asking what Python core developers want from Rust, along with proposed timelines, phases, and success criteria for how the Rust for CPython project might proceed and become a permanent fixture within the CPython project.
 
+<figure>
+
+![David Hewitt at the lectern, in front of his “Rust for CPython” slide](david.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 David is acting as an “ambassador” for the Rust for CPython project team, which is currently led by core developers Kirill Podoprigora and Emma Smith as [authors of the Rust for CPython PEP draft](https://discuss.python.org/t/pre-pep-rust-for-cpython/104906). Emma also [spoke at PyCon US 2026](https://www.youtube.com/watch?v=42kibVnUHYE) about the Rust for CPython project. The team itself is around 60 developers in a Discord channel, among them a “few [Python] core developers” and a “delegation from the Rust project”. The team has experience with previous projects integrating Rust into existing codebases, such as Android and the Linux kernel, and is “excited by the work and keen to support [the project] if we proceed”.
 
 
@@ -95,6 +102,13 @@ On the topic of designing the new Rust API so that it’s “familiar” to user
 Larry Hastings asked why the Rust for CPython project wasn’t a “rewrite”, suggesting the team “display your success as a fork”. David acknowledged that “[RustPython](https://github.com/RustPython/RustPython) already exists” and that the Rust for CPython team had already spoken with the contributors of the project. “RustPython isn’t as performant as CPython, but could be used to inform what APIs we design”.
 
 Larry also shared that he “wasn’t super excited to learn Rust to work on CPython”. David assured him that there are many areas of CPython that would not be considered for writing in Rust: “CPython should not be written in Rust for the sake of Rust”. “CPython will be a dual-language project for a meaningful amount of time”. However, David cautioned that “it would be disingenuous to say that Rust would be optional forever”, as one of the aforementioned roadmap items for the Rust for CPython project is to become a required part of the build process and provide a public Rust API.
+
+<figure>
+
+![Pablo Galindo Salgado speaking into a microphone, seated in a row of attendees](pablo.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 Pablo Galindo Salgado was more concerned about the future, which was “reaching for our dependencies from Cargo”, noting that this would be a “huge problem” and a potential “showstopper” for the project. “We vendor our dependencies, and we have a very selective set”, he said, noting that each time a vulnerability is published for one of those projects, the release managers need to make new releases, which can be “tiresome”. “Right now we’re only focusing on the APIs and the basics”, he added, highlighting that the challenge of taking on many Rust dependencies hasn’t been addressed yet.
 

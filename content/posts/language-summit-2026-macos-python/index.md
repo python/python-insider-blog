@@ -9,6 +9,13 @@ published: true
 
 Ned Deily, the macOS expert and release manager, shared that this was the first time discussing this topic in 15 years of Python Language Summits.
 
+<figure>
+
+![Ned Deily speaking at the lectern, with his slides projected on the screen behind him](ned.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 When CPython does a release, the main result of the release is source distributions: tarballs and ZIP archives. It’s then up to downstream packagers and distributions to build from these sources for their individual platforms. Historically, though, CPython has also provided some pre-compiled installers for Windows and macOS. This was done because these two platforms are “different” from most others.
 
 The question weighing on Ned was whether it was still worth shipping [macOS installers](https://docs.python.org/3/using/mac.html) as had been done in the past. “macOS has come a long way” and was no longer comparable to Windows “in terms of strangeness”. Ned admitted that the decision to continue was mostly on “autopilot”, that the macOS installers were “off in a dark corner with only a few people involved”, and that for certain stretches that were “too long”, he was the only one maintaining this functionality.
@@ -30,6 +37,13 @@ But of course, it’s not all benefits; there are drawbacks, too. As-is, the mac
 
 
 ## Who uses the official Python macOS distribution?
+
+<figure>
+
+![Language Summit attendees seated along the U-shaped table](room.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 “We don’t know, but we can make some guesses”, Ned said, sharing that his own mental profile of macOS installer users included “users on managed system environments such as centralized IT departments, public schools, engineering or scientific users, novice programmers, and experimenters”. [py2app](https://py2app.readthedocs.io/) uses the Framework builds, but “has to munge the build to make it work”.
 

@@ -9,6 +9,13 @@ published: true
 
 Kushal Das brought a project that fills a niche for Python users who hit a performance wall that can’t be solved by scaling horizontally, but who also don’t want to learn a new programming language. [Spicycrab](https://github.com/kushaldas/spicycrab/) is a Python-to-Rust transpiler named for Kushal’s love of spicy food. The demonstration showed compiling a simple Python script to Rust source code and then into an executable binary.
 
+<figure>
+
+![Kushal Das at the lectern, with his demo terminal projected on the screen behind him](kushal.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 
 This simple demo produces Rust source code at `greet/src/main.rs`, which can be run with `cargo run`.
 
@@ -41,9 +48,23 @@ After running the transpiler and compiling again, the resulting binary served th
 
 ## Discussion
 
+<figure>
+
+![Ken Jin speaking into a microphone, seated in a row of attendees](ken.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Ken Jin asked why this approach would be chosen over [mypyc](https://mypyc.readthedocs.io/), [Cython](https://cython.org/), or [SPy](https://github.com/spylang/spy). Kushal answered that
 “SPy only supports a subset of Python” but admitted that “mypyc is good and in many cases that [mypyc] could be used directly”. Kushal’s primary
 motivation for going this route was to solve multiple problems at once, and one of the problems was getting
 Python users to use Rust “without being scared of the syntax”.
+
+<figure>
+
+![Gregory P. Smith speaking into a microphone, seated in a row of attendees](greg.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 Gregory P. Smith provided a “spicier” thought that was “existential for Python”. Greg imagined it becoming more commonplace for state-of-the-art large language models to rewrite code from one programming language to another, such as from Python to Rust for performance. Kushal noted that this solves the issue “one time”, but doesn’t answer how the code is maintained long-term, and that the cost of doing so would be prohibitive for many. As an example, the [rewrite of Bun from Zig to Rust cost $165,000 USD](https://bun.com/blog/bun-in-rust).

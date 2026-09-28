@@ -9,6 +9,13 @@ published: true
 
 Tobias Wrigstad and Fridtjof Stoldt returned to the Python Language Summit, now joined by Donghee Na. Tobias and Fridtjof previously presented “[Fearless Concurrency](https://pyfound.blogspot.com/2025/06/python-language-summit-2025-fearless-concurrency.html)” to the Python Language Summit in 2025. This year the topic at hand was the “post-era of free-threading Python”, and what high-level concurrency primitives would be provided by Python.
 
+<figure>
+
+![Donghee Na presenting at the lectern with Tobias Wrigstad and Fridtjof Stoldt standing on stage](donghee.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 ## Comfortable doesn’t mean “Good”
 
 Today the interface for accessing free-threading is, unsurprisingly, “threads”. Threads are how people typically first learn about true parallelism from school, textbooks, and other familiar materials. But what if threads as a user interface aren’t very good? Using threads means users need to care about deadlocks and race conditions.
@@ -37,6 +44,13 @@ The three argued that for a high-level model “safety would be a priority and t
 
 ## Behavior-Oriented Concurrency (BOC)
 
+<figure>
+
+![Fridtjof Stoldt speaking in front of his “Behaviour-Oriented Concurrency” slide](fridtjof.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Behavior-Oriented Concurrency (BOC) is the model the trio is proposing for a high-level concurrency interface for Python. Programs written with the BOC model are task-based. Tasks are lightweight, can run on any core, and cannot deadlock.
 
 Each task owns data that is protected by mutexes, but unlike the [`threading.Lock`](https://docs.python.org/3/library/threading.html#lock-objects) objects that we’re used to in Python, these mutexes are aware of the data that they protect. This data awareness means that the mutexes can ensure that the data objects are only accessed by a single task at a time, providing isolation and preventing data races. BOC calls these mutexes “Cowns”, meaning “concurrent owner”.
@@ -64,12 +78,33 @@ The group made it clear that changes to core Python would be needed to support s
 
 ## Discussion
 
+<figure>
+
+![Thomas Wouters speaking into a microphone, seated in a row of attendees](thomas.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Thomas Wouters recalled that the core team “has experience trying to create universal interfaces for subprocesses, multiprocessing, threading”. In practice, there are always corner cases, and performance is suboptimal because of the constraints of the APIs. Thomas asked “how confident [the three] are that this isn’t the case for bocpy?” The three shared Thomas’s concern. “This is a question we’re working on”, answered Fridtjof. “If you have [the bocpy] ownership model it’s possible to treat subinterpreters and threads similarly, you can have communication, and you can share objects directly with the ownership model”.
 
 “Notion of tasks and schedulers immediately brings async to my head”, David Hewitt said, wondering “how does async fit into this picture?” He asked the trio whether bocpy “should be built on [`asyncio`](https://docs.python.org/3/library/asyncio.html)” and have “async mutex primitives instead of being [synchronous]”. Tobias confirmed that bocpy “could be” built using `asyncio`: “it depends on what backend infrastructure” is used and the trade-offs of each backend. “If you want to do some I/O, you tell the I/O library to put something into a cown once data is available and schedule a task to run when the data is available to avoid blocking”.
 
 Larry Hastings was “happy to see this research going on” and welcomed more from the group, but didn’t see bocpy or any singular solution as “the” method to do concurrency in Python. “[Larry] would like Python to have all the tools that give you and other groups with competing ideas the ability to implement ideas and provide them to users”. Instead, Larry was wary of “anointing a single way”, to avoid locking Python into a particular implementation in case better options are discovered later. Donghee shared that the group wasn’t initially trying to force a single way, only to start the conversation.
 
+<figure>
+
+![Tobias Wrigstad answering questions with a microphone on stage, with Fridtjof Stoldt and Donghee Na beside him](tobias.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Fridtjof brought up Rust as an example of where not providing high-level primitives on top of `async` and `await` resulted in a “split” in the Rust ecosystem. “Sounds lively”, Larry responded.
+
+<figure>
+
+![David Hewitt speaking into a microphone, seated in a row of attendees](david.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 David Hewitt shared that a lot of the Rust community regards the “Rust async situation” as “slightly failed”, as the standard library lacked any standard interface for the runtime. As a result, the entire Rust ecosystem has been “forced” to converge on [Tokio](https://tokio.rs/). David agreed with Thomas that it would be “tough to come up with a good abstraction”, but that this “doesn’t mean we shouldn’t try”.

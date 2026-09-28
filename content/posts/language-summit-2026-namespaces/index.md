@@ -9,6 +9,14 @@ published: true
 
 Steering Council member and Release Manager Pablo Galindo Salgado opened the Language Summit this year to propose solutions to a problem that everyone who’s used Python has encountered at least once before.
 
+<figure>
+
+![Pablo Galindo Salgado speaking at the lectern](pablo-lectern.jpg)
+
+<figcaption>Photo by <a href="https://www.flickr.com/photos/europython/55514508261/">EuroPython</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
+
 The issue manifests as seemingly random `AttributeError` exceptions from modules like `json`, `math`, or `http` for names you know are correct. Why is the standard library suddenly raising errors?
 
 $ cat game.py
@@ -70,6 +78,13 @@ ImportError
 # But new modules without 'std.' wouldn't work...
 ```
 
+<figure>
+
+![Pablo Galindo Salgado at the lectern presenting a slide comparing how other languages namespace their standard libraries](pablo-slide.jpg)
+
+<figcaption>Photo by <a href="https://www.flickr.com/photos/europython/55514668529/">EuroPython</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Python wouldn’t be alone, either. Many other programming languages have
 already namespaced their standard library (or equivalent):
 
@@ -106,6 +121,13 @@ listed in [`Gemfile`](https://bundler.io/guides/gemfile.html), the Ruby equivale
 
 Kushal Das shared that the shadowing issue was a “big problem for newcomers”, especially first-time Python users writing code doing arithmetic in a file named `math.py`.
 
+<figure>
+
+![Jukka Lehtosalo speaking into a microphone, seated in a row of attendees](jukka.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Jukka Lehtosalo shared that he had also “personally encountered this problem”, and asked if there was “data about how often this happens”. Pablo didn’t have concrete data and shared that the error message has improved in recent Python versions.
 
 Pablo didn’t want to over-focus on the shadowing issue and instead wanted to focus on what he believed was the larger issue: how the flat namespace affects how core developers choose standard library module names.
@@ -115,6 +137,13 @@ David Hewitt wondered whether there is a “security edge” to this proposal, p
 Guido van Rossum asked whether every stdlib module would eventually need to move under this proposal, which Pablo confirmed. As a follow-up, Guido asked whether this would mean touching imports across the entire standard library, which Pablo also confirmed, noting that this migration could be “mostly mechanical” and could include freezing all modules.
 
 Peter Bierma asked whether the new `std` namespace would add performance costs, to which Pablo answered that the cost would be “effectively zero”.
+
+<figure>
+
+![Thomas Wouters speaking into a microphone from his seat at the table, with other attendees beside him](thomas.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 Thomas Wouters imagined an incremental rollout of the new `std` namespace, proposing that new modules would land under the `std` namespace, with the possibility of a future mode that disables top-level shadowing entirely once enough of the ecosystem has moved.
 

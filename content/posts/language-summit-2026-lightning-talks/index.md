@@ -11,6 +11,13 @@ published: true
 
 By Mark Shannon
 
+<figure>
+
+![Mark Shannon at the lectern, in front of his “One Time ABI Breakage” slide](mark.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Why break the [Stable ABI](https://docs.python.org/3/c-api/stable.html)? Because there are 32 spare bits in the
 [`PyObject`](https://docs.python.org/3/c-api/structures.html#c.PyObject) header that we currently can’t use.
 
@@ -49,6 +56,13 @@ and team can make changes to the object header more freely. We’ll just have to
 
 By Daniele Parmeggiani
 
+<figure>
+
+![Daniele Parmeggiani at the lectern, in front of his “Structured concurrency” slide](daniele.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Daniele presented a gap in implementing structured concurrency with threads in Python today:
 the inability to safely interrupt tasks that failed or have been cancelled.
 
@@ -79,6 +93,13 @@ in an implementation of this functionality to contact him.
 
 By Kushal Das
 
+<figure>
+
+![Kushal Das at the lectern, gesturing in front of the EktuPy website projected behind him](kushal.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Kushal Das brought a short presentation on a project he’d been working on to teach Python to the generation of young programmers who learned using Scratch. [Scratch](https://scratch.mit.edu/) is a programming language that is represented using blocks instead of text to create animations, games, and other media-focused programs.
 
 [EktuPy](https://ektupy.org) brings many of the features that are beloved in Scratch, such as the focus on media like games and animations, and the “remix” concept to give new programmers a working base to start with instead of a daunting blank canvas. EktuPy tries to bridge the gap between block-based programming languages and text-based languages like Python.
@@ -86,6 +107,13 @@ Kushal Das brought a short presentation on a project he’d been working on to t
 ## AGENTS.md for CPython
 
 By Gregory P. Smith and Łukasz Langa
+
+<figure>
+
+![Gregory P. Smith speaking at the lectern with Łukasz Langa beside him](lukasz-greg.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 CPython, just like many other open source projects, has been seeing many contributions from folks using LLM agents. Gregory P. Smith and Łukasz Langa wanted to get a “vibe check” from core developers about adding a simple `AGENTS.md` file to the CPython repository. The hope was that even basic guidance about how to contribute to CPython (such as linking to the [Developer Guide](https://devguide.python.org/)) would improve the quality of the large number of pull requests made using agents.
 

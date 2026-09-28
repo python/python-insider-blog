@@ -9,6 +9,13 @@ published: true
 
 Michael J. Sullivan came to the Language Summit to discuss [PEP 827](https://peps.python.org/pep-0827/), a PEP that includes many proposed improvements to Python type annotations. For the Python Language Summit, Michael wanted to focus in particular on one aspect: how type annotations are stored.
 
+<figure>
+
+![Michael J. Sullivan at the lectern, in front of his PEP 827 title slide](michael.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Michael began by introducing PEP 827 “by looking at a completely different programming language”. He brought up an example from [Prisma](https://github.com/prisma/orm), an object-relational mapper (ORM) library written in [TypeScript](https://www.typescriptlang.org/docs/). Calling
 `findMany` on a `User` model infers a return type based on the input parameters’ values, such as when selecting a subset of fields:
 
@@ -116,6 +123,13 @@ This approach would use a lot less memory than using strings, but would be much 
 
 Stefan Behnel asked whether accepting PEP 827 would make the type system Turing-complete with the proposed conditionals and comprehensions. Michael replied that the Python type system “is already Turing-complete, but only *accidentally* Turing-complete”. Java had run into this issue with generics with subtyping bounds, and “Python does the same Generic stuff as Java”. “There was never an intention for the type system to be Turing-complete”, therefore accepting PEP 827 would only change the type system to be “intentionally Turing-complete”.
 
+<figure>
+
+![Łukasz Langa standing and speaking into a microphone beside a row of seated attendees](lukasz.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Łukasz Langa commented on the aesthetics of the proposed syntax, pointing out the example of the comprehensions with “stars”. He cautioned core developers against seeing this syntax and having a knee-jerk negative reaction, such as thinking: “Oh [f-string], they’re going to make type hints look even worse”. Łukasz was clear that “...these features are for [frameworks] to implement internally [features] that allow type checkers to magically generate the correct types”. “Users are not meant to write types like these or only use them very rarely”.
 
 Łukasz also commented on the performance of using strings: when he first wrote `from __future__ import annotations`, one of the motivations was that strings are “[interned](https://docs.python.org/3/library/sys.html#sys.intern)”. Using string interning for types would take “less memory”. The problem was that the alphabet for interning strings doesn’t allow for square brackets (`[]`), which are used often in Python type annotations. There was a question whether this could be changed in Python, to which Łukasz replied that “we could, but then we ruin Python for everybody else” because this behavior has been “relied on for over 30 years”. “However…”, Łukasz continued, “what if `__annotate__()` interned [strings] all the time?” We expect many type annotations to be the same or similar, like `None`, `str`, and `str | None`. Łukasz suggested that this method “wouldn’t cost much memory”, which Michael agreed with.
@@ -123,5 +137,12 @@ Stefan Behnel asked whether accepting PEP 827 would make the type system Turing-
 David Hewitt shared his experience working with TypeScript, where there are very complicated types. “When you’re a TypeScript user and you’re trying to figure out an API, you start clicking down through the API layers”, and you often hit the issue (“as Łukasz described”, with an accompanying “oh [f-string]”). David was concerned about whether this new syntax would be something that users would encounter frequently.
 
 Michael confessed that users clicking into “the select method” on an ORM would “see a wild type” and “there’s no getting around that”. “...but hopefully they’ll see the docstring first. If they look at the return type they’ll see something nice”. “I think there are cases where you’re doing `select(User)` you might be able to populate specific properties”, but this would be “potentially finicky” and dependent on the language server being used.
+
+<figure>
+
+![Yury Selivanov speaking into a microphone, seated in a row of attendees](yury.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 “There will be moments where users discover that the world is complex”, Yury Selivanov, a co-author of the PEP, said, acknowledging the need for complex type annotations. “Right now the world is not typed”. “The Python type system does not match the expressiveness of the language”. “Certainly some people might be confused”, he added, listing a few ways to mitigate this issue, such as better IDEs, language servers, and documentation.

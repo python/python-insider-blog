@@ -9,6 +9,13 @@ published: true
 
 If you open up a new Python interpreter, close it, and then open a new Python interpreter again… how different are these two processes? Hood Chatham’s talk at the Language Summit aimed to provide a safe alternate “bootstrapping” path for the Python interpreter that forgoes running the same initialization from scratch each time and instead uses a “snapshot” of the Python process memory after initialization has completed.
 
+<figure>
+
+![Hood Chatham at the lectern, in front of his “Memory snapshots” slide](hood.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 In tests of snapshots in [Pyodide](https://pyodide.org/), executing a simple “Hello, world” program was around 4 times faster (0.353 seconds versus 1.406 seconds) when loading the Python interpreter from a memory snapshot compared to loading the Python interpreter from scratch without a snapshot. Node.js implemented V8 snapshots in v4.2.4 and saw ~33% improvements to startup time, but shortly after, in v4.8.4, snapshots were disabled due to the problem that Hood wanted to raise for discussion.
 
 
@@ -28,6 +35,13 @@ Hood proposed that the concept of an “initialization phase” be added to the 
 
 
 ## Discussion
+
+<figure>
+
+![A wide view of the Language Summit room, with attendees around the U-shaped table](room.jpg)
+
+<figcaption>Photo by <a href="https://www.flickr.com/photos/europython/55514669024/">EuroPython</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 Stefan Behnel referenced some similar functionality that Python already provides: the [`atexit` module](https://docs.python.org/3/library/atexit.html), which provides an [API for registering a callback function](https://docs.python.org/3/library/atexit.html#atexit.register) that is called when the Python process is exiting. Stefan wondered whether a `reinit` callback function could serve the needs Hood described.
 

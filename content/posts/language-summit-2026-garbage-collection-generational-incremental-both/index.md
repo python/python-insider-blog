@@ -9,6 +9,13 @@ published: true
 
 The third Language Summit talk was brought by Mark Shannon, who is the author of the [incremental garbage collector](https://github.com/python/cpython/issues/108362) implementation shipped in Python 3.14 that was [reverted back to the generational garbage collector](https://discuss.python.org/t/reverting-the-incremental-gc-in-python-3-14-and-3-15/107014) from Python 3.13 after reports of “significant memory pressure” in production environments. The original goal of the new incremental garbage collector was to reduce maximum pause times by an order of magnitude for larger heaps.
 
+<figure>
+
+![Mark Shannon speaking at the lectern, in front of a slide asking “Why does this matter?”](mark.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Mark’s talk opened with a graph about where Python spends its time, split between the interpreter, lookups, modules, and the focus of the talk: garbage collection, which takes around 11.67% of execution time. Mark remarked that even if the [Just-in-Time (JIT) compiler](https://peps.python.org/pep-0744/) makes the interpreter faster (representing 30.6% of time), we’ll unfortunately still have to worry about memory management and garbage collection to make the runtime faster: Mark’s talk was about minimizing the time spent doing these tasks.
 
 ![Pie chart of where Python spends its time: interpreter 30.60%, memory 11.89%, gc 11.67%, lookup 8.88%, dynamic 4.91%, dict 3.86%, tuple 3.33%, int 3.30%, str 2.39%, smaller ones unlabelled](image.svg)
@@ -40,6 +47,13 @@ Mark’s final proposal included how he’d interleave the concepts of generatio
 * Fix the “young” generation as 20MB in size initially.
 * Scavenge the old generation at twice the young generation survivor rate.
 
+<figure>
+
+![Donghee Na speaking into a microphone among Language Summit attendees seated along the U-shaped table](room.jpg)
+
+<figcaption>Photo by <a href="https://www.flickr.com/photos/europython/55514607438/">EuroPython</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Donghee Na was concerned that any changes to the garbage collector would cause issues for someone. Donghee wondered whether there was a way to implement a transition period between different garbage collectors. Mark answered that there’s nothing inherently “wrong” with the current garbage collector and that the primary issue would be that there would be “more code to maintain”, but he would prefer providing a GC that is better by default unless users are fine-tuning the GC themselves.
 
 Donghee asked whether configuration options similar to what is available for [JVM garbage collectors](https://docs.oracle.com/en/java/javase/21/gctuning/) could be made available so users could tweak settings to fit their needs. Mark didn’t think this should be necessary; in JVM languages the GC is “the whole thing”, compared to Python where GC is only the “backup” behind reference counting.
@@ -50,6 +64,20 @@ Gregory P. Smith lamented that adding [public APIs for the garbage collector](ht
 
 Tobias Wrigstad suggested a potential fine-tuning mechanism that was already being adopted by Java: providing the garbage collector with an explicit “CPU budget”. The mechanism “seemed fairly intuitive”, but it also has the unfortunate side effect of letting users tune their GC “such that it cannot collect all the dead memory”.
 
+<figure>
+
+![Pablo Galindo Salgado speaking into a microphone, seated in a row of attendees](pablo.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Pablo Galindo Salgado had run into issues with the GC and saw success with being able to fine-tune GC generations live in production to get instantaneous feedback. Thomas Wouters (shocking his fellow Steering Council members) agreed with Pablo on being able to fine-tune the garbage collector to “remediate pathological GC behavior”, also adding that this was a common blocker for being able to upgrade Python versions. Mark was interested in these numbers: “let’s get those before moving forward with any decisions”.
+
+<figure>
+
+![Larry Hastings speaking into a microphone, seated in a row of attendees](larry.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 Larry Hastings asked about concurrent or “lock-free” garbage collectors and whether there’s a possibility for this to happen in Python. “Memory back for free sounds like a wonderful sales pitch”. Unfortunately, in addition to being “really hard” to implement (which Larry countered with “I heard you were smart”), Mark shared that [C extensions](https://docs.python.org/3/extending/index.html) can “do whatever they want”, which would interfere with a lock-less concurrent collector. Tobias agreed that concurrent lock-less GCs would be “extremely invasive”, including needing to add metadata embedded in every pointer.

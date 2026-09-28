@@ -13,6 +13,13 @@ held in Kraków, Poland at EuroPython 2026, to discuss many topics about the fut
 of the Python programming language, including free-threading, Rust, garbage collectors,
 type annotations, and namespacing.
 
+<figure>
+
+![Group photo of the attendees of the 2026 Python Language Summit](image.jpg)
+
+<figcaption>Photo by <a href="https://www.flickr.com/photos/europython/55516581426/">EuroPython</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 This marked the first time the Python Language
 Summit had been hosted in Europe since 2011, when the event was
 [held in Florence on June 19th, 2011](https://lwn.net/Articles/449710/).

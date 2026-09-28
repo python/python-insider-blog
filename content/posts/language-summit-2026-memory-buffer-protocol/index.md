@@ -9,6 +9,13 @@ published: true
 
 The [Python Buffer Protocol](https://docs.python.org/3/c-api/buffer.html) defines the semantics for accessing the underlying memory buffer of Python objects such as `bytes`, `bytearray`, and other types like `array.array`. The Python Buffer Protocol allows accessing an implementing object’s underlying memory directly, rather than only through higher-level APIs, which improves performance.
 
+<figure>
+
+![Nathan Goldbaum at the lectern, in front of his title slide “Python Buffer Protocol Improvements”](nathan.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 
 ## Documenting the Buffer Protocol
 
@@ -68,10 +75,24 @@ Nathan pointed to a discussion on [discuss.python.org](https://discuss.python.or
 
 ## Discussion
 
+<figure>
+
+![An attendee speaking into a microphone, seen across the summit table](discussion.jpg)
+
+<figcaption>Photo by <a href="https://www.flickr.com/photos/europython/55514661234/">EuroPython</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
+
 Petr Viktorin asked whether a new API was needed for this proposal or whether the existing `PyObject_GetBuffer()` API could be extended. Nathan didn’t think the existing API, which is a part of Python’s [Stable ABI](https://docs.python.org/3/c-api/stable.html) and therefore can’t be changed, had enough space for a new field. “There’s an internal field, but it’s documented as being used by exporters, so we can’t use that one”. “We can’t smuggle information in the struct, we’d need a new struct to hold that information.”
 
 Thomas Wouters asked how Nathan’s proposal compares to Rust: when asking for exclusive write access, should the request block or error out? Nathan replied that erroring out would be the simplest implementation. David Hewitt asked about the composability of the implementation, and whether it could accommodate additional, likely desirable features like “blocking, asynchronously blocking, or more complicated structures like writing to slices”.
 
 Larry Hastings wondered whether this new API assumes that users are being diligent and using the API correctly. Nathan confirmed that memory corruption would be possible if the APIs were used incorrectly, but that pure-Python users wouldn’t be able to do this, only authors of [C extensions](https://docs.python.org/3/extending/index.html). Leaking memory wouldn’t be possible.
+
+<figure>
+
+![Hood Chatham speaking into a microphone, seated in a row of attendees](hood.jpg)
+
+<figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
+</figure>
 
 Hood Chatham asked whether buffer exporters would be allowed to reject consumers using the old buffer access pattern without specifying either `SHARED_READ` or `EXCLUSIVE_WRITE`. Doing this would enable using a Rust buffer as the backing storage.

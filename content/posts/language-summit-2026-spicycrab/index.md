@@ -16,6 +16,9 @@ Kushal Das brought a project that fills a niche for Python users who hit a perfo
 <figcaption>Photo by Hugo van Kemenade (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a>)</figcaption>
 </figure>
 
+```sh
+crabpy transpile greet.py -o greet
+```
 
 This simple demo produces Rust source code at `greet/src/main.rs`, which can be run with `cargo run`.
 

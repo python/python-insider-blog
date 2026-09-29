@@ -102,6 +102,10 @@ wait()
 
 There are [many more examples available on GitHub](https://github.com/microsoft/bocpy/tree/main/examples). This proof of concept, implemented using subinterpreters, is available for anyone to try: [bocpy](https://microsoft.github.io/bocpy), available on the [Python Package Index](https://pypi.org/project/bocpy):
 
+```sh
+python -m pip install bocpy
+```
+
 Checking bocpy against their own criteria of simplicity, safety, and performance: bocpy is simple, as can be seen in the above examples. On the safety front, bocpy today runs in “stable Python”, and for this reason only isolation has been implemented so far. “We don’t yet have ownership, you can’t implement [ownership] as a third-party library”, as this would require changes to the runtime. Performance is “good for programs that aren’t communication dominated” due to “communication being expensive for subinterpreters”.
 
 The bocpy package provides three features:

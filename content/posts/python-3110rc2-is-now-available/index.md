@@ -25,12 +25,12 @@ Due to the fact that we needed to delay the last release candidate by a week and
 
 ## Call to action
 
-![:warning:](./image-1.png)![:warning:](./image-2.png)![:warning:](./image-3.png)![:warning:](./image-4.png)![:warning:](./image-5.png)![:warning:](./image-6.png)![:warning:](./image-7.png)  
+![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)  
 The 3.11 branch is now accepting changes for 3.11.1. To maximize stability, the final release will be cut from the v3.11.0rc2 tag. If you  
 need the release manager (me) to cherry-pick any critical fixes, mark issues as release blockers, and/or add me as a reviewer on a critical  
 backport PR on GitHub. To see which changes are currently cherry-picked for inclusion in 3.11.0, look at the short-lived branch-v3.11.0  
 [https://github.com/python/cpython/tree/branch-v3.11.0](https://github.com/python/cpython/tree/branch-v3.11.0) on GitHub.  
-![:warning:](./image-8.png)![:warning:](./image-9.png)![:warning:](./image-10.png)![:warning:](./image-11.png)![:warning:](./image-12.png)![:warning:](./image-13.png)![:warning:](./image-14.png)
+![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)![:warning:](./image-1.png)
 
 ### Core developers: all eyes on the docs now
 

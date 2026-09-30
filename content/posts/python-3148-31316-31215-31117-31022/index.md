@@ -8,8 +8,8 @@ tags:
 published: true
 ---
 
-It's the big release week with Python 3.15.0 due out tomorrow,
-but before then here's a full sweep of 3.10-3.14 security releases.
+It's a big release week with Python 3.15.0 due out tomorrow,
+but before that here's a full sweep of 3.10-3.14 security releases.
 
 * This is an expedited release for 3.14 and 3.13, which come with binary installers.
 

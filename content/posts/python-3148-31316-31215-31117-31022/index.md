@@ -13,6 +13,9 @@ but before that here's a full sweep of 3.10-3.14 security releases.
 
 * This is an expedited release for 3.14 and 3.13, which come with binary installers.
 
+* This is the final expected bugfix release for 3.13, which is now entering
+  security-fix-only mode.
+
 * 3.12, 3.11 and 3.10 are in security-fix-only mode with no pre-set release cadence,
   and are source-only releases.
 

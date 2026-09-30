@@ -1,6 +1,6 @@
 ---
 title: 'Python 3.14.8, 3.13.16, 3.12.15, 3.11.17 and 3.10.22 are now available!'
-publishDate: '2026-09-30'
+publishDate: '2026-09-30T19:00:00Z'
 author: Hugo van Kemenade
 description: 'Security releases for Python 3.10-3.14'
 tags:

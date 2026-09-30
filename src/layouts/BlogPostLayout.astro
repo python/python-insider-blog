@@ -37,6 +37,7 @@ const groupMeta: Record<string, { label: string; order: number }> = {
   "gh-repo": { label: "Repositories", order: 2 },
   "gh-user": { label: "People", order: 3 },
   "pypi": { label: "Packages", order: 4 },
+  "cve": { label: "Security", order: 5 },
 };
 
 const sortedGroups = [...refGroups.entries()]
@@ -195,6 +196,7 @@ const sortedGroups = [...refGroups.entries()]
                           type === "gh-repo" && "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700",
                           type === "gh-user" && "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700",
                           type === "pypi" && "bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-900/20 dark:text-emerald-300 dark:hover:bg-emerald-900/40",
+                          type === "cve" && "bg-rose-50 text-rose-700 hover:bg-rose-100 dark:bg-rose-900/20 dark:text-rose-300 dark:hover:bg-rose-900/40",
                         ]}
                         target="_blank"
                         rel="noopener noreferrer"

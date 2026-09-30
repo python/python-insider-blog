@@ -16,6 +16,8 @@ It's the big release week with Python 3.15.0 due out tomorrow, but before then, 
 
 ## Security content in these releases
 
+* CVE-2026-99999 Test
+
 * [gh-TODO](https://github.com/python/cpython/issues/TODO): TODO
 
 ## Python 3.14.8

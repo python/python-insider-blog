@@ -14,8 +14,8 @@
  *   - CVE references (nvd.nist.gov/vuln/detail/CVE-YYYY-NNNNN)
  *   - Python releases (python.org/downloads/release/python-XXXX/)
  *
- * Bare "CVE-YYYY-NNNN" text (not already inside a link) is autolinked
- * to the CVE record and rendered as a badge.
+ * Bare "gh-NNNN" and "CVE-YYYY-NNNN" text (not already inside a link
+ * or heading) is autolinked and rendered as a badge.
  */
 import type { Root, Link, Paragraph, PhrasingContent } from "mdast";
 import { SKIP, visit } from "unist-util-visit";
@@ -38,9 +38,14 @@ const DOCS = /^https?:\/\/docs\.python\.org\//i;
 const PYPI = /^https?:\/\/pypi\.org\/project\/([^/]+)\/?/i;
 const GH_ISSUE = /^https?:\/\/github\.com\/([\w.-]+)\/([\w.-]+)\/(issues|pull)\/(\d+)\/?/i;
 const CVE = /^https?:\/\/nvd\.nist\.gov\/vuln\/detail\/(CVE-[\d-]+)\/?/i;
-/** Bare CVE IDs in plain text, e.g. "CVE-2026-19445" */
-const CVE_TEXT = /\bCVE-\d{4}-\d{4,}\b/g;
-const cveUrl = (id: string) => `https://www.cve.org/CVERecord?id=${id}`;
+
+/**
+ * Bare references in plain text that get autolinked (outside links,
+ * headings and code):
+ *   - "gh-156293"       → python/cpython issue
+ *   - "CVE-2026-19445"  → cve.org record
+ */
+const BARE_REF = /\b(?:(CVE-\d{4}-\d{4,})|gh-(\d+))\b/g;
 const PY_RELEASE = /^https?:\/\/(?:www\.)?python\.org\/downloads\/release\/(python-[\w.]+)\/?/i;
 const GITHUB =
   /^https?:\/\/github\.com\/([\w.-]+)(?:\/([\w.-]+))?\/?$/i;
@@ -336,7 +341,7 @@ export default function remarkPythonRefs() {
       }
     });
 
-    // Pass 3: Autolink bare CVE IDs in text → badges
+    // Pass 3: Autolink bare gh-NNNN issue refs and CVE IDs in text → badges
     visit(tree, (node: any, index, parent: any) => {
       // Don't touch text that is already a link (or a reference definition),
       // or headings — Astro builds heading ids from text nodes only, so
@@ -352,26 +357,23 @@ export default function remarkPythonRefs() {
       if (node.type !== "text" || index == null || !parent) return;
 
       const value: string = node.value;
-      CVE_TEXT.lastIndex = 0;
-      if (!CVE_TEXT.test(value)) {
-        CVE_TEXT.lastIndex = 0;
-        return;
-      }
-
       const parts: any[] = [];
       let lastIndex = 0;
-      CVE_TEXT.lastIndex = 0;
+      BARE_REF.lastIndex = 0;
       let m: RegExpExecArray | null;
-      while ((m = CVE_TEXT.exec(value)) !== null) {
+      while ((m = BARE_REF.exec(value)) !== null) {
         if (m.index > lastIndex) {
           parts.push({ type: "text", value: value.slice(lastIndex, m.index) });
         }
-        const id = m[0];
-        const url = cveUrl(id);
-        collectRef("cve", id, url);
-        parts.push({ type: "html", value: buildBadgeHtml({ type: "cve", icon: shieldIcon, label: id, url }) });
+        const [label, cve, ghNum] = m;
+        const match: Match = cve
+          ? { type: "cve", icon: shieldIcon, label, url: `https://www.cve.org/CVERecord?id=${cve}` }
+          : { type: "gh-issue", icon: issueIcon, label, url: `https://github.com/python/cpython/issues/${ghNum}` };
+        collectRef(match.type, match.label, match.url);
+        parts.push({ type: "html", value: buildBadgeHtml(match) });
         lastIndex = m.index + m[0].length;
       }
+      if (parts.length === 0) return;
       if (lastIndex < value.length) {
         parts.push({ type: "text", value: value.slice(lastIndex) });
       }

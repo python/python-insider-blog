@@ -40,7 +40,7 @@ but before that here's a full sweep of 3.10-3.14 security releases.
 ## Python 3.14.8
 
 Additional fixes in this release:
-* gh-158010: Update bundled OpenSSL to [3.5.9](https://openssl-library.org/news/secadv/20260929.txt) for Windows, macOS, Android and iOS
+* gh-158010 Update bundled OpenSSL to [3.5.9](https://openssl-library.org/news/secadv/20260929.txt) for Windows, macOS, Android and iOS
 
 https://www.python.org/downloads/release/python-3148/
 
@@ -48,7 +48,7 @@ https://www.python.org/downloads/release/python-3148/
 
 Additional fixes in this release:
 * CVE-2026-87910 gh-157265 `tarfile` hardlink fallback ignores custom extraction filter rejection via `None`
-* gh-158010: Update bundled OpenSSL to [3.5.9](https://openssl-library.org/news/secadv/20260929.txt) for Windows, macOS and Android, a jump from 3.0.21 to the 3.5 LTS series
+* gh-158010 Update bundled OpenSSL to [3.5.9](https://openssl-library.org/news/secadv/20260929.txt) for Windows, macOS and Android, a jump from 3.0.21 to the 3.5 LTS series
 
 https://www.python.org/downloads/release/python-31316/
 
@@ -80,7 +80,7 @@ As always, upgrading is highly recommended to all users of affected versions.
 ## Enjoy the new releases
 
 Thanks to all of the many volunteers who help make Python development and these
-releases possible!Please consider supporting our efforts by volunteering yourself
+releases possible! Please consider supporting our efforts by volunteering yourself
 or through organisation contributions to the [Python Software Foundation](https://www.python.org/psf-landing/).
 
 Your release team,

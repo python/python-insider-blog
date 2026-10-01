@@ -47,8 +47,8 @@ Free-threaded Python has not promised Stable ABI compatibility
 for its object layout, unlike non-free-threaded Python, which exposed
 details about `ob_refcnt` in the Stable ABI.
 
-It was at this point that it began slowly dawning on Mark, to his horror, that free-threaded
-Python may be solving his problem. After free-threading becomes the new Python default,
+There didn't appear to be much appetite for breaking the existing Stable ABI.
+After free-threading becomes the new Python default,
 the Stable ABI that exposes the object header internals will be no more, and Mark
 and team can make changes to the object header more freely. We’ll just have to be patient!
 

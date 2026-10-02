@@ -58,6 +58,22 @@ This XML hash-flooding protection was already included in Python 3.11.16.
 
 For the full details, see the [3.10.22 changelog](https://docs.python.org/release/3.10.22/whatsnew/changelog.html), [3.11.17 changelog](https://docs.python.org/release/3.11.17/whatsnew/changelog.html), [3.12.15 changelog](https://docs.python.org/release/3.12.15/whatsnew/changelog.html), [3.13.16 changelog](https://docs.python.org/release/3.13.16/whatsnew/changelog.html), and [3.14.8 changelog](https://docs.python.org/release/3.14.8/whatsnew/changelog.html).
 
+## Attention macOS 27.0 `IDLE` or `tkinter` users
+
+When running IDLE or other GUI applications that use the `tkinter` module, these
+applications may hang when using an application's menu command that opens a
+dialog (for example, IDLE's `About IDLE`, `Settings`, and `Open Module` commands)
+resulting in a spinning beach ball with `Force Quit` needed.
+
+This problem is due to an operating system behavior change in macOS 27.0 that is
+believed to affect all current versions of the Tk graphics toolkit and thus the
+`tkinter` module in all current Python versions.
+
+If you depend on Tk-based applications (like IDLE) on macOS, you may want to
+consider deferring installing macOS 27.0 until a Tk or macOS workaround is
+available or testing that your application workflow is not affected. Follow
+issue [#158053](https://github.com/python/cpython/issues/158053) for updates.
+
 ## And now for something completely different
 
 When two black holes merge, the newly formed black hole is distorted. It settles towards a stationary state by emitting gravitational waves in a process called **ringdown**. Like a struck bell, it oscillates with a signal that fades away. These oscillations are described by quasinormal modes; their frequencies and decay times depend on the final black hole’s mass and spin. You can watch spacetime doing its final ringing in [this NASA simulation](https://svs.gsfc.nasa.gov/13197).

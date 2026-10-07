@@ -32,7 +32,6 @@ Python 3.12.15 is also a source-only security release, with security support con
 
 * [gh-158446](https://github.com/python/cpython/issues/158446): Fix crashes or incorrect output when formatting float or complex values with precision close to INT_MAX.
 * [CVE-2026-19553](https://www.cve.org/CVERecord?id=CVE-2026-19553) — [gh-156793](https://github.com/python/cpython/issues/156793): `ssl.SSLContext.wrap_bio()` now validates its `server_side`, `server_hostname`, and `session` arguments. `asyncio` also validates TLS `server_hostname` arguments. On Python 3.10, 3.11, and 3.12, missing hostnames with `check_hostname` enabled emit `DeprecationWarning` for compatibility; they raise `ValueError` on Python 3.13 and later.
-* [CVE-2026-82049](https://www.cve.org/CVERecord?id=CVE-2026-82049) — [gh-157190](https://github.com/python/cpython/issues/157190): Fix a tarfile extraction-filter vulnerability involving hard links to symbolic links that could expose files outside the destination and change their permissions or modification times.
 * [gh-157953](https://github.com/python/cpython/issues/157953): Update bundled libexpat to version 2.8.5.
 * [CVE-2026-15310](https://www.cve.org/CVERecord?id=CVE-2026-15310) — [gh-156002](https://github.com/python/cpython/issues/156002): Bound `zipfile` decompression per read for bzip2 and LZMA members, and for Zstandard members on Python 3.14, preventing unbounded allocations from small compressed members. Third-party decompressors supplied by monkey-patching `_get_decompressor()` that lack `needs_input` and two-argument `decompress()` remain vulnerable.
 * [CVE-2026-19672](https://www.cve.org/CVERecord?id=CVE-2026-19672) — [gh-155999](https://github.com/python/cpython/issues/155999): Prevent tarfile extraction filters from creating directories outside the destination for paths that leave it and then return.
@@ -44,6 +43,7 @@ Python 3.12.15 is also a source-only security release, with security support con
 
 ### Python 3.10.22, 3.11.17, 3.12.15 and 3.13.16
 
+* [CVE-2026-82049](https://www.cve.org/CVERecord?id=CVE-2026-82049) — [gh-157190](https://github.com/python/cpython/issues/157190): Fix a tarfile extraction-filter vulnerability involving hard links to symbolic links that could expose files outside the destination and change their permissions or modification times. Python 3.14 and later were already protected because `os.link()` follows symbolic links since Python 3.14.0b1 ([gh-81793](https://github.com/python/cpython/issues/81793)).
 * [CVE-2026-87910](https://www.cve.org/CVERecord?id=CVE-2026-87910) — [gh-157265](https://github.com/python/cpython/issues/157265): Apply tarfile extraction filters when a link falls back to extracting an archive member, skipping members rejected by the filter.
 
 ### Python 3.13.16 and 3.14.8

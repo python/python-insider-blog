@@ -13,9 +13,12 @@
  *   - GitHub users/orgs (github.com/NAME — exactly 1 segment, not reserved)
  *   - CVE references (nvd.nist.gov/vuln/detail/CVE-YYYY-NNNNN)
  *   - Python releases (python.org/downloads/release/python-XXXX/)
+ *
+ * Bare "gh-NNNN" and "CVE-YYYY-NNNN" text (not already inside a link
+ * or heading) is autolinked and rendered as a badge.
  */
 import type { Root, Link, Paragraph, PhrasingContent } from "mdast";
-import { visit } from "unist-util-visit";
+import { SKIP, visit } from "unist-util-visit";
 import {
   pythonIcon,
   docsIcon,
@@ -35,6 +38,14 @@ const DOCS = /^https?:\/\/docs\.python\.org\//i;
 const PYPI = /^https?:\/\/pypi\.org\/project\/([^/]+)\/?/i;
 const GH_ISSUE = /^https?:\/\/github\.com\/([\w.-]+)\/([\w.-]+)\/(issues|pull)\/(\d+)\/?/i;
 const CVE = /^https?:\/\/nvd\.nist\.gov\/vuln\/detail\/(CVE-[\d-]+)\/?/i;
+
+/**
+ * Bare references in plain text that get autolinked (outside links,
+ * headings and code):
+ *   - "gh-156293"       → python/cpython issue
+ *   - "CVE-2026-19445"  → cve.org record
+ */
+const BARE_REF = /\b(?:(CVE-\d{4}-\d{4,})|gh-(\d+))\b/g;
 const PY_RELEASE = /^https?:\/\/(?:www\.)?python\.org\/downloads\/release\/(python-[\w.]+)\/?/i;
 const GITHUB =
   /^https?:\/\/github\.com\/([\w.-]+)(?:\/([\w.-]+))?\/?$/i;
@@ -328,6 +339,48 @@ export default function remarkPythonRefs() {
       if (changed) {
         node.children = newChildren;
       }
+    });
+
+    // Pass 3: Autolink bare gh-NNNN issue refs and CVE IDs in text → badges
+    visit(tree, (node: any, index, parent: any) => {
+      // Don't touch text that is already a link (or a reference definition),
+      // or headings — Astro builds heading ids from text nodes only, so
+      // injecting HTML there would change the anchor slug.
+      if (
+        node.type === "link" ||
+        node.type === "linkReference" ||
+        node.type === "definition" ||
+        node.type === "heading"
+      ) {
+        return SKIP;
+      }
+      if (node.type !== "text" || index == null || !parent) return;
+
+      const value: string = node.value;
+      const parts: any[] = [];
+      let lastIndex = 0;
+      BARE_REF.lastIndex = 0;
+      let m: RegExpExecArray | null;
+      while ((m = BARE_REF.exec(value)) !== null) {
+        if (m.index > lastIndex) {
+          parts.push({ type: "text", value: value.slice(lastIndex, m.index) });
+        }
+        const [label, cve, ghNum] = m;
+        const match: Match = cve
+          ? { type: "cve", icon: shieldIcon, label, url: `https://www.cve.org/CVERecord?id=${cve}` }
+          : { type: "gh-issue", icon: issueIcon, label, url: `https://github.com/python/cpython/issues/${ghNum}` };
+        collectRef(match.type, match.label, match.url);
+        parts.push({ type: "html", value: buildBadgeHtml(match) });
+        lastIndex = m.index + m[0].length;
+      }
+      if (parts.length === 0) return;
+      if (lastIndex < value.length) {
+        parts.push({ type: "text", value: value.slice(lastIndex) });
+      }
+
+      parent.children.splice(index, 1, ...parts);
+      // Continue after the nodes we just inserted
+      return index + parts.length;
     });
 
     // Expose collected references via remarkPluginFrontmatter

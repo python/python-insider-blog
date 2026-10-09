@@ -63,6 +63,13 @@ Some of the major new features and changes in Python 3.15 are:
 
 For more details on the changes to Python 3.15, see [What’s new in Python 3.15](https://docs.python.org/3/whatsnew/3.15.html).
 
+### Attention macOS 27.0 `IDLE` or `tkinter` users
+
+When running IDLE or other GUI applications that use the `tkinter` module, these applications may hang when using an application's menu command that opens a dialog (for example, IDLE's `About IDLE`, `Settings`, and `Open Module` commands) resulting in a spinning beach ball with `Force Quit` needed.
+
+This problem is due to an operating system behavior change in macOS 27.0 that is believed to affect all current versions of the Tk graphics toolkit and thus the `tkinter` module in all current Python versions.
+
+If you depend on Tk-based applications (like IDLE) on macOS, you may want to consider deferring installing macOS 27.0 until a Tk or macOS workaround is available or testing that your application workflow is not affected. Follow issue [#158053](https://github.com/python/cpython/issues/158053) for updates.
 
 ## More resources
 

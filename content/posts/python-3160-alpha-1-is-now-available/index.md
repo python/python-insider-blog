@@ -5,7 +5,7 @@ author: Savannah Ostrowski
 description: The first developer preview of Python 3.16 is ready for testing.
 tags:
   - releases
-published: false
+published: true
 ---
 
 **This is an early developer preview of Python 3.16**

@@ -20,7 +20,7 @@ During the alpha phase, features may be added up until the start of the beta pha
 
 See [What’s new in Python 3.16](https://docs.python.org/3.16/whatsnew/3.16.html) for changes so far.
 
-(Hey, **fellow core developer,** if there’s a feature you’d like highlighted in a future announcement, [let Savannah know](mailto:savannah@python.org).)
+(Hey, **fellow core team member,** if there’s a feature you’d like highlighted in a future announcement, [let Savannah know](mailto:savannah@python.org).)
 
 If you maintain a library or application, please try it with this alpha and let us know how it goes. Please report Python bugs on the [CPython issue tracker](https://github.com/python/cpython/issues).
 

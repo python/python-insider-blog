@@ -63,8 +63,6 @@ Additionally, the macOS installer for this release is built with a pre-release o
 Thanks to all of the many volunteers who help make Python development and these releases possible! Please consider supporting our efforts by volunteering yourself or through organisation contributions to the [Python Software Foundation](https://www.python.org/psf-landing/).
 
 Your certified release team,
-
-Your release team,
 <br>Hugo van Kemenade
 <br>Thomas Wouters
 <br>Ned Deily

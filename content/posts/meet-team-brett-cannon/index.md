@@ -23,7 +23,7 @@ Since April 2003 (shortly after PyCon 2003).
 
 **How did you get started as a core developer? Do you remember your first commit?**
 
-I became a core developer thanks to incessantly bugging people to commit patches for me (a trick that doesn't quite work as well as it used to; perk of getting in before Python's popularity spikein 2003/2004). Starting in August 2002 I revitalized the Python-Dev Summaries (which lasted for about 2.5 years). While writing the Summaries I would fairly regularly pick up on little issues that needed fixing. Since I was already talking on python-dev fairly regularly I simply asked folks to check my patches and commit them for me. One day Guido just asked why I didn't commit myself, I said I didn't have commit rights, and then he more or less said "you do now".
+I became a core developer thanks to incessantly bugging people to commit patches for me (a trick that doesn't quite work as well as it used to; perk of getting in before Python's popularity spike in 2003/2004). Starting in August 2002 I revitalized the Python-Dev Summaries (which lasted for about 2.5 years). While writing the Summaries I would fairly regularly pick up on little issues that needed fixing. Since I was already talking on python-dev fairly regularly I simply asked folks to check my patches and commit them for me. One day Guido just asked why I didn't commit myself, I said I didn't have commit rights, and then he more or less said "you do now".
 
 As for my first commit (changeset 28686), it was fixing some string escapement in time.strptime() (which happens to be my first contribution to Python itself).
 

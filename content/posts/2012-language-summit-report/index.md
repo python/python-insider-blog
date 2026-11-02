@@ -34,7 +34,7 @@ In about two minutes, discussion on PEP [405](http://www.python.org/dev/peps/pep
 
 #### PEP 397 Inclusion
 
-Without much of a Windows representation at the summit, discussion was fairlyquick, but it was pretty much agreed that PEP [397](http://www.python.org/dev/peps/pep-0397/) was something we should accept. Brian Curtin spoke in favor of the PEP, as well as mentioning ongoing work on the Windows installer to optionally add the executable's directory to the Path. After discussion outside of the summit, it was additionally agreed upon that the launcher should be installed via the 3.3 Windows installer, while it can also live as a standalone installer for those not taking 3.3. Additionally, there needs to be some work done on the PEP to remove much of the low-level detail that is coupled too tightly with the implementation, e.g., explaining of the location of the py.ini file.  
+Without much of a Windows representation at the summit, discussion was fairly quick, but it was pretty much agreed that PEP [397](http://www.python.org/dev/peps/pep-0397/) was something we should accept. Brian Curtin spoke in favor of the PEP, as well as mentioning ongoing work on the Windows installer to optionally add the executable's directory to the Path. After discussion outside of the summit, it was additionally agreed upon that the launcher should be installed via the 3.3 Windows installer, while it can also live as a standalone installer for those not taking 3.3. Additionally, there needs to be some work done on the PEP to remove much of the low-level detail that is coupled too tightly with the implementation, e.g., explaining of the location of the py.ini file.  
 
 #### speed.python.org
 

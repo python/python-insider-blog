@@ -1,0 +1,34 @@
+---
+title: XTM Transifex sponsors Python’s documentation translations
+publishDate: 2026-11-16
+author: Stan Ulbrych
+description: >-
+  XTM Transifex is supporting Python’s documentation translation teams with a year
+  of free access to its Growth plan.
+tags:
+  - docs
+published: true
+---
+![XTM Transifex logo](xtm-transifex-logo.png)
+
+We’re pleased to announce that [XTM Transifex](https://hubs.la/Q04DqqXh0) is supporting Python’s
+documentation translations by providing its Growth plan, at no cost, for 12 months.
+
+Python’s documentation translation teams help people learn and use Python in
+their own language. Several of these teams use XTM Transifex as their translation
+platform, working together through its web-based interface.
+
+Following [last year’s paid trial](https://github.com/python/steering-council/issues/297),
+this sponsorship allows those teams to continue using features that help them
+reuse existing translations, maintain consistent terminology, and catch potential errors.
+
+For developers interested in localizing their own Python applications, XTM Transifex
+has also prepared a tutorial on using [Transifex Native](https://hubs.la/Q04DqrCm0).
+
+Interested in helping translate Python’s documentation? Visit the [translation](https://devguide.python.org/documentation/translations/translating/#translating)
+[section of the Python Developer’s Guide](https://devguide.python.org/documentation/translations/translating/#translating) and [translations.python.org](https://translations.python.org/)
+to find your language’s team and learn how to get involved.
+
+Thank you to XTM Transifex for supporting this work, and to the translators,
+reviewers, and coordinators who make Python’s documentation accessible to more
+people around the world!

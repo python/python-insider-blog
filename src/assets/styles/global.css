@@ -1597,3 +1597,17 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ── Light/dark image variants ───────────────────── */
+
+.prose img[src*="-dark."] {
+  display: none;
+}
+
+.dark .prose img[src*="-dark."] {
+  display: block;
+}
+
+.dark .prose img[src*="-light."] {
+  display: none;
+}

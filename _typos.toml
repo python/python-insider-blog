@@ -37,6 +37,7 @@ haypo = "haypo"
 pyc = "pyc"
 pyo = "pyo"
 repr = "repr"
+certifi = "certifi"
 compat = "compat"
 noreply = "noreply"
 # Common in migrated Blogger content

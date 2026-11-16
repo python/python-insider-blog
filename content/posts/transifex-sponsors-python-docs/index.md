@@ -9,7 +9,9 @@ tags:
   - docs
 published: true
 ---
-![XTM Transifex logo](xtm-transifex-logo.png)
+
+![XTM Transifex logo](xtm-transifex-logo-light.png)
+![XTM Transifex logo](xtm-transifex-logo-dark.png)
 
 We’re pleased to announce that [XTM Transifex](https://hubs.la/Q04DqqXh0) is supporting Python’s
 documentation translations by providing its Growth plan, at no cost, for 12 months.

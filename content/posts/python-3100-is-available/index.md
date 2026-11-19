@@ -65,7 +65,7 @@ More resources
 
 ## And now for something completely different
 
-For a Schwarzschild black hole (a black hole with no rotation or electromagnetic charge), given a free fall particle starting at the event horizon, the maximum propper time (which happens when it falls without angular velocity) it will experience to fall into the singularity is \`π\*M\` ([in natural units](https://en.wikipedia.org/wiki/Natural_units)), where M is the mass of the black hole. For Sagittarius A\* (the black hole at the centre of the milky way) this time is approximately 1 minute.
+For a Schwarzschild black hole (a black hole with no rotation or electromagnetic charge), given a free fall particle starting at the event horizon, the maximum proper time (which happens when it falls without angular velocity) it will experience to fall into the singularity is \`π\*M\` ([in natural units](https://en.wikipedia.org/wiki/Natural_units)), where M is the mass of the black hole. For Sagittarius A\* (the black hole at the centre of the milky way) this time is approximately 1 minute.
 
 
 Schwarzschild black holes are also unique because they have a space-like singularity at their core, which means that the singularity doesn't happen at a specific point in \*space\* but happens at a specific point in \*time\* (the future). This means once you are inside the event horizon you cannot point with your finger towards the direction the singularity is located because the singularity happens in your future: no matter where you move, you will "fall" into it.  

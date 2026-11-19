@@ -17,7 +17,7 @@ This is an early developer preview of Python 3.10
 
 # Major new features of the 3.10 series, compared to 3.9
 
-Python 3.10 is still in development. This releasee, 3.10.0a2 is the second of six planned alpha releases.  
+Python 3.10 is still in development. This release, 3.10.0a2 is the second of six planned alpha releases.  
 Alpha releases are intended to make it easier to test the current state of new features and bug fixes and to test the release process.  
 During the alpha phase, features may be added up until the start of the beta phase (2021-05-03) and, if necessary, may be modified or deleted up until the release candidate phase (2021-10-04). Please keep in mind that this is a preview release and its use is not recommended for production environments.
 
